@@ -53,7 +53,7 @@ export default function Home() {
   return (
     <div ref={outerDivRef} className="h-screen overflow-y-hidden">
       <Dots currentPage={currentPage} />
-      <div className="inner bg-yellow-300 h-screen">1</div>
+      <div className="inner bg-black h-screen">1</div>
       <div className="w-full h-1 bg-gray-200"></div>
       <div className="inner bg-blue-300 h-screen">2</div>
       <div className="w-full h-1 bg-gray-200"></div>
