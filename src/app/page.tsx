@@ -51,10 +51,7 @@ export default function Home() {
   }, [currentPage, pageHeight]);
 
   return (
-    <div
-      ref={outerDivRef}
-      className="h-screen overflow-y-hidden scrollbar-hide"
-    >
+    <div ref={outerDivRef} className="h-screen overflow-y-hidden">
       <Dots currentPage={currentPage} />
       <div className="inner bg-yellow-300 h-screen">1</div>
       <div className="w-full h-1 bg-gray-200"></div>
