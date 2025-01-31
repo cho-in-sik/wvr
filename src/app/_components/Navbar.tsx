@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
@@ -9,15 +11,24 @@ import Image from 'next/image';
 import logo from '@/../public/images/logo/PNG 4.png';
 import menu from '@/../public/svgs/menu.svg';
 
+import { useScroll } from '../context/ScrollContext';
+
 export default function Navbar() {
+  const { isScrolled } = useScroll();
+
   return (
-    <header className="sticky top-0 z-50 w-full bg-transparent dark:border-gray-800 dark:bg-gray-950">
+    <header
+      className={`p-3 fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
+        isScrolled ? 'bg-gray-900 shadow-md' : 'bg-transparent'
+      }`}
+    >
       <div className="container flex h-28 max-w-full items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center" prefetch={false}>
-          <Image src={logo} alt="logo" width={300} />
+          <Image src={logo} alt="logo" width={350} />
         </Link>
         <div></div>
-        <nav className="hidden md:flex items-center gap-10 md:gap-16 lg:gap-32 text-lg md:text-xl lg:text-2xl font-bold text-white">
+        <div></div>
+        <nav className="hidden md:flex items-center gap-10 md:gap-4 lg:gap-32 text-lg md:text-xl lg:text-2xl font-semibold text-white tracking-tight">
           <Link
             href="#"
             className="hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 
 import './globals.css';
 import NavBar from './_components/Navbar';
+import { ScrollProvider } from './context/ScrollContext';
 
 export const metadata: Metadata = {
   title: '더블유브이알',
@@ -16,9 +17,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased [&::-webkit-scrollbar]:hidden">
-        <NavBar />
-        {children}
+      <body className={`antialiased [&::-webkit-scrollbar]:hidden`}>
+        <ScrollProvider>
+          <NavBar />
+
+          {children}
+        </ScrollProvider>
       </body>
     </html>
   );

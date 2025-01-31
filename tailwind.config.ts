@@ -11,7 +11,7 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        main: "url('/images/main/main2.jpg')",
+        main: "url('/images/main/main1.jpg')",
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -56,9 +56,11 @@ const config: Config = {
         },
       },
       fontFamily: {
+        play: ['var(--font-play)', 'sans-serif'],
         sans: [
-          'Noto Sans Korean',
           'Noto Sans KR',
+          'Noto Sans Korean',
+          'sans-serif',
           'Malgun Gothic',
           '맑은 고딕',
           '돋움',
@@ -67,8 +69,7 @@ const config: Config = {
           'Gulim',
           'Tahoma',
           'Verdana',
-          'Geneva',
-          'sans-serif',
+
           'Apple Gothic',
           'AppleGothic',
         ],
@@ -78,14 +79,20 @@ const config: Config = {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
+
       keyframes: {
         zoomOut: {
+          '0%': { transform: 'scale(1.2)' }, // 처음에 120%로 시작
+          '100%': { transform: 'scale(1)' }, // 100%로 줄어듦
+        },
+        zoomOutSm: {
           '0%': { transform: 'scale(1.1)' },
-          '100%': { transform: 'scale(1)' },
+          '100%': { transform: 'scale(0.9)' }, // 작은 화면에서 더 작게
         },
       },
       animation: {
         'zoom-out': 'zoomOut 3s ease-out forwards',
+        'zoom-out-sm': 'zoomOutSm 3s ease-out forwards',
       },
     },
   },
