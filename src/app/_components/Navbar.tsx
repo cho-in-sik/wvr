@@ -7,6 +7,7 @@ import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
+  DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
@@ -18,9 +19,11 @@ import logo from '@/../public/images/logo/PNG 4.png';
 import menu from '@/../public/svgs/menu.svg';
 
 import { useScroll } from '../context/ScrollContext';
+import { useState } from 'react';
 
 export default function Navbar() {
   const { isScrolled } = useScroll();
+  const [openDropdown, setOpenDropdown] = useState(false);
 
   return (
     <header
@@ -36,41 +39,60 @@ export default function Navbar() {
         <div></div>
         <div></div>
         <nav className="hidden md:flex items-center gap-10 md:gap-4 lg:gap-32 text-lg md:text-xl lg:text-2xl font-semibold text-white tracking-tight">
-          <Link
-            href="#"
-            className="hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-            prefetch={false}
+          <DropdownMenu
+            open={openDropdown}
+            onOpenChange={() => setOpenDropdown(false)}
           >
-            회사소개
-          </Link>
-          <Link
-            href="#"
-            className="hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-            prefetch={false}
-          >
-            솔루션
-          </Link>
-          <Link
-            href="#"
-            className="hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-            prefetch={false}
-          >
-            비즈니스
-          </Link>
-          <Link
-            href="#"
-            className="hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-            prefetch={false}
-          >
-            커뮤니티
-          </Link>
-          <Link
-            href="#"
-            className="hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-            prefetch={false}
-          >
-            소통
-          </Link>
+            <DropdownMenuTrigger
+              onMouseEnter={() => setOpenDropdown(true)}
+              asChild
+            >
+              <Link
+                href="#"
+                className="hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                prefetch={false}
+              >
+                회사소개
+              </Link>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent
+              onMouseLeave={() => setOpenDropdown(false)}
+              align="end"
+            >
+              <DropdownMenuItem>Light</DropdownMenuItem>
+              <DropdownMenuItem>Dark</DropdownMenuItem>
+              <DropdownMenuItem>System</DropdownMenuItem>
+            </DropdownMenuContent>
+
+            <Link
+              href="#"
+              className="hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+              prefetch={false}
+            >
+              솔루션
+            </Link>
+            <Link
+              href="#"
+              className="hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+              prefetch={false}
+            >
+              비즈니스
+            </Link>
+            <Link
+              href="#"
+              className="hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+              prefetch={false}
+            >
+              커뮤니티
+            </Link>
+            <Link
+              href="#"
+              className="hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+              prefetch={false}
+            >
+              소통
+            </Link>
+          </DropdownMenu>
         </nav>
         <div className="flex items-center gap-4">
           <Sheet>
