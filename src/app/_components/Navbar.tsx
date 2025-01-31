@@ -3,8 +3,14 @@
 import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
-
-import { Toggle } from '@/components/ui/toggle';
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 import { Sheet, SheetTrigger, SheetContent } from '@/components/ui/sheet';
 import Image from 'next/image';
 
@@ -22,10 +28,11 @@ export default function Navbar() {
         isScrolled ? 'bg-gray-900 shadow-md' : 'bg-transparent'
       }`}
     >
-      <div className="container flex h-28 max-w-full items-center justify-between px-4 md:px-6">
+      <div className="container flex h-28 max-w-full items-center justify-between px-4 md:px-6 xl:pl-32">
         <Link href="/" className="flex items-center" prefetch={false}>
           <Image src={logo} alt="logo" width={350} />
         </Link>
+        <div></div>
         <div></div>
         <div></div>
         <nav className="hidden md:flex items-center gap-10 md:gap-4 lg:gap-32 text-lg md:text-xl lg:text-2xl font-semibold text-white tracking-tight">
@@ -66,20 +73,11 @@ export default function Navbar() {
           </Link>
         </nav>
         <div className="flex items-center gap-4">
-          <Toggle aria-label="Toggle dark mode" className="rounded-full">
-            <Image src={menu} alt="menu" />
-          </Toggle>
           <Sheet>
             <SheetTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="rounded-full md:hidden"
-              >
-                <Image src={menu} alt="menu" />
-              </Button>
+              <Image src={menu} alt="menu" />
             </SheetTrigger>
-            <SheetContent side="left" className="md:hidden">
+            <SheetContent side="left" className="">
               <div className="grid gap-4 p-4">
                 <Link
                   href="#"
@@ -115,26 +113,5 @@ export default function Navbar() {
         </div>
       </div>
     </header>
-  );
-}
-
-function MenuIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="36"
-      height="36"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <line x1="4" x2="20" y1="12" y2="12" />
-      <line x1="4" x2="20" y1="6" y2="6" />
-      <line x1="4" x2="20" y1="18" y2="18" />
-    </svg>
   );
 }

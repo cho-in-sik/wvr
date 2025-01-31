@@ -11,7 +11,7 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        main: "url('/images/main/main1.jpg')",
+        main: "url('/images/main/main4.jpg')",
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -81,18 +81,33 @@ const config: Config = {
       },
 
       keyframes: {
-        zoomOut: {
-          '0%': { transform: 'scale(1.2)' }, // 처음에 120%로 시작
-          '100%': { transform: 'scale(1)' }, // 100%로 줄어듦
-        },
-        zoomOutSm: {
-          '0%': { transform: 'scale(1.1)' },
-          '100%': { transform: 'scale(0.9)' }, // 작은 화면에서 더 작게
+        fadeZoom: {
+          '0%': {
+            opacity: '0',
+            transform: 'scale(1.3)',
+          },
+          '10%': {
+            opacity: '1',
+            transform: 'scale(1.2)',
+          },
+          '40%': {
+            opacity: '1',
+            transform: 'scale(1.2)',
+          },
+          '50%': {
+            opacity: '0',
+            transform: 'scale(1.1)',
+          },
+          '100%': {
+            opacity: '0',
+            transform: 'scale(1)',
+          },
         },
       },
       animation: {
-        'zoom-out': 'zoomOut 3s ease-out forwards',
-        'zoom-out-sm': 'zoomOutSm 3s ease-out forwards',
+        'fade-zoom-1': 'fadeZoom 12s infinite',
+        'fade-zoom-2': 'fadeZoom 12s infinite 4s', // 🚀 두 번째 이미지 4초 후 시작
+        'fade-zoom-3': 'fadeZoom 12s infinite 8s', // 🚀 세 번째 이미지 8초 후 시작
       },
     },
   },
