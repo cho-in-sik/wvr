@@ -1,29 +1,26 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
-
-import { Button } from '@/components/ui/button';
+import Image from 'next/image';
+import { Sheet, SheetTrigger, SheetContent } from '@/components/ui/sheet';
 import {
   DropdownMenu,
-  DropdownMenuCheckboxItem,
+  DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Sheet, SheetTrigger, SheetContent } from '@/components/ui/sheet';
-import Image from 'next/image';
 
 import logo from '@/../public/images/logo/PNG 4.png';
 import menu from '@/../public/svgs/menu.svg';
 
 import { useScroll } from '../context/ScrollContext';
-import { useState } from 'react';
 
 export default function Navbar() {
   const { isScrolled } = useScroll();
-  const [openDropdown, setOpenDropdown] = useState(false);
+
+  // 🚀 현재 활성화된 드롭다운 메뉴 상태
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   return (
     <header
@@ -35,71 +32,140 @@ export default function Navbar() {
         <Link href="/" className="flex items-center" prefetch={false}>
           <Image src={logo} alt="logo" width={350} />
         </Link>
-        <div></div>
-        <div></div>
-        <div></div>
+
+        {/* 🚀 네비게이션 메뉴 */}
         <nav className="hidden md:flex items-center gap-10 md:gap-4 lg:gap-32 text-lg md:text-xl lg:text-2xl font-semibold text-white tracking-tight">
+          {/* 🚀 회사소개 Dropdown */}
           <DropdownMenu
-            open={openDropdown}
-            onOpenChange={() => setOpenDropdown(false)}
+            open={activeDropdown === 'company'}
+            onOpenChange={() => setActiveDropdown(null)}
           >
             <DropdownMenuTrigger
-              onMouseEnter={() => setOpenDropdown(true)}
+              onMouseEnter={() => setActiveDropdown('company')}
+              onMouseLeave={() => setActiveDropdown(null)}
               asChild
             >
-              <Link
-                href="#"
-                className="hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                prefetch={false}
-              >
+              <Link href="#" className="hover:text-[#04C9EA]" prefetch={false}>
                 회사소개
               </Link>
             </DropdownMenuTrigger>
             <DropdownMenuContent
-              onMouseLeave={() => setOpenDropdown(false)}
-              align="end"
+              onMouseEnter={() => setActiveDropdown('company')}
+              onMouseLeave={() => setActiveDropdown(null)}
+              align="center"
             >
-              <DropdownMenuItem>Light</DropdownMenuItem>
-              <DropdownMenuItem>Dark</DropdownMenuItem>
-              <DropdownMenuItem>System</DropdownMenuItem>
+              <DropdownMenuItem>회사 연혁</DropdownMenuItem>
+              <DropdownMenuItem>비전 및 미션</DropdownMenuItem>
+              <DropdownMenuItem>팀 소개</DropdownMenuItem>
             </DropdownMenuContent>
+          </DropdownMenu>
 
-            <Link
-              href="#"
-              className="hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-              prefetch={false}
+          {/* 🚀 솔루션 Dropdown */}
+          <DropdownMenu
+            open={activeDropdown === 'solution'}
+            onOpenChange={() => setActiveDropdown(null)}
+          >
+            <DropdownMenuTrigger
+              onMouseEnter={() => setActiveDropdown('solution')}
+              onMouseLeave={() => setActiveDropdown(null)}
+              asChild
             >
-              솔루션
-            </Link>
-            <Link
-              href="#"
-              className="hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-              prefetch={false}
+              <Link href="#" className="hover:text-[#04C9EA]" prefetch={false}>
+                솔루션
+              </Link>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent
+              onMouseEnter={() => setActiveDropdown('solution')}
+              onMouseLeave={() => setActiveDropdown(null)}
+              align="center"
             >
-              비즈니스
-            </Link>
-            <Link
-              href="#"
-              className="hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-              prefetch={false}
+              <DropdownMenuItem>AI 솔루션</DropdownMenuItem>
+              <DropdownMenuItem>클라우드 서비스</DropdownMenuItem>
+              <DropdownMenuItem>데이터 분석</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          {/* 🚀 비즈니스 Dropdown */}
+          <DropdownMenu
+            open={activeDropdown === 'business'}
+            onOpenChange={() => setActiveDropdown(null)}
+          >
+            <DropdownMenuTrigger
+              onMouseEnter={() => setActiveDropdown('business')}
+              onMouseLeave={() => setActiveDropdown(null)}
+              asChild
             >
-              커뮤니티
-            </Link>
-            <Link
-              href="#"
-              className="hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-              prefetch={false}
+              <Link href="#" className="hover:text-[#04C9EA]" prefetch={false}>
+                비즈니스
+              </Link>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent
+              onMouseEnter={() => setActiveDropdown('business')}
+              onMouseLeave={() => setActiveDropdown(null)}
+              align="center"
             >
-              소통
-            </Link>
+              <DropdownMenuItem>파트너십</DropdownMenuItem>
+              <DropdownMenuItem>고객 사례</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          {/* 🚀 커뮤니티 Dropdown */}
+          <DropdownMenu
+            open={activeDropdown === 'community'}
+            onOpenChange={() => setActiveDropdown(null)}
+          >
+            <DropdownMenuTrigger
+              onMouseEnter={() => setActiveDropdown('community')}
+              onMouseLeave={() => setActiveDropdown(null)}
+              asChild
+            >
+              <Link href="#" className="hover:text-[#04C9EA]" prefetch={false}>
+                커뮤니티
+              </Link>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent
+              onMouseEnter={() => setActiveDropdown('community')}
+              onMouseLeave={() => setActiveDropdown(null)}
+              align="center"
+            >
+              <DropdownMenuItem>블로그</DropdownMenuItem>
+              <DropdownMenuItem>포럼</DropdownMenuItem>
+              <DropdownMenuItem>이벤트</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          {/* 🚀 소통 Dropdown */}
+          <DropdownMenu
+            open={activeDropdown === 'contact'}
+            onOpenChange={() => setActiveDropdown(null)}
+          >
+            <DropdownMenuTrigger
+              onMouseEnter={() => setActiveDropdown('contact')}
+              onMouseLeave={() => setActiveDropdown(null)}
+              asChild
+            >
+              <Link href="#" className="hover:text-[#04C9EA]" prefetch={false}>
+                소통
+              </Link>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent
+              onMouseEnter={() => setActiveDropdown('contact')}
+              onMouseLeave={() => setActiveDropdown(null)}
+              align="center"
+            >
+              <DropdownMenuItem>고객 지원</DropdownMenuItem>
+              <DropdownMenuItem>문의하기</DropdownMenuItem>
+            </DropdownMenuContent>
           </DropdownMenu>
         </nav>
+
+        {/* 햄버거 메뉴 (모바일) */}
         <div className="flex items-center gap-4">
           <Sheet>
             <SheetTrigger asChild>
               <Image src={menu} alt="menu" />
             </SheetTrigger>
-            <SheetContent side="left" className="">
+            <SheetContent side="left">
               <div className="grid gap-4 p-4">
                 <Link
                   href="#"
