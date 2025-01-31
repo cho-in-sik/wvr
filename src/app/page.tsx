@@ -3,12 +3,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { Dots } from './_components/main/Dots';
 import FirstMain from './_components/main/FirstMain';
+import { usePage } from './context/ScrollContext';
 
 export default function Home() {
   const DIVIDER_HEIGHT = 5;
   const PAGE_COUNT = 5;
   const outerDivRef = useRef<HTMLDivElement>(null);
-  const [currentPage, setCurrentPage] = useState(1);
+  const { currentPage, setCurrentPage } = usePage(); // 🚀 전역 상태 사용
   const [isAnimating, setIsAnimating] = useState(false);
   const pageHeight = typeof window !== 'undefined' ? window.innerHeight : 0;
 
@@ -22,14 +23,10 @@ export default function Home() {
 
       setIsAnimating(true);
 
-      if (e.deltaY > 0) {
-        if (currentPage < PAGE_COUNT) {
-          setCurrentPage((prev) => prev + 1);
-        }
-      } else {
-        if (currentPage > 1) {
-          setCurrentPage((prev) => prev - 1);
-        }
+      if (e.deltaY > 0 && currentPage < PAGE_COUNT) {
+        setCurrentPage(currentPage + 1);
+      } else if (e.deltaY < 0 && currentPage > 1) {
+        setCurrentPage(currentPage - 1);
       }
 
       setTimeout(() => setIsAnimating(false), 500);
@@ -60,7 +57,7 @@ export default function Home() {
     return () => {
       outerDivRefCurrent.removeEventListener('wheel', wheelHandler);
     };
-  }, [currentPage, isAnimating, pageHeight]);
+  }, [currentPage, isAnimating, pageHeight, setCurrentPage]);
 
   return (
     <div ref={outerDivRef} className="min-h-screen h-screen overflow-hidden">

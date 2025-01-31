@@ -13,11 +13,10 @@ import {
 
 import logo from '@/../public/images/logo/PNG 4.png';
 import menu from '@/../public/svgs/menu.svg';
-
-import { useScroll } from '../context/ScrollContext';
+import { usePage } from '../context/ScrollContext';
 
 export default function Navbar() {
-  const { isScrolled } = useScroll();
+  const { currentPage } = usePage();
 
   // 🚀 현재 활성화된 드롭다운 메뉴 상태
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -25,7 +24,7 @@ export default function Navbar() {
   return (
     <header
       className={`p-3 fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
-        isScrolled ? 'bg-gray-900 shadow-md' : 'bg-transparent'
+        currentPage !== 1 ? 'bg-gray-900 shadow-md' : 'bg-transparent'
       }`}
     >
       <div className="container flex h-28 max-w-full items-center justify-between px-4 md:px-6 xl:pl-32">
@@ -34,7 +33,7 @@ export default function Navbar() {
         </Link>
 
         {/* 🚀 네비게이션 메뉴 */}
-        <nav className="hidden md:flex items-center gap-10 md:gap-4 lg:gap-32 text-lg md:text-xl lg:text-2xl font-semibold text-white tracking-tight">
+        <nav className="hidden md:flex items-center gap-10 md:gap-4 lg:gap-28 text-lg md:text-xl lg:text-2xl font-semibold text-white tracking-tight">
           {/* 🚀 회사소개 Dropdown */}
           <DropdownMenu
             open={activeDropdown === 'company'}

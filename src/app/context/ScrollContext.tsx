@@ -1,34 +1,28 @@
 'use client';
 
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-  ReactNode,
-} from 'react';
+import { createContext, useContext, useState, ReactNode } from 'react';
 
-const ScrollContext = createContext<{ isScrolled: boolean }>({
-  isScrolled: false,
-});
+interface PageContextType {
+  currentPage: number;
+  setCurrentPage: (page: number) => void;
+}
 
-export const ScrollProvider = ({ children }: { children: ReactNode }) => {
-  const [isScrolled, setIsScrolled] = useState(false);
+const PageContext = createContext<PageContextType | undefined>(undefined);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > window.innerHeight * 0.2);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+export const PageProvider = ({ children }: { children: ReactNode }) => {
+  const [currentPage, setCurrentPage] = useState(1);
 
   return (
-    <ScrollContext.Provider value={{ isScrolled }}>
+    <PageContext.Provider value={{ currentPage, setCurrentPage }}>
       {children}
-    </ScrollContext.Provider>
+    </PageContext.Provider>
   );
 };
 
-export const useScroll = () => useContext(ScrollContext);
+export const usePage = () => {
+  const context = useContext(PageContext);
+  if (!context) {
+    throw new Error('usePage must be used within a PageProvider');
+  }
+  return context;
+};
