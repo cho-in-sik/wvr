@@ -40,6 +40,7 @@ export default function Navbar() {
             onOpenChange={() => setActiveDropdown(null)}
           >
             <DropdownMenuTrigger
+              className="border-none outline-none focus:outline-none"
               onMouseEnter={() => setActiveDropdown('company')}
               onMouseLeave={() => setActiveDropdown(null)}
               asChild
@@ -65,6 +66,7 @@ export default function Navbar() {
             onOpenChange={() => setActiveDropdown(null)}
           >
             <DropdownMenuTrigger
+              className="border-none outline-none focus:outline-none"
               onMouseEnter={() => setActiveDropdown('solution')}
               onMouseLeave={() => setActiveDropdown(null)}
               asChild
@@ -90,6 +92,7 @@ export default function Navbar() {
             onOpenChange={() => setActiveDropdown(null)}
           >
             <DropdownMenuTrigger
+              className="border-none outline-none focus:outline-none"
               onMouseEnter={() => setActiveDropdown('business')}
               onMouseLeave={() => setActiveDropdown(null)}
               asChild
@@ -114,6 +117,7 @@ export default function Navbar() {
             onOpenChange={() => setActiveDropdown(null)}
           >
             <DropdownMenuTrigger
+              className="border-none outline-none focus:outline-none"
               onMouseEnter={() => setActiveDropdown('community')}
               onMouseLeave={() => setActiveDropdown(null)}
               asChild
@@ -139,6 +143,7 @@ export default function Navbar() {
             onOpenChange={() => setActiveDropdown(null)}
           >
             <DropdownMenuTrigger
+              className="border-none outline-none focus:outline-none"
               onMouseEnter={() => setActiveDropdown('contact')}
               onMouseLeave={() => setActiveDropdown(null)}
               asChild
@@ -159,7 +164,7 @@ export default function Navbar() {
         </nav>
 
         {/* 햄버거 메뉴 (모바일) */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 cursor-pointer">
           <Sheet>
             <SheetTrigger asChild>
               <Image src={menu} alt="menu" />

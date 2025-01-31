@@ -48,7 +48,7 @@ export default function FirstMain() {
           src={scroll}
           alt="scroll"
           width={50}
-          className="w-10 sm:w-12 md:w-14 lg:w-16 xl:w-18 2xl:w-20"
+          className="w-10 sm:w-10 md:w-12 lg:w-14 xl:w-16 2xl:w-18"
         />
         <span className="font-play text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-2xl 2xl:text-2xl font-medium">
           Scroll
