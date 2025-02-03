@@ -12,7 +12,9 @@ import {
 } from '@/components/ui/dropdown-menu';
 
 import logo from '@/../public/images/logo/PNG 4.png';
+import logo2 from '@/../public/images/logo/PNG 2.png';
 import menu from '@/../public/svgs/menu.svg';
+import menu2 from '@/../public/svgs/menu2.svg';
 import { usePage } from '../context/ScrollContext';
 
 export default function Navbar() {
@@ -24,16 +26,24 @@ export default function Navbar() {
   return (
     <header
       className={`p-3 fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
-        currentPage !== 1 ? 'bg-gray-900 shadow-md' : 'bg-transparent'
+        currentPage !== 1 ? 'bg-white shadow-md' : 'bg-transparent'
       }`}
     >
-      <div className="container flex h-28 max-w-full items-center justify-between px-4 md:px-6 xl:pl-32">
+      <div className="container flex h-24 max-w-full items-center justify-between px-4 md:px-6 xl:pl-32">
         <Link href="/" className="flex items-center" prefetch={false}>
-          <Image src={logo} alt="logo" width={350} />
+          {currentPage !== 1 ? (
+            <Image src={logo2} alt="logo" width={350} />
+          ) : (
+            <Image src={logo} alt="logo" width={350} />
+          )}
         </Link>
 
         {/* 🚀 네비게이션 메뉴 */}
-        <nav className="hidden md:flex items-center gap-10 md:gap-4 lg:gap-28 text-lg md:text-xl lg:text-2xl font-semibold text-white tracking-tight">
+        <nav
+          className={`hidden md:flex items-center gap-10 md:gap-4 lg:gap-28 text-lg md:text-xl lg:text-2xl font-semibold ${
+            currentPage !== 1 ? 'text-black' : 'text-white'
+          } tracking-tight`}
+        >
           {/* 🚀 회사소개 Dropdown */}
           <DropdownMenu
             open={activeDropdown === 'company'}
@@ -167,7 +177,11 @@ export default function Navbar() {
         <div className="flex items-center gap-4 cursor-pointer">
           <Sheet>
             <SheetTrigger asChild>
-              <Image src={menu} alt="menu" />
+              {currentPage !== 1 ? (
+                <Image src={menu2} alt="menu" />
+              ) : (
+                <Image src={menu} alt="menu" />
+              )}
             </SheetTrigger>
             <SheetContent side="left">
               <div className="grid gap-4 p-4">
