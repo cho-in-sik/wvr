@@ -5,6 +5,7 @@ import { Dots } from './_components/main/Dots';
 import FirstMain from './_components/main/FirstMain';
 import { usePage } from './context/ScrollContext';
 import SecondMain from './_components/main/SecondMain';
+import ThirdMain from './_components/main/ThirdMain';
 
 export default function Home() {
   const DIVIDER_HEIGHT = 5;
@@ -71,7 +72,9 @@ export default function Home() {
         <SecondMain />
       </div>
       <div className="w-full h-1 bg-gray-200"></div>
-      <div className="inner bg-pink-300 h-screen">3</div>
+      <div className="h-screen w-full relative">
+        <ThirdMain />
+      </div>
       <div className="w-full h-1 bg-gray-200"></div>
       <div className="inner bg-green-300 h-screen">4</div>
       <div className="w-full h-1 bg-gray-200"></div>

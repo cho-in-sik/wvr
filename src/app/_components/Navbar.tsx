@@ -26,7 +26,7 @@ export default function Navbar() {
   return (
     <header
       className={`p-3 fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
-        currentPage !== 1 ? 'bg-white shadow-md' : 'bg-transparent'
+        currentPage !== 1 ? 'bg-white shadow-sm' : 'bg-transparent'
       }`}
     >
       <div className="container flex h-24 max-w-full items-center justify-between px-4 md:px-6 xl:pl-32">
