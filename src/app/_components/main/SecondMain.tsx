@@ -32,7 +32,7 @@ export default function SecondMain() {
       <div className="bg-gray-100 h-[40vh] lg:h-screen w-full lg:w-3/5 flex flex-col lg:flex-row justify-center items-center p-10 md:p-16 lg:p-24 gap-6 lg:gap-16">
         {/* ✅ 기업소개 카드 */}
         <div
-          className="bg-cover bg-center bg-no-repeat h-[50vh] w-full lg:w-1/2 transition-transform duration-300 hover:scale-105 shadow-md rounded-lg"
+          className="bg-cover bg-center bg-no-repeat h-[50vh] w-full lg:w-1/2 transition-transform duration-300 hover:scale-105 shadow-md rounded-lg mt-28"
           style={{
             backgroundImage: "url('/images/main/companyIntroduce.jpg')",
           }}

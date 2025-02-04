@@ -1,6 +1,7 @@
 import water from '@/../public/images/main/water.png';
-import carbon from '@/../public/images/main/carbon.png';
+import carbon from '@/../public/images/main/carbon2.png';
 import environment from '@/../public/images/main/environment.png';
+import right from '@/../public/svgs/right.svg';
 import Image from 'next/image';
 
 export default function ThirdMain() {
@@ -31,17 +32,26 @@ export default function ThirdMain() {
         <div className="flex flex-col justify-center items-center gap-3">
           <span className="text-3xl font-semibold">Water</span>
           <Image src={water} alt="water" width={150} />
-          <span className="text-xl font-semibold mt-5">WVR와 함께 나아갈</span>
+          <span className="text-xl my-5">WVR와 함께 나아갈 물관</span>
+          <div className="bg-gray-800 rounded-full p-1">
+            <Image src={right} alt="right" />
+          </div>
         </div>
         <div className="flex flex-col justify-center items-center gap-3">
           <span className="text-3xl font-semibold">Environment</span>
           <Image src={environment} alt="environment" width={150} />
-          <span className="text-xl font-semibold mt-5">환경을 생각하는</span>
+          <span className="text-xl my-5">환경을 생각하는 친화적인</span>
+          <div className="bg-gray-800 rounded-full p-1">
+            <Image src={right} alt="right" />
+          </div>
         </div>
         <div className="flex flex-col justify-center items-center gap-3">
           <span className="text-3xl font-semibold">Carbon</span>
           <Image src={carbon} alt="carbon" width={150} />
-          <span className="text-xl font-semibold mt-5">탄소 저감을 위한</span>
+          <span className="text-xl my-5">탄소 저감을 위한 사업미</span>
+          <div className="bg-gray-800 rounded-full p-1">
+            <Image src={right} alt="right" />
+          </div>
         </div>
       </div>
     </div>

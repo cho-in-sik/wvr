@@ -15,6 +15,7 @@ import logo from '@/../public/images/logo/PNG 4.png';
 import logo2 from '@/../public/images/logo/PNG 2.png';
 import menu from '@/../public/svgs/menu.svg';
 import menu2 from '@/../public/svgs/menu2.svg';
+import rightArrow from '@/../public/svgs/rightArrow.svg';
 import { usePage } from '../context/ScrollContext';
 
 export default function Navbar() {
@@ -64,9 +65,11 @@ export default function Navbar() {
               onMouseLeave={() => setActiveDropdown(null)}
               align="center"
             >
-              <DropdownMenuItem>회사 연혁</DropdownMenuItem>
-              <DropdownMenuItem>비전 및 미션</DropdownMenuItem>
-              <DropdownMenuItem>팀 소개</DropdownMenuItem>
+              <DropdownMenuItem>CEO 인사말</DropdownMenuItem>
+              <DropdownMenuItem>비전 및 브랜드스토리</DropdownMenuItem>
+              <DropdownMenuItem>연혁</DropdownMenuItem>
+              <DropdownMenuItem>인증 및 특허</DropdownMenuItem>
+              <DropdownMenuItem>오시는 길</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
 
@@ -90,9 +93,9 @@ export default function Navbar() {
               onMouseLeave={() => setActiveDropdown(null)}
               align="center"
             >
-              <DropdownMenuItem>AI 솔루션</DropdownMenuItem>
-              <DropdownMenuItem>클라우드 서비스</DropdownMenuItem>
-              <DropdownMenuItem>데이터 분석</DropdownMenuItem>
+              <DropdownMenuItem>청음식 누수 탐지</DropdownMenuItem>
+              <DropdownMenuItem>임베디드 유랑계</DropdownMenuItem>
+              <DropdownMenuItem>자산 관리</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
 
@@ -116,8 +119,7 @@ export default function Navbar() {
               onMouseLeave={() => setActiveDropdown(null)}
               align="center"
             >
-              <DropdownMenuItem>파트너십</DropdownMenuItem>
-              <DropdownMenuItem>고객 사례</DropdownMenuItem>
+              <DropdownMenuItem>비즈니스</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
 
@@ -141,9 +143,8 @@ export default function Navbar() {
               onMouseLeave={() => setActiveDropdown(null)}
               align="center"
             >
-              <DropdownMenuItem>블로그</DropdownMenuItem>
-              <DropdownMenuItem>포럼</DropdownMenuItem>
-              <DropdownMenuItem>이벤트</DropdownMenuItem>
+              <DropdownMenuItem>공지사항</DropdownMenuItem>
+              <DropdownMenuItem>뉴스</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
 
@@ -167,7 +168,6 @@ export default function Navbar() {
               onMouseLeave={() => setActiveDropdown(null)}
               align="center"
             >
-              <DropdownMenuItem>고객 지원</DropdownMenuItem>
               <DropdownMenuItem>문의하기</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -183,35 +183,57 @@ export default function Navbar() {
                 <Image src={menu} alt="menu" />
               )}
             </SheetTrigger>
-            <SheetContent side="left">
-              <div className="grid gap-4 p-4">
+            <SheetContent side="right">
+              <div className="grid gap-6 p-4 pt-10">
                 <Link
                   href="#"
-                  className="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                  className="text-2xl font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
                   prefetch={false}
                 >
-                  Home
+                  <div className="flex justify-start items-center">
+                    <div>About us</div>
+                    <Image src={rightArrow} alt="right-arrow" />
+                  </div>
                 </Link>
                 <Link
                   href="#"
-                  className="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                  className="text-2xl font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
                   prefetch={false}
                 >
-                  About
+                  <div className="flex justify-start items-center">
+                    <div>Solution</div>
+                    <Image src={rightArrow} alt="right-arrow" />
+                  </div>
                 </Link>
                 <Link
                   href="#"
-                  className="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                  className="text-2xl font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
                   prefetch={false}
                 >
-                  Services
+                  <div className="flex justify-start items-center">
+                    <div>Business</div>
+                    <Image src={rightArrow} alt="right-arrow" />
+                  </div>
                 </Link>
                 <Link
                   href="#"
-                  className="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                  className="text-2xl font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
                   prefetch={false}
                 >
-                  Contact
+                  <div className="flex justify-start items-center">
+                    <div>Community</div>
+                    <Image src={rightArrow} alt="right-arrow" />
+                  </div>
+                </Link>
+                <Link
+                  href="#"
+                  className="text-2xl font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                  prefetch={false}
+                >
+                  <div className="flex justify-start items-center">
+                    <div>Contact</div>
+                    <Image src={rightArrow} alt="right-arrow" />
+                  </div>
                 </Link>
               </div>
             </SheetContent>

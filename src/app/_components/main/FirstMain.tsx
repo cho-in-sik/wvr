@@ -28,7 +28,7 @@ export default function FirstMain() {
           WHATEVER
         </h1>
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl 2xl:text-8xl font-extrabold font-play">
-          Empowering
+          Dreams Empowering
         </h2>
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl 2xl:text-8xl mb-10 md:mb-12 lg:mb-14 xl:mb-16 font-extrabold font-play">
           Innovation With AI
