@@ -20,7 +20,7 @@ export default function SecondMain() {
           <h4 className="font-extrabold text-lg md:text-2xl lg:text-4xl mb-6">
             새로운 가치를 탐구합니다.
           </h4>
-          <span className="text-sm md:text-base">
+          <span className="text-sm md:text-base pr-32">
             다양한 파장대를 감지하는 분광 이미지 센서를 활용하여, 인간의
             시각으로는 감지하기 어려운 영역을 탐지하고 이를 데이터화 하여
             인공지능 모델을 통해 자동으로 학습시켜 처리합니다.

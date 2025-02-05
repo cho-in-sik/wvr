@@ -11,7 +11,7 @@ import LastMain from './_components/main/LastMain';
 export default function Home() {
   const DIVIDER_HEIGHT = 5;
   const PAGE_COUNT = 5;
-  const outerDivRef = useRef<HTMLDivElement | null>(null); // ✅ 안전한 초기화
+  const outerDivRef = useRef<HTMLDivElement | null>(null);
   const { currentPage, setCurrentPage } = usePage();
   const [isAnimating, setIsAnimating] = useState(false);
   const pageHeight = typeof window !== 'undefined' ? window.innerHeight : 0;
@@ -21,31 +21,35 @@ export default function Home() {
     document.documentElement.style.overflow = 'hidden';
 
     const wheelHandler = (e: WheelEvent) => {
-      if (!outerDivRef.current) return; // ✅ null 체크
-      if (isAnimating) return; // ✅ 애니메이션 중이면 중복 실행 방지
+      if (!outerDivRef.current || isAnimating) return;
       e.preventDefault();
 
-      setIsAnimating(true);
+      setIsAnimating(true); // 🚀 스크롤 이벤트 시작
 
       requestAnimationFrame(() => {
-        setTimeout(() => setIsAnimating(false), 600);
-      });
+        setCurrentPage((prev) => {
+          let nextPage = prev;
+          if (e.deltaY > 0 && prev < PAGE_COUNT) {
+            nextPage = prev + 1;
+          } else if (e.deltaY < 0 && prev > 1) {
+            nextPage = prev - 1;
+          }
 
-      setCurrentPage((prev) => {
-        if (e.deltaY > 0 && prev < PAGE_COUNT) return prev + 1;
-        if (e.deltaY < 0 && prev > 1) return prev - 1;
-        return prev;
+          return nextPage;
+        });
+
+        setTimeout(() => {
+          setIsAnimating(false); // 🚀 600ms 후 스크롤 허용
+        }, 600);
       });
     };
 
     const scrollToPage = () => {
-      if (!outerDivRef.current) return; // ✅ null 체크 추가
-      requestAnimationFrame(() => {
-        outerDivRef.current?.scrollTo({
-          top: (currentPage - 1) * (pageHeight + DIVIDER_HEIGHT),
-          left: 0,
-          behavior: 'smooth',
-        });
+      if (!outerDivRef.current) return;
+      outerDivRef.current.scrollTo({
+        top: (currentPage - 1) * (pageHeight + DIVIDER_HEIGHT),
+        left: 0,
+        behavior: 'smooth',
       });
 
       if (currentPage === 1) {
@@ -54,18 +58,18 @@ export default function Home() {
       }
     };
 
-    if (!outerDivRef.current) return; // ✅ 이벤트 등록 전에 다시 확인
+    if (!outerDivRef.current) return;
     const outerDivRefCurrent = outerDivRef.current;
     outerDivRefCurrent.addEventListener('wheel', wheelHandler, {
       passive: false,
     });
 
-    scrollToPage(); // ✅ currentPage가 변경될 때 실행
+    scrollToPage(); // ✅ currentPage 변경될 때 실행
 
     return () => {
-      outerDivRefCurrent?.removeEventListener('wheel', wheelHandler);
+      outerDivRefCurrent.removeEventListener('wheel', wheelHandler);
     };
-  }, [currentPage, isAnimating, pageHeight, setCurrentPage]);
+  }, [currentPage, pageHeight, setCurrentPage, isAnimating]);
 
   return (
     <div ref={outerDivRef} className="min-h-screen h-screen overflow-hidden">

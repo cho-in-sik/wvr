@@ -84,9 +84,13 @@ const config: Config = {
         fadeZoom: {
           '0%': {
             opacity: '0',
-            transform: 'scale(1.3)',
+            transform: 'scale(1.4)',
           },
           '10%': {
+            opacity: '1',
+            transform: 'scale(1.2)',
+          },
+          '25%': {
             opacity: '1',
             transform: 'scale(1.2)',
           },

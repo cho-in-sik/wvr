@@ -64,6 +64,7 @@ export default function Navbar() {
               onMouseEnter={() => setActiveDropdown('company')}
               onMouseLeave={() => setActiveDropdown(null)}
               align="center"
+              className="p-2 py-4 font-semibold"
             >
               <DropdownMenuItem>CEO 인사말</DropdownMenuItem>
               <DropdownMenuItem>비전 및 브랜드스토리</DropdownMenuItem>
@@ -92,6 +93,7 @@ export default function Navbar() {
               onMouseEnter={() => setActiveDropdown('solution')}
               onMouseLeave={() => setActiveDropdown(null)}
               align="center"
+              className="py-4 px-4 font-semibold"
             >
               <DropdownMenuItem>청음식 누수 탐지</DropdownMenuItem>
               <DropdownMenuItem>임베디드 유랑계</DropdownMenuItem>
@@ -118,6 +120,7 @@ export default function Navbar() {
               onMouseEnter={() => setActiveDropdown('business')}
               onMouseLeave={() => setActiveDropdown(null)}
               align="center"
+              className="p-2 py-4 font-semibold"
             >
               <DropdownMenuItem>비즈니스</DropdownMenuItem>
             </DropdownMenuContent>
@@ -142,6 +145,7 @@ export default function Navbar() {
               onMouseEnter={() => setActiveDropdown('community')}
               onMouseLeave={() => setActiveDropdown(null)}
               align="center"
+              className="p-2 py-4 font-semibold"
             >
               <DropdownMenuItem>공지사항</DropdownMenuItem>
               <DropdownMenuItem>뉴스</DropdownMenuItem>
@@ -167,6 +171,7 @@ export default function Navbar() {
               onMouseEnter={() => setActiveDropdown('contact')}
               onMouseLeave={() => setActiveDropdown(null)}
               align="center"
+              className="p-2 py-4 font-semibold"
             >
               <DropdownMenuItem>문의하기</DropdownMenuItem>
             </DropdownMenuContent>
