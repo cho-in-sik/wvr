@@ -20,7 +20,6 @@ export default function RootLayout({
       <body className={`antialiased [&::-webkit-scrollbar]:hidden`}>
         <PageProvider>
           <NavBar />
-
           {children}
         </PageProvider>
       </body>

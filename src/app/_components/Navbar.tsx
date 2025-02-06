@@ -56,7 +56,11 @@ export default function Navbar() {
               onMouseLeave={() => setActiveDropdown(null)}
               asChild
             >
-              <Link href="#" className="hover:text-[#04C9EA]" prefetch={false}>
+              <Link
+                href="/introduce"
+                className="hover:text-[#04C9EA]"
+                prefetch={false}
+              >
                 회사소개
               </Link>
             </DropdownMenuTrigger>
