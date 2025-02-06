@@ -6,7 +6,6 @@ export default function SecondMain() {
         className="h-[60vh] lg:h-screen w-full lg:w-2/5 bg-cover bg-center bg-no-repeat flex items-center justify-start p-10 md:p-16 lg:p-28"
         style={{ backgroundImage: "url('/images/main/secondMain1.jpg')" }}
       >
-        {/* ✅ 텍스트를 중앙 정렬 */}
         <div className="text-white flex flex-col items-start justify-center">
           <h3 className="text-xl md:text-2xl lg:text-3xl font-extrabold mb-3">
             About us
@@ -31,13 +30,14 @@ export default function SecondMain() {
       {/* ✅ 나머지 3/5 영역 (오른쪽) */}
       <div className="bg-gray-100 h-[40vh] lg:h-screen w-full lg:w-3/5 flex flex-col lg:flex-row justify-center items-center p-10 md:p-16 lg:p-24 gap-6 lg:gap-16">
         {/* ✅ 기업소개 카드 */}
-        <div
-          className="bg-cover bg-center bg-no-repeat h-[50vh] w-full lg:w-1/2 transition-transform duration-300 hover:scale-105 shadow-md rounded-lg mt-28"
-          style={{
-            backgroundImage: "url('/images/main/companyIntroduce.jpg')",
-          }}
-        >
-          <div className="text-white px-6 py-10 md:px-10 md:py-16 bg-black bg-opacity-50 rounded-lg">
+        <div className="relative h-[50vh] w-full lg:w-1/2 overflow-hidden rounded-lg shadow-md mt-28">
+          <div
+            className="absolute inset-0 bg-cover bg-center transition-transform duration-500 hover:scale-110"
+            style={{
+              backgroundImage: "url('/images/main/companyIntroduce.jpg')",
+            }}
+          ></div>
+          <div className="relative z-10 text-white px-6 py-10 md:px-10 md:py-16 bg-black bg-opacity-50 rounded-lg">
             <h5 className="text-lg md:text-xl lg:text-2xl mb-2">About us</h5>
             <h4 className="text-xl md:text-2xl lg:text-3xl font-bold">
               기업소개
@@ -46,13 +46,14 @@ export default function SecondMain() {
         </div>
 
         {/* ✅ 비전 카드 */}
-        <div
-          className="bg-cover bg-center bg-no-repeat h-[50vh] w-full lg:w-1/2 transition-transform duration-300 hover:scale-105 shadow-md rounded-lg"
-          style={{
-            backgroundImage: "url('/images/main/vision.jpg')",
-          }}
-        >
-          <div className="text-white px-6 py-10 md:px-10 md:py-16 bg-black bg-opacity-50 rounded-lg">
+        <div className="relative h-[50vh] w-full lg:w-1/2 overflow-hidden rounded-lg shadow-md">
+          <div
+            className="absolute inset-0 bg-cover bg-center transition-transform duration-500 hover:scale-110"
+            style={{
+              backgroundImage: "url('/images/main/vision.jpg')",
+            }}
+          ></div>
+          <div className="relative z-10 text-white px-6 py-10 md:px-10 md:py-16 bg-black bg-opacity-50 rounded-lg">
             <h5 className="text-lg md:text-xl lg:text-2xl mb-2">Vision</h5>
             <h4 className="text-xl md:text-2xl lg:text-3xl font-bold">비전</h4>
           </div>

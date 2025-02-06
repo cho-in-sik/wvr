@@ -33,11 +33,11 @@ export default function FirstMain() {
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl 2xl:text-8xl mb-10 md:mb-12 lg:mb-14 xl:mb-16 font-extrabold font-play">
           Innovation With AI
         </h2>
-        <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-2xl 2xl:text-2xl font-semibold">
+        <h3 className="text-base sm:text-lg md:text-lg lg:text-xl xl:text-xl 2xl:text-xl font-semibold">
           더블유브이알은 분광 이미지 센서 기술과 최첨단 인공지능 알고리즘을
           결합하여
         </h3>
-        <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-2xl 2xl:text-2xl font-semibold">
+        <h3 className="text-base sm:text-lg md:text-lg lg:text-xl xl:text-xl 2xl:text-xl font-semibold">
           환경 모니터링, 건강 진단 등의 다양한 분야에서 혁신적인 맞춤형 솔루션을
           제공합니다.
         </h3>

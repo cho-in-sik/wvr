@@ -18,19 +18,19 @@ export default function ThirdMain() {
       {/* ✅ 왼쪽 텍스트 영역 */}
       <div className="w-full lg:w-2/5 h-full bg-gray-50 flex justify-center items-center p-6 md:p-12 lg:p-16">
         <div className="text-black flex flex-col items-start justify-center max-w-[80%]">
-          <h3 className="text-lg md:text-xl lg:text-2xl font-extrabold mb-3">
+          <h3 className="text-xl md:text-2xl lg:text-3xl font-extrabold mb-3">
             Business
           </h3>
-          <h4 className="text-base md:text-xl lg:text-3xl font-normal mb-1">
+          <h4 className="text-lg md:text-2xl lg:text-4xl font-normal mb-1">
             더블유브이알은 모두가 행복한
           </h4>
-          <h4 className="text-base md:text-xl lg:text-3xl font-extrabold mb-1">
+          <h4 className="text-lg md:text-2xl lg:text-4xl font-bold mb-1">
             삶을 위해 보이지 않는 것으로부터
           </h4>
-          <h4 className="text-base md:text-xl lg:text-3xl font-extrabold mb-6 lg:mb-8">
+          <h4 className="text-lg md:text-2xl lg:text-4xl font-bold mb-6 lg:mb-8">
             새로운 가치를 탐구합니다.
           </h4>
-          <span className="text-sm md:text-base">
+          <span className="text-base md:text-lg pr-20">
             수질 환경, 대기 환경, 개인과 가족 구성원들의 건강 등 더 넓어지고
             다양해질 분야에서 더블유브이알의 AI care 기술을 만나보세요.
           </span>
@@ -68,8 +68,8 @@ export default function ThirdMain() {
             <Image
               src={item.img}
               alt={item.title}
-              width={100}
-              height={100}
+              width={90}
+              height={90}
               className="md:w-[120px] md:h-[120px]"
             />
             <span className="text-xs md:text-sm lg:text-lg text-center mb-5">
