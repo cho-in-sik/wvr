@@ -1,3 +1,3 @@
 export default function Page() {
-  return <div>1</div>;
+  return <div>연혁</div>;
 }
