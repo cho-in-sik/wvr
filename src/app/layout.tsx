@@ -4,6 +4,7 @@ import './globals.css';
 import NavBar from './_components/Navbar';
 import { PageProvider } from './context/ScrollContext';
 import Script from 'next/script';
+export const API = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAOMAP_KEY}&libraries=services,clusterer&autoload=false`;
 
 export const metadata: Metadata = {
   title: '더블유브이알',
@@ -23,10 +24,9 @@ export default function RootLayout({
           <NavBar />
           {children}
         </PageProvider>
-        <Script
-          type="text/javascript"
-          src="//dapi.kakao.com/v2/maps/sdk.js?appkey=%Next_PUBLIC_KAKAOMAP_KEY%&libraries=services,clusterer"
-        ></Script>
+
+        {/* ✅ Kakao Map 스크립트 추가 (환경변수 적용) */}
+        <Script src={API} strategy="beforeInteractive" />
       </body>
     </html>
   );
