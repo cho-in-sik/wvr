@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import NavBar from './_components/Navbar';
 import { PageProvider } from './context/ScrollContext';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: '더블유브이알',
@@ -22,6 +23,10 @@ export default function RootLayout({
           <NavBar />
           {children}
         </PageProvider>
+        <Script
+          type="text/javascript"
+          src="//dapi.kakao.com/v2/maps/sdk.js?appkey=%Next_PUBLIC_KAKAOMAP_KEY%&libraries=services,clusterer"
+        ></Script>
       </body>
     </html>
   );
