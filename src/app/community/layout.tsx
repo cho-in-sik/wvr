@@ -37,7 +37,7 @@ export default function Layout({
         </h1>
 
         {/* ✅ 네비게이션 메뉴 (반응형) */}
-        <div className="bg-white w-full sm:w-10/12 lg:w-8/12 h-16 sm:h-20 absolute bottom-0 flex justify-between items-center text-sm sm:text-base lg:text-xl">
+        <div className="bg-white w-full sm:w-10/12 lg:w-6/12 h-16 sm:h-20 absolute bottom-0 flex justify-between items-center text-sm sm:text-base lg:text-xl">
           {menuItems.map((item, index) => (
             <Link key={index} href={item.path} className="w-full h-full">
               <div
