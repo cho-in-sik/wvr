@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { signinWithEmailPassword } from '@/actions/auth';
 
 export function LoginForm({
   className,
@@ -21,14 +22,15 @@ export function LoginForm({
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      //   const res = await signinWithEmailPassword({ email, password });
-      //   if (res?.error) {
-      //     alert(res.error);
-      //     return;
-      //   }
-      //   if (res?.data?.session) {
-      //     router.push('/home');
-      //   }
+      const res = await signinWithEmailPassword({ email, password });
+      console.log(res);
+      if (res?.error) {
+        alert(res.error);
+        return;
+      }
+      if (res?.data?.session) {
+        router.push('/home');
+      }
     } catch (error) {
       console.log(error);
     }
