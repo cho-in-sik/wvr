@@ -19,6 +19,39 @@ function handleError(error: AuthError) {
   throw new Error(error.message);
 }
 
+export async function signupWithEmailPassword({
+  email,
+  password,
+  nickname,
+}: TAuth) {
+  const supabase = await createServerSupabaseClient();
+
+  //   const {
+  //     data: { session },
+  //     error: sessionError,
+  //   } = await supabase.auth.getSession();
+
+  //   if (sessionError || !session?.user) {
+  //     throw new Error('세션에러발생');
+  //   }
+
+  const { data, error } = await supabase.auth.signUp({
+    email,
+    password,
+    options: {
+      data: {
+        nickname,
+      },
+    },
+  });
+
+  if (error) {
+    return { error: handleError(error) };
+  }
+
+  return { data };
+}
+
 export async function signinWithEmailPassword({ email, password }: TAuth) {
   const supabase = await createServerSupabaseClient();
 
@@ -32,4 +65,17 @@ export async function signinWithEmailPassword({ email, password }: TAuth) {
   }
 
   return { data };
+}
+
+export async function signout() {
+  const supabase = await createServerSupabaseClient();
+
+  const { error } = await supabase.auth.signOut();
+
+  if (error) {
+    console.error('Logout error:', error);
+    throw new Error('Failed to log out');
+  }
+
+  redirect('/signin');
 }
