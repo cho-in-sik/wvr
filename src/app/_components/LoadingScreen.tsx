@@ -13,8 +13,8 @@ export default function LoadingScreen() {
         position: 'absolute',
         display,
         zIndex: 999,
-        top: '45%',
-        left: '45%',
+        top: '50%',
+        left: '50%',
       }}
     >
       <Loader2 className="h-10 w-10 animate-spin" />

@@ -29,7 +29,7 @@ export function LoginForm({
         return;
       }
       if (res?.data?.session) {
-        router.push('/home');
+        router.push('/');
       }
     } catch (error) {
       console.log(error);

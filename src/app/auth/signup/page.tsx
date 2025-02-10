@@ -30,15 +30,15 @@ export default function SignupForm() {
         alert(res?.error);
       }
       if (res?.data?.user) {
-        router.push('/signin');
+        router.push('/auth/signin');
       }
     } catch (error) {
       console.log(error);
     }
   };
   return (
-    <div>
-      <Card>
+    <div className="flex justify-center items-center">
+      <Card className="w-1/3">
         <CardHeader className="text-center">
           <CardTitle className="text-xl">회원가입</CardTitle>
         </CardHeader>
@@ -99,7 +99,10 @@ export default function SignupForm() {
               <div className="text-center text-sm">
                 <span className="mr-2">계정이 있으세요?</span>
 
-                <Link href="/signin" className="underline underline-offset-4">
+                <Link
+                  href="/auth/signin"
+                  className="underline underline-offset-4"
+                >
                   로그인 &gt;
                 </Link>
               </div>

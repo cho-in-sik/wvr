@@ -1,11 +1,20 @@
-'use client';
-
+import { createServerSupabaseClient } from '@/utils/supabase/server';
 import Footer from '../_components/Footer';
 import Navbar from '../_components/Navbar';
+import { redirect } from 'next/navigation';
 
-export default function Layout({
+export default async function Layout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const supabase = await createServerSupabaseClient();
+
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+
+  if (session?.user) {
+    redirect('/');
+  }
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
