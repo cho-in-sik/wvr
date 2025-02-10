@@ -56,3 +56,13 @@ export async function addNotice(formData: TNotice) {
 
   return { status };
 }
+
+export async function deleteNotice(id: any) {
+  const supabase = await createServerSupabaseClient();
+  const { error, status } = await supabase.from('notice').delete().eq('id', id);
+
+  if (error) {
+    handleError(error);
+  }
+  return { id, status };
+}

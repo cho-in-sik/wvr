@@ -22,6 +22,8 @@ export default function NoticeTable() {
     queryFn: () => getNotices(1),
   });
 
+  console.log(data);
+
   const router = useRouter();
 
   return (
