@@ -32,6 +32,7 @@ export default function Page() {
         router.push('/community');
       }
     } catch (error) {
+      alert(error);
       console.error(error);
     }
   };
@@ -85,7 +86,7 @@ export default function Page() {
             </div>
           </CardContent>
           <CardFooter className="flex justify-between">
-            <Button variant="outline" onClick={() => router.back()}>
+            <Button variant="outline" onClick={() => router.push('/community')}>
               뒤로가기
             </Button>
             <Button type="submit" disabled={loading}>

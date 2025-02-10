@@ -13,12 +13,16 @@ import {
 import { formatDate } from '@/utils/date';
 
 import { useQuery } from '@tanstack/react-query';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function NoticeTable() {
   const { data, error } = useQuery({
     queryKey: ['notices'],
     queryFn: () => getNotices(1),
   });
+
+  const router = useRouter();
 
   return (
     <Table className="w-full">
@@ -33,7 +37,10 @@ export default function NoticeTable() {
       </TableHeader>
       <TableBody className="border-b">
         {data?.map((item, i) => (
-          <TableRow key={item.id}>
+          <TableRow
+            key={item.id}
+            onClick={() => router.push(`/community/${item.id}`)}
+          >
             <TableCell className="pl-5 py-5">{i + 1}</TableCell>
             <TableCell>{item.title}</TableCell>
             <TableCell>{item.writer}</TableCell>

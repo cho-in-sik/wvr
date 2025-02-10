@@ -24,6 +24,20 @@ export async function getNotices(a: any) {
   return data;
 }
 
+export async function getNotice(communityId: any) {
+  const supabase = await createServerSupabaseClient();
+  const { data, error } = await supabase
+    .from('notice')
+    .select('*')
+    .eq('id', communityId)
+    .single();
+
+  if (error) {
+    handleError(error);
+  }
+  return data;
+}
+
 export async function addNotice(formData: TNotice) {
   const supabase = await createServerSupabaseClient();
 
