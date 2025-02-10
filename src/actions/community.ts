@@ -7,7 +7,8 @@ function handleError(error) {
   throw new Error(error.message);
 }
 
-export async function getNotices(a) {
+export async function getNotices(a: any) {
+  console.log(a);
   const supabase = await createServerSupabaseClient();
   const { data, error } = await supabase.from('notice').select('*');
 

@@ -10,6 +10,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import { formatDate } from '@/utils/date';
 
 import { useQuery } from '@tanstack/react-query';
 
@@ -18,8 +19,6 @@ export default function NoticeTable() {
     queryKey: ['notices'],
     queryFn: () => getNotices(1),
   });
-
-  console.log('1', data);
 
   return (
     <Table className="w-full">
@@ -33,12 +32,14 @@ export default function NoticeTable() {
         </TableRow>
       </TableHeader>
       <TableBody className="border-b">
-        <TableRow>
-          <TableCell className="pl-5 py-5">1</TableCell>
-          <TableCell>Paid</TableCell>
-          <TableCell>Credit Card</TableCell>
-          <TableCell>$250.00</TableCell>
-        </TableRow>
+        {data?.map((item, i) => (
+          <TableRow key={item.id}>
+            <TableCell className="pl-5 py-5">{i + 1}</TableCell>
+            <TableCell>{item.title}</TableCell>
+            <TableCell>{item.writer}</TableCell>
+            <TableCell>{formatDate(item.created_at)}</TableCell>
+          </TableRow>
+        ))}
       </TableBody>
     </Table>
   );
