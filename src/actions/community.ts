@@ -2,6 +2,12 @@
 
 import { createServerSupabaseClient } from '@/utils/supabase/server';
 
+type TNotice = {
+  title: string;
+  content: string;
+  writer: string;
+};
+
 function handleError(error) {
   console.error(error);
   throw new Error(error.message);
@@ -18,17 +24,13 @@ export async function getNotices(a: any) {
   return data;
 }
 
-export async function addTank(formData) {
+export async function addNotice(formData: TNotice) {
   const supabase = await createServerSupabaseClient();
 
   const insertData = {
-    region: formData.region,
-    clientName: formData.clientName,
-    tank: formData.tank,
-    usage: formData.usage,
-    dueDate: formData.dueDate,
-    lastMRemainAmount: formData.lastRemain,
-    thisMRemainAmount: formData.currentRemain,
+    title: formData.title,
+    content: formData.content,
+    writer: formData.writer,
   };
 
   const { error, status } = await supabase.from('notice').insert([insertData]);
@@ -38,5 +40,5 @@ export async function addTank(formData) {
     throw new Error('데이터 삽입 실패');
   }
 
-  return status;
+  return { status };
 }
