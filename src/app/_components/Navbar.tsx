@@ -70,11 +70,22 @@ export default function Navbar() {
               align="center"
               className="p-2 py-4 font-semibold"
             >
-              <DropdownMenuItem>CEO 인사말</DropdownMenuItem>
-              <DropdownMenuItem>비전 및 브랜드스토리</DropdownMenuItem>
-              <DropdownMenuItem>연혁</DropdownMenuItem>
-              <DropdownMenuItem>인증 및 특허</DropdownMenuItem>
-              <DropdownMenuItem>오시는 길</DropdownMenuItem>
+              <Link href="/introduce">
+                <DropdownMenuItem>CEO 인사말</DropdownMenuItem>
+              </Link>
+              <Link href="/introduce/vision">
+                <DropdownMenuItem>비전 및 브랜드스토리</DropdownMenuItem>
+              </Link>
+
+              <Link href="/introduce/history">
+                <DropdownMenuItem>연혁</DropdownMenuItem>
+              </Link>
+              <Link href="/introduce/certification">
+                <DropdownMenuItem>인증 및 특허</DropdownMenuItem>
+              </Link>
+              <Link href="/introduce/direction">
+                <DropdownMenuItem>오시는 길</DropdownMenuItem>
+              </Link>
             </DropdownMenuContent>
           </DropdownMenu>
 
@@ -155,8 +166,12 @@ export default function Navbar() {
               align="center"
               className="p-2 py-4 font-semibold"
             >
-              <DropdownMenuItem>공지사항</DropdownMenuItem>
-              <DropdownMenuItem>뉴스</DropdownMenuItem>
+              <Link href="/community">
+                <DropdownMenuItem>공지사항</DropdownMenuItem>
+              </Link>
+              <Link href="/community/news">
+                <DropdownMenuItem>뉴스</DropdownMenuItem>
+              </Link>
             </DropdownMenuContent>
           </DropdownMenu>
 
@@ -185,7 +200,9 @@ export default function Navbar() {
               align="center"
               className="p-2 py-4 font-semibold"
             >
-              <DropdownMenuItem>문의하기</DropdownMenuItem>
+              <Link href="/contact">
+                <DropdownMenuItem>문의하기</DropdownMenuItem>
+              </Link>
             </DropdownMenuContent>
           </DropdownMenu>
         </nav>

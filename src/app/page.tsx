@@ -9,8 +9,8 @@ import ThirdMain from './_components/main/ThirdMain';
 import LastMain from './_components/main/LastMain';
 
 export default function Home() {
-  const DIVIDER_HEIGHT = 5;
-  const PAGE_COUNT = 5;
+  const DIVIDER_HEIGHT = 4;
+  const PAGE_COUNT = 4;
   const outerDivRef = useRef<HTMLDivElement | null>(null);
   const { currentPage, setCurrentPage } = usePage();
   const [isAnimating, setIsAnimating] = useState(false);
@@ -85,8 +85,7 @@ export default function Home() {
       <div className="h-screen w-full relative">
         <ThirdMain />
       </div>
-      <div className="w-full h-1 bg-gray-200"></div>
-      <div className="inner bg-black h-screen">4</div>
+
       <div className="w-full h-1 bg-gray-200"></div>
       <div className="h-screen w-full relative">
         <LastMain />
