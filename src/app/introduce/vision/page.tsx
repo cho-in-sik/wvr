@@ -4,7 +4,7 @@ import Image from 'next/image';
 export default function Page() {
   return (
     <div className="flex flex-col justify-center items-center">
-      <h1 className="text-center text-3xl sm:text-4xl lg:text-5xl font-semibold">
+      <h1 className="text-center text-3xl sm:text-4xl lg:text-5xl font-semibold mt-20">
         비전
       </h1>
       <div className="w-3/5 flex justify-between items-center h-96">
