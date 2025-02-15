@@ -100,7 +100,11 @@ export default function Navbar() {
               onMouseLeave={() => setActiveDropdown(null)}
               asChild
             >
-              <Link href="#" className="hover:text-[#04C9EA]" prefetch={false}>
+              <Link
+                href="/solution"
+                className="hover:text-[#04C9EA]"
+                prefetch={false}
+              >
                 솔루션
               </Link>
             </DropdownMenuTrigger>
@@ -110,9 +114,15 @@ export default function Navbar() {
               align="center"
               className="py-4 px-4 font-semibold"
             >
-              <DropdownMenuItem>청음식 누수 탐지</DropdownMenuItem>
-              <DropdownMenuItem>임베디드 유랑계</DropdownMenuItem>
-              <DropdownMenuItem>자산 관리</DropdownMenuItem>
+              <Link href={'/solution'}>
+                <DropdownMenuItem>청음식 누수 탐지</DropdownMenuItem>
+              </Link>
+              <Link href={'/solution/embeded'}>
+                <DropdownMenuItem>임베디드 유랑계</DropdownMenuItem>
+              </Link>
+              <Link href={'/solution/asset'}>
+                <DropdownMenuItem>자산 관리</DropdownMenuItem>
+              </Link>
             </DropdownMenuContent>
           </DropdownMenu>
 
