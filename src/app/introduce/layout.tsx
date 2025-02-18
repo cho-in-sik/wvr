@@ -19,7 +19,7 @@ export default function Layout({
     { label: '오시는 길', path: '/introduce/direction' },
   ];
 
-  // ✅ 현재 페이지의 제목 찾기 (기본값: '회사소개')
+  // 현재 페이지 제목 결정
   const currentTitle =
     menuItems.find((item) => item.path === pathname)?.label || '회사소개';
 
@@ -27,7 +27,7 @@ export default function Layout({
     <div className="flex flex-col min-h-screen">
       <Navbar />
 
-      {/* ✅ 네비게이션 영역 (반응형) */}
+      {/* 네비게이션 영역 */}
       <div
         className="min-h-[40vh] sm:min-h-[50vh] w-full bg-gray-400 bg-cover bg-center bg-no-repeat flex flex-col justify-center items-center gap-5 relative px-4 sm:px-6"
         style={{ backgroundImage: "url('/images/introduce/introduce3.jpg')" }}
@@ -39,7 +39,7 @@ export default function Layout({
           {currentTitle}
         </h1>
 
-        {/* ✅ 네비게이션 메뉴 (반응형) */}
+        {/* 네비게이션 메뉴 */}
         <div className="bg-white w-full sm:w-10/12 lg:w-8/12 h-16 sm:h-20 absolute bottom-0 flex justify-between items-center text-sm sm:text-base lg:text-xl">
           {menuItems.map((item, index) => (
             <Link key={index} href={item.path} className="w-full h-full">
@@ -55,12 +55,12 @@ export default function Layout({
         </div>
       </div>
 
-      {/* ✅ 컨텐츠 영역 (반응형) */}
+      {/* 콘텐츠 영역: h-full 제거, flex-grow로 자연스럽게 확장 */}
       <div className="flex-grow min-h-[50vh] w-full px-4 sm:px-6 lg:px-10 py-8 sm:py-12 lg:py-16">
         {children}
       </div>
 
-      {/* ✅ Footer (항상 하단 고정) */}
+      {/* Footer는 항상 하단에 위치 */}
       <div className="w-full bg-black py-16 sm:py-12">
         <Footer />
       </div>

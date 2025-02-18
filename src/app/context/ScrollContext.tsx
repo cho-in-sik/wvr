@@ -11,7 +11,6 @@ const PageContext = createContext<PageContextType | undefined>(undefined);
 
 export const PageProvider = ({ children }: { children: ReactNode }) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
-
   return (
     <PageContext.Provider value={{ currentPage, setCurrentPage }}>
       {children}
