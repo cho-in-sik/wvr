@@ -58,17 +58,14 @@ export default function Home() {
       }
     };
 
-    // outerDivRef.current가 null이 아닌지 확인 후 이벤트 등록
     if (!outerDivRef.current) return;
-    const outerDivRefCurrent = outerDivRef.current as HTMLDivElement;
-    outerDivRefCurrent.addEventListener('wheel', wheelHandler, {
-      passive: false,
-    });
+    const outerDiv = outerDivRef.current;
+    outerDiv.addEventListener('wheel', wheelHandler, { passive: false });
     scrollToPage();
 
-    // 클린업: 이벤트 제거 및 overflow 복원
     return () => {
-      outerDivRefCurrent.removeEventListener('wheel', wheelHandler);
+      outerDiv.removeEventListener('wheel', wheelHandler);
+      // 언마운트 시 overflow 복원
       document.body.style.overflow = '';
       document.documentElement.style.overflow = '';
     };
@@ -88,7 +85,6 @@ export default function Home() {
       <div className="h-screen w-full relative">
         <ThirdMain />
       </div>
-
       <div className="w-full h-1 bg-gray-200"></div>
       <div className="h-screen w-full relative">
         <LastMain />

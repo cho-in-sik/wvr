@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import Navbar from './_components/Navbar';
-
+import { Providers } from './_components/Providers';
 import Script from 'next/script';
 import { createServerSupabaseClient } from '@/utils/supabase/server';
-import { Providers } from './_components/Providers';
+import ReactQueryClientProvider from './_components/ReactQueryClientProvider';
+import LoadingScreen from './_components/LoadingScreen';
 
 export const API = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAOMAP_KEY}&libraries=services,clusterer&autoload=false`;
 
@@ -25,11 +26,15 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased [&::-webkit-scrollbar]:hidden">
-        {/* Providers는 루트 레이아웃에 한 번만 마운트되므로, Link 내비게이션 시 상태가 유지됩니다. */}
-        <Providers accessToken={session?.access_token}>
-          <Navbar />
-          {children}
-        </Providers>
+        {/* Providers는 앱 전체에 한 번만 마운트되어 상태가 유지됩니다. */}
+        <ReactQueryClientProvider>
+          <LoadingScreen />
+          <Providers accessToken={session?.access_token}>
+            <Navbar />
+            {/* 콘텐츠 컨테이너에 최대 너비 적용 */}
+            <div className="mx-auto">{children}</div>
+          </Providers>
+        </ReactQueryClientProvider>
         <Script src={API} strategy="beforeInteractive" />
       </body>
     </html>

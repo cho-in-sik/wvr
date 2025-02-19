@@ -28,9 +28,10 @@ export default function Navbar() {
     <header
       className={`p-3 fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
         currentPage !== 1 ? 'bg-white shadow-sm' : 'bg-transparent'
-      }`}
+      } border-b`}
     >
-      <div className="container flex h-24 max-w-full items-center justify-between px-4 md:px-6 xl:pl-32">
+      {/* 내부 컨테이너의 최대 너비를 2000px로 제한하여 너무 넓게 퍼지지 않도록 함 */}
+      <div className="flex h-24 items-center justify-between w-full mx-auto px-4 md:px-6 max-w-[1800px]">
         <Link href="/" className="flex items-center" prefetch={false}>
           {currentPage !== 1 ? (
             <Image src={logo2} alt="logo" width={350} />
@@ -41,7 +42,7 @@ export default function Navbar() {
 
         {/* 🚀 네비게이션 메뉴 */}
         <nav
-          className={`hidden md:flex items-center gap-10 md:gap-4 lg:gap-28 text-lg md:text-xl lg:text-2xl font-semibold ${
+          className={`hidden md:flex items-center gap-4 md:gap-6 lg:gap-8 xl:gap-10 text-base md:text-lg lg:text-xl xl:text-2xl font-semibold whitespace-nowrap ${
             currentPage !== 1 ? 'text-black' : 'text-white'
           } tracking-tight`}
         >
@@ -58,7 +59,7 @@ export default function Navbar() {
             >
               <Link
                 href="/introduce"
-                className="hover:text-[#04C9EA]"
+                className="hover:text-[#04C9EA] whitespace-nowrap"
                 prefetch={false}
               >
                 회사소개
@@ -76,7 +77,6 @@ export default function Navbar() {
               <Link href="/introduce/vision">
                 <DropdownMenuItem>비전 및 브랜드스토리</DropdownMenuItem>
               </Link>
-
               <Link href="/introduce/history">
                 <DropdownMenuItem>연혁</DropdownMenuItem>
               </Link>
@@ -102,7 +102,7 @@ export default function Navbar() {
             >
               <Link
                 href="/solution"
-                className="hover:text-[#04C9EA]"
+                className="hover:text-[#04C9EA] whitespace-nowrap"
                 prefetch={false}
               >
                 솔루션
@@ -137,7 +137,11 @@ export default function Navbar() {
               onMouseLeave={() => setActiveDropdown(null)}
               asChild
             >
-              <Link href="#" className="hover:text-[#04C9EA]" prefetch={false}>
+              <Link
+                href="#"
+                className="hover:text-[#04C9EA] whitespace-nowrap"
+                prefetch={false}
+              >
                 비즈니스
               </Link>
             </DropdownMenuTrigger>
@@ -164,7 +168,7 @@ export default function Navbar() {
             >
               <Link
                 href="/community"
-                className="hover:text-[#04C9EA]"
+                className="hover:text-[#04C9EA] whitespace-nowrap"
                 prefetch={false}
               >
                 커뮤니티
@@ -198,7 +202,7 @@ export default function Navbar() {
             >
               <Link
                 href="/contact"
-                className="hover:text-[#04C9EA]"
+                className="hover:text-[#04C9EA] whitespace-nowrap"
                 prefetch={false}
               >
                 소통
@@ -230,8 +234,8 @@ export default function Navbar() {
             <SheetContent side="right">
               <div className="grid gap-6 p-4 pt-10">
                 <Link
-                  href="#"
-                  className="text-2xl font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                  href="/introduce"
+                  className="text-2xl font-medium text-gray-500 hover:text-gray-900 whitespace-nowrap"
                   prefetch={false}
                 >
                   <div className="flex justify-start items-center">
@@ -240,8 +244,8 @@ export default function Navbar() {
                   </div>
                 </Link>
                 <Link
-                  href="#"
-                  className="text-2xl font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                  href="/solution"
+                  className="text-2xl font-medium text-gray-500 hover:text-gray-900 whitespace-nowrap"
                   prefetch={false}
                 >
                   <div className="flex justify-start items-center">
@@ -251,7 +255,7 @@ export default function Navbar() {
                 </Link>
                 <Link
                   href="#"
-                  className="text-2xl font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                  className="text-2xl font-medium text-gray-500 hover:text-gray-900 whitespace-nowrap"
                   prefetch={false}
                 >
                   <div className="flex justify-start items-center">
@@ -260,8 +264,8 @@ export default function Navbar() {
                   </div>
                 </Link>
                 <Link
-                  href="#"
-                  className="text-2xl font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                  href="/community"
+                  className="text-2xl font-medium text-gray-500 hover:text-gray-900 whitespace-nowrap"
                   prefetch={false}
                 >
                   <div className="flex justify-start items-center">
@@ -270,8 +274,8 @@ export default function Navbar() {
                   </div>
                 </Link>
                 <Link
-                  href="#"
-                  className="text-2xl font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                  href="/contact"
+                  className="text-2xl font-medium text-gray-500 hover:text-gray-900 whitespace-nowrap"
                   prefetch={false}
                 >
                   <div className="flex justify-start items-center">

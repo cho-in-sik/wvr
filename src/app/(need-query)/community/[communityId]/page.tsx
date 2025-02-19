@@ -56,7 +56,7 @@ export default function Page({ params }) {
       <div className="w-full h-12 bg-white border-b p-2 text-sm text-slate-500 flex justify-start items-center">
         {/* {`작성일: ${formatDate(data?.created_at)}`} */}
       </div>
-      <div className="w-full p-5">{data?.content}</div>
+      <div className="w-full p-5 whitespace-pre-wrap">{data?.content}</div>
     </div>
   );
 }
