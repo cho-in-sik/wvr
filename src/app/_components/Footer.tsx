@@ -6,14 +6,21 @@ import { usePage } from '@/app/context/ScrollContext';
 import top from '@/../public/svgs/top.svg';
 
 export default function Footer() {
-  const { setCurrentPage } = usePage();
+  const { currentPage, setCurrentPage } = usePage();
 
   const handleScrollToTop = () => {
-    setCurrentPage(1);
+    if (currentPage === 1) {
+      // 이미 1페이지인 경우, 강제로 위로 스크롤 애니메이션을 실행
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      // 1페이지가 아닌 경우, 페이지를 1로 전환(전환 시 애니메이션 포함)
+      setCurrentPage(1);
+    }
   };
+
   return (
     <div className="h-[25%] w-full bg-black text-white flex flex-col justify-center items-start px-6 md:px-16 lg:px-48 gap-5 md:gap-7 relative">
-      {/* ✅ Footer Links */}
+      {/* Footer Links */}
       <div className="flex flex-wrap justify-start items-center gap-3 md:gap-5 text-sm md:text-lg">
         <Link href="#">
           <span className="hover:text-gray-400 transition">이용약관</span>
@@ -30,7 +37,7 @@ export default function Footer() {
         </Link>
       </div>
 
-      {/* ✅ 회사 정보 */}
+      {/* 회사 정보 */}
       <div className="text-xs md:text-sm text-slate-300">
         <h6>
           광주광역시 북구 용봉로 77, 제 1산학협력공학관 607호 (용봉동,
@@ -42,12 +49,12 @@ export default function Footer() {
         </h6>
       </div>
 
-      {/* ✅ 저작권 */}
+      {/* 저작권 */}
       <div className="text-xs md:text-sm text-slate-400">
         <h6>© (주)더블유브이알 All rights reserved.</h6>
       </div>
 
-      {/* ✅ 상단 이동 버튼 */}
+      {/* 상단 이동 버튼 */}
       <div
         className="rounded-md absolute right-6 md:right-16 lg:right-20 cursor-pointer hover:scale-110 transition"
         onClick={handleScrollToTop}
