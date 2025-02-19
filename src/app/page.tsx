@@ -17,6 +17,7 @@ export default function Home() {
   const pageHeight = typeof window !== 'undefined' ? window.innerHeight : 0;
 
   useEffect(() => {
+    // 페이지 마운트 시 overflow를 숨김
     document.body.style.overflow = 'hidden';
     document.documentElement.style.overflow = 'hidden';
 
@@ -24,7 +25,7 @@ export default function Home() {
       if (!outerDivRef.current || isAnimating) return;
       e.preventDefault();
 
-      setIsAnimating(true); // 🚀 스크롤 이벤트 시작
+      setIsAnimating(true); // 스크롤 이벤트 시작
 
       requestAnimationFrame(() => {
         setCurrentPage((prev) => {
@@ -34,12 +35,11 @@ export default function Home() {
           } else if (e.deltaY < 0 && prev > 1) {
             nextPage = prev - 1;
           }
-
           return nextPage;
         });
 
         setTimeout(() => {
-          setIsAnimating(false); // 🚀 600ms 후 스크롤 허용
+          setIsAnimating(false); // 600ms 후 스크롤 허용
         }, 600);
       });
     };
@@ -58,18 +58,21 @@ export default function Home() {
       }
     };
 
+    // outerDivRef.current가 null이 아닌지 확인 후 이벤트 등록
     if (!outerDivRef.current) return;
-    const outerDivRefCurrent = outerDivRef.current;
+    const outerDivRefCurrent = outerDivRef.current as HTMLDivElement;
     outerDivRefCurrent.addEventListener('wheel', wheelHandler, {
       passive: false,
     });
+    scrollToPage();
 
-    scrollToPage(); // ✅ currentPage 변경될 때 실행
-
+    // 클린업: 이벤트 제거 및 overflow 복원
     return () => {
       outerDivRefCurrent.removeEventListener('wheel', wheelHandler);
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     };
-  }, [currentPage, pageHeight, setCurrentPage, isAnimating]);
+  }, [currentPage, pageHeight, isAnimating, setCurrentPage]);
 
   return (
     <div ref={outerDivRef} className="min-h-screen h-screen overflow-hidden">
