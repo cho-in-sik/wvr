@@ -17,7 +17,7 @@ export default function Home() {
   const pageHeight = typeof window !== 'undefined' ? window.innerHeight : 0;
 
   useEffect(() => {
-    // 페이지 마운트 시 overflow를 숨김
+    // 페이지 마운트 시 스크롤을 막음
     document.body.style.overflow = 'hidden';
     document.documentElement.style.overflow = 'hidden';
 
@@ -25,7 +25,7 @@ export default function Home() {
       if (!outerDivRef.current || isAnimating) return;
       e.preventDefault();
 
-      setIsAnimating(true); // 스크롤 이벤트 시작
+      setIsAnimating(true);
 
       requestAnimationFrame(() => {
         setCurrentPage((prev) => {
@@ -39,8 +39,8 @@ export default function Home() {
         });
 
         setTimeout(() => {
-          setIsAnimating(false); // 600ms 후 스크롤 허용
-        }, 600);
+          setIsAnimating(false);
+        }, 300);
       });
     };
 
@@ -53,8 +53,11 @@ export default function Home() {
       });
 
       if (currentPage === 1) {
-        document.documentElement.scrollTop = 0;
-        document.body.scrollTop = 0;
+        // 600ms 후에 scrollTop을 0으로 재설정해서 자연스러운 애니메이션을 유지
+        setTimeout(() => {
+          document.documentElement.scrollTop = 0;
+          document.body.scrollTop = 0;
+        }, 300);
       }
     };
 
@@ -65,7 +68,7 @@ export default function Home() {
 
     return () => {
       outerDiv.removeEventListener('wheel', wheelHandler);
-      // 언마운트 시 overflow 복원
+      // 언마운트 시 스크롤 속성 복원
       document.body.style.overflow = '';
       document.documentElement.style.overflow = '';
     };

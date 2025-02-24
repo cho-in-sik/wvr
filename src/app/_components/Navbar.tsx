@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Sheet, SheetTrigger, SheetContent } from '@/components/ui/sheet';
@@ -17,36 +17,42 @@ import menu from '@/../public/svgs/menu.svg';
 import menu2 from '@/../public/svgs/menu2.svg';
 import rightArrow from '@/../public/svgs/rightArrow.svg';
 import { usePage } from '../context/ScrollContext';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
   const { currentPage } = usePage();
-
-  // 🚀 현재 활성화된 드롭다운 메뉴 상태
+  const pathname = usePathname();
+  const isMain = pathname === '/';
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // 조건: 메인페이지의 경우 (currentPage !== 1 || isScrolled), 다른 페이지는 (isScrolled)
+  const changeBg = isMain ? currentPage !== 1 || isScrolled : isScrolled;
+  const headerBgClass = changeBg ? 'bg-white shadow-sm' : 'bg-transparent';
+  const textColorClass = changeBg ? 'text-black' : 'text-white';
+  const logoToUse = changeBg ? logo2 : logo;
 
   return (
     <header
-      className={`p-3 fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
-        currentPage !== 1 ? 'bg-white shadow-sm' : 'bg-transparent'
-      } border-b`}
+      className={`p-3 fixed top-0 left-0 z-50 w-full transition-all duration-300 border-b ${headerBgClass}`}
     >
-      {/* 내부 컨테이너의 최대 너비를 2000px로 제한하여 너무 넓게 퍼지지 않도록 함 */}
       <div className="flex h-24 items-center justify-between w-full mx-auto px-4 md:px-6 max-w-[1800px]">
         <Link href="/" className="flex items-center" prefetch={false}>
-          {currentPage !== 1 ? (
-            <Image src={logo2} alt="logo" width={350} />
-          ) : (
-            <Image src={logo} alt="logo" width={350} />
-          )}
+          <Image src={logoToUse} alt="logo" width={350} />
         </Link>
 
-        {/* 🚀 네비게이션 메뉴 */}
         <nav
-          className={`hidden md:flex items-center gap-4 md:gap-6 lg:gap-8 xl:gap-10 text-base md:text-lg lg:text-xl xl:text-2xl font-semibold whitespace-nowrap ${
-            currentPage !== 1 ? 'text-black' : 'text-white'
-          } tracking-tight`}
+          className={`hidden md:flex items-center gap-4 md:gap-6 lg:gap-8 xl:gap-10 text-base md:text-lg lg:text-xl xl:text-2xl font-semibold whitespace-nowrap tracking-tight ${textColorClass}`}
         >
-          {/* 🚀 회사소개 Dropdown */}
+          {/* 회사소개 Dropdown */}
           <DropdownMenu
             open={activeDropdown === 'company'}
             onOpenChange={() => setActiveDropdown(null)}
@@ -89,7 +95,7 @@ export default function Navbar() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          {/* 🚀 솔루션 Dropdown */}
+          {/* 솔루션 Dropdown */}
           <DropdownMenu
             open={activeDropdown === 'solution'}
             onOpenChange={() => setActiveDropdown(null)}
@@ -126,7 +132,7 @@ export default function Navbar() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          {/* 🚀 비즈니스 Dropdown */}
+          {/* 비즈니스 Dropdown */}
           <DropdownMenu
             open={activeDropdown === 'business'}
             onOpenChange={() => setActiveDropdown(null)}
@@ -155,7 +161,7 @@ export default function Navbar() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          {/* 🚀 커뮤니티 Dropdown */}
+          {/* 커뮤니티 Dropdown */}
           <DropdownMenu
             open={activeDropdown === 'community'}
             onOpenChange={() => setActiveDropdown(null)}
@@ -189,7 +195,7 @@ export default function Navbar() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          {/* 🚀 소통 Dropdown */}
+          {/* 소통 Dropdown */}
           <DropdownMenu
             open={activeDropdown === 'contact'}
             onOpenChange={() => setActiveDropdown(null)}
@@ -225,7 +231,7 @@ export default function Navbar() {
         <div className="flex items-center gap-4 cursor-pointer">
           <Sheet>
             <SheetTrigger asChild>
-              {currentPage !== 1 ? (
+              {(isMain && currentPage !== 1) || (!isMain && isScrolled) ? (
                 <Image src={menu2} alt="menu" />
               ) : (
                 <Image src={menu} alt="menu" />
