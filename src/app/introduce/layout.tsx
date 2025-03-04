@@ -13,7 +13,7 @@ export default function Layout({
   // ✅ 메뉴 리스트 (이름 & 경로)
   const menuItems = [
     { label: 'CEO 인사말', path: '/introduce' },
-    { label: '비전 및 브랜드스토리', path: '/introduce/vision' },
+    { label: '비전', path: '/introduce/vision' },
     { label: '연혁', path: '/introduce/history' },
     { label: '인증 및 특허', path: '/introduce/certification' },
     { label: '오시는 길', path: '/introduce/direction' },

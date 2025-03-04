@@ -42,7 +42,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`p-3 fixed top-0 left-0 z-50 w-full transition-all duration-300 border-b ${headerBgClass}`}
+      className={`p-3 fixed top-0 left-0 z-50 w-full transition-all duration-300 ${headerBgClass}`}
     >
       <div className="flex h-24 items-center justify-between w-full mx-auto px-4 md:px-6 max-w-[1800px]">
         <Link href="/" className="flex items-center" prefetch={false}>
