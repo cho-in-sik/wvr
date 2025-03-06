@@ -23,12 +23,6 @@ export default function LastMain() {
         >
           <div className="text-white flex flex-col items-start justify-center">
             <h3 className="text-xl md:text-2xl font-extrabold mb-3">Contact</h3>
-            <h4 className="text-lg md:text-3xl font-normal mb-1">
-              궁금한 사항이 있으시면
-            </h4>
-            <h4 className="text-lg md:text-3xl font-extrabold mb-5">
-              문의 부탁드립니다.
-            </h4>
 
             <span className="text-sm md:text-base font-bold">
               Tel : 062-716-7702
