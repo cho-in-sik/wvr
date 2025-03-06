@@ -48,9 +48,10 @@ export default function Navbar() {
         <Link href="/" className="flex items-center" prefetch={false}>
           <Image src={logoToUse} alt="logo" width={350} />
         </Link>
-
+        <div></div>
+        <div></div>
         <nav
-          className={`hidden md:flex items-center gap-4 md:gap-6 lg:gap-8 xl:gap-10 text-base md:text-lg lg:text-xl xl:text-2xl font-semibold whitespace-nowrap tracking-tight ${textColorClass}`}
+          className={`hidden md:flex items-center gap-6 md:gap-8 lg:gap-12 xl:gap-16 text-base md:text-lg lg:text-xl xl:text-2xl font-semibold whitespace-nowrap tracking-tight ${textColorClass}`}
         >
           {/* 회사소개 Dropdown */}
           <DropdownMenu
@@ -226,7 +227,6 @@ export default function Navbar() {
             </DropdownMenuContent>
           </DropdownMenu>
         </nav>
-
         {/* 햄버거 메뉴 (모바일) */}
         <div className="flex items-center gap-4 cursor-pointer">
           <Sheet>
