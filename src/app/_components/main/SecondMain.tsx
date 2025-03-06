@@ -2,46 +2,55 @@ export default function SecondMain() {
   return (
     // 기본적으로 상단에 6rem(24) 만큼의 마진을 주어 navbar와 겹치지 않도록 하고,
     // 2xl 이상(가로 레이아웃)에서는 마진을 제거합니다.
-    <div className="mt-24 2xl:mt-0 flex flex-col 2xl:flex-row flex-1 overflow-hidden">
+    <div className="mt-24 2xl:mt-0 flex flex-col 2xl:flex-row flex-1 overflow-hidden ">
       {/* 왼쪽 이미지 배경 및 텍스트 영역 */}
       <div
-        className="w-full 2xl:w-2/5 h-auto 2xl:h-screen bg-cover bg-center bg-no-repeat flex items-center justify-start p-10 md:p-16 lg:p-28"
-        style={{ backgroundImage: "url('/images/main/secondMain1.jpg')" }}
+        className="relative w-full 2xl:w-2/5 h-auto 2xl:h-screen bg-cover bg-center bg-no-repeat flex items-center justify-start p-10 md:p-16 lg:p-28"
+        style={{ backgroundImage: "url('/images/main/secondMain.jpeg')" }}
       >
-        {/* 최소 너비를 지정하여 텍스트 줄바꿈 없이 한 줄씩 유지 */}
-        <div className="min-w-[800px] text-white flex flex-col items-start justify-center">
+        {/* 오른쪽 그라데이션 오버레이 */}
+        <div className="absolute inset-0 pointer-events-none flex justify-end">
+          <div
+            className="w-1/2 h-full"
+            style={{
+              backgroundImage:
+                'linear-gradient(to left, rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0))',
+            }}
+          />
+        </div>
+        {/* 텍스트 콘텐츠 (오버레이 위에 표시) */}
+        <div className="min-w-[800px] relative z-10 text-black flex flex-col items-start justify-center font-sans">
           <h3
-            className="font-extrabold mb-3"
+            className="font-medium mb-3"
             style={{ fontSize: 'clamp(1.75rem, 4vw, 2.5rem)' }}
           >
-            About us
+            더블유브이알은
           </h3>
           <h4
-            className="mb-1 whitespace-nowrap"
+            className="mb-1 whitespace-nowrap font-medium"
             style={{ fontSize: 'clamp(1rem, 3vw, 2.25rem)' }}
           >
-            더블유브이알은 모두가 행복한
+            환경 데이터 AI로 분석하여
           </h4>
           <h4
-            className="mb-1 whitespace-nowrap"
+            className="mb-1 whitespace-nowrap font-medium"
             style={{ fontSize: 'clamp(1rem, 3vw, 2.25rem)' }}
           >
-            삶을 위해 보이지 않는 것으로부터
+            새로운 가치를 창출하는
           </h4>
           <h4
-            className="mb-6 whitespace-nowrap"
+            className="mb-6 whitespace-nowrap font-medium"
             style={{ fontSize: 'clamp(1rem, 3vw, 2.25rem)' }}
           >
-            새로운 가치를 탐구합니다.
+            스마트 환경 솔루션 기업입니다.
           </h4>
           <span
-            // 모바일에서는 w-full, 큰 화면에서는 w-1/3 적용하여 반응형 너비 조정
-            className="pr-4 w-1/3 2xl:w-3/4"
+            className="pr-4 w-1/3 2xl:w-3/4 font-light"
             style={{ fontSize: 'clamp(0.8rem, 2.5vw, 1.5rem)' }}
           >
-            다양한 파장대를 감지하는 분광 이미지 센서를 활용하여, 인간의
-            시각으로는 감지하기 어려운 영역을 탐지하고 이를 데이터화하여
-            인공지능 모델을 통해 자동으로 학습시켜 처리합니다.
+            우리는 인공지능과 첨단 센싱 기술을 활용해 정밀하게 분석하고 예측하여
+            최적의 해결책을 제시함으로써 지속 가능한 미래를 위한 혁신을
+            이끌어갑니다
           </span>
         </div>
       </div>
@@ -53,12 +62,14 @@ export default function SecondMain() {
           <div
             className="absolute inset-0 bg-cover bg-center transition-transform duration-500 hover:scale-110"
             style={{
-              backgroundImage: "url('/images/main/companyIntroduce.jpg')",
+              backgroundImage: "url('/images/main/mainCompanyIntroduce.jpeg')",
             }}
           ></div>
           <div className="relative z-10 text-white px-6 py-10 md:px-10 md:py-16 bg-black bg-opacity-50 rounded-lg">
-            <h5 className="text-lg md:text-xl lg:text-2xl mb-2">About us</h5>
-            <h4 className="text-xl md:text-2xl lg:text-3xl font-bold">
+            <h5 className="text-lg md:text-xl lg:text-2xl mb-2 font-sans font-medium">
+              About us
+            </h5>
+            <h4 className="text-xl md:text-2xl lg:text-3xl font-sans font-medium">
               기업소개
             </h4>
           </div>
@@ -69,12 +80,16 @@ export default function SecondMain() {
           <div
             className="absolute inset-0 bg-cover bg-center transition-transform duration-500 hover:scale-110"
             style={{
-              backgroundImage: "url('/images/main/vision.jpg')",
+              backgroundImage: "url('/images/main/mainVision.jpeg')",
             }}
           ></div>
           <div className="relative z-10 text-white px-6 py-10 md:px-10 md:py-16 bg-black bg-opacity-50 rounded-lg">
-            <h5 className="text-lg md:text-xl lg:text-2xl mb-2">Vision</h5>
-            <h4 className="text-xl md:text-2xl lg:text-3xl font-bold">비전</h4>
+            <h5 className="text-lg md:text-xl lg:text-2xl mb-2 font-sans font-medium">
+              Vision
+            </h5>
+            <h4 className="text-xl md:text-2xl lg:text-3xl font-medium font-sans">
+              비전
+            </h4>
           </div>
         </div>
       </div>
