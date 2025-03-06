@@ -7,15 +7,15 @@ export default function FirstMain() {
       {/* ✅ 배경 이미지 (전체 너비 유지) */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-fixed animate-fade-zoom-1"
-        style={{ backgroundImage: "url('/images/main/main4.jpg')" }}
+        style={{ backgroundImage: "url('/images/main/main1.jpeg')" }}
       ></div>
       <div
         className="absolute inset-0 bg-cover bg-center bg-fixed animate-fade-zoom-2"
-        style={{ backgroundImage: "url('/images/main/main1.jpg')" }}
+        style={{ backgroundImage: "url('/images/main/main2.jpeg')" }}
       ></div>
       <div
         className="absolute inset-0 bg-cover bg-center bg-fixed animate-fade-zoom-3"
-        style={{ backgroundImage: "url('/images/main/main2.jpg')" }}
+        style={{ backgroundImage: "url('/images/main/main3.jpeg')" }}
       ></div>
 
       {/* ✅ 콘텐츠 영역 (max-w 적용, 가운데 정렬) */}
