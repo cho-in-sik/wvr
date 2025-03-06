@@ -1,60 +1,58 @@
+import Logo from '@/../public/images/logo/PNG 1.png';
+import Image from 'next/image';
+
 export default function Page() {
   return (
-    <div className="py-16 sm:py-20 flex flex-col justify-center items-center gap-12 sm:gap-20 px-4 sm:px-6">
-      {/* ✅ 제목 */}
-      <h1 className="text-center text-3xl sm:text-4xl lg:text-5xl font-semibold">
-        CEO 인사말
-      </h1>
-
-      {/* ✅ CEO 이미지 섹션 */}
-      <div
-        className="bg-cover bg-center bg-no-repeat w-full sm:w-5/6 lg:w-4/6 h-56 sm:h-72 lg:h-80 px-6 sm:px-12 lg:px-20 py-6 sm:py-8 lg:py-10 flex flex-col justify-center"
-        style={{ backgroundImage: "url('/images/introduce/ceo.jpg')" }}
-      >
-        <h3 className="font-bold text-base sm:text-lg lg:text-xl mb-6 sm:mb-10 mt-2 sm:mt-5">
-          CEO GREETING
-        </h3>
-        <h2 className="font-semibold text-xl sm:text-2xl lg:text-4xl mb-3 sm:mb-5 text-gray-800">
-          안녕하십니까?
-        </h2>
-        <h2 className="font-semibold text-xl sm:text-2xl lg:text-4xl text-gray-800">
-          더블유브이알에 방문해 주셔서 감사합니다.
-        </h2>
+    <div className="flex flex-col md:flex-row px-4 sm:px-8 lg:px-20 py-10">
+      {/* 로고 영역 */}
+      <div className="flex justify-center items-center p-6 md:p-10">
+        <Image src={Logo} alt="Logo" height={300} />
       </div>
-
-      {/* ✅ 슬로건 */}
-      <div className="text-center">
-        <h3 className="text-gray-500 mb-6 sm:mb-10 text-xl sm:text-2xl lg:text-3xl">
-          Whatever for your dreams
-        </h3>
-        <h3 className="font-bold text-2xl sm:text-3xl lg:text-4xl">
-          Empowering Innovation with AI
-        </h3>
-      </div>
-
-      {/* ✅ 본문 텍스트 */}
-      <div className="w-full sm:w-5/6 lg:w-4/6 px-4 sm:px-6 lg:px-5 flex flex-col justify-center items-start gap-6 sm:gap-10 text-base sm:text-lg lg:text-xl">
-        <h6>
-          더블유브이알은 모두가 행복한 삶을 위해 보이지 않는 것으로부터 새로운
-          가치를 탐구합니다.
-        </h6>
-        <h6>
-          다양한 파장대를 감지하는 분광 이미지 센서를 활용하여, 인간의
-          시각으로는 감지하기 어려운 영역을 탐지하고 이를 데이터화 하여 인공지능
-          모델을 통해 자동으로 학습시켜 처리합니다.
-        </h6>
-        <h6>
-          우리는 고객과 사회에 지속가능한 가치를 제공하고 안전한 물, 탄소 중립,
-          건강 관리 등 여러 분야에서의 혁신을 주도합니다. 우리의 기술로 질병의
-          예방과 진단, 치료, 건강한 라이프스타일을 위한 혁신적인 맞춤 솔루션을
-          받아보세요. 고객의 목표와 요구를 이해하고 그에 맞는 개인 맞춤형
-          인공지능 솔루션을 제공할 것입니다.
-        </h6>
-        <h6>
-          개인의 삶뿐만 아니라 함께 사는 가족 구성원들과 반려동물까지 모두의
-          미래를 더 건강하고 행복하게 만들기 위해 저희 더블유브이알이
-          함께하겠습니다.
-        </h6>
+      {/* 본문 영역 */}
+      <div className="flex flex-col font-sans w-full md:border-l-2 border-t-2 md:border-t-0 md:pl-10">
+        <h1 className="text-center text-3xl md:text-4xl font-normal py-4">
+          &quot;지능형 솔루션으로 내일의 환경을 설계합니다&quot;
+        </h1>
+        <div className="flex flex-col gap-6 p-4 sm:p-8 md:p-10">
+          <div>
+            <h3 className="font-medium text-xl md:text-2xl mb-2">GREETINGS</h3>
+            <h2 className="font-semibold text-2xl md:text-4xl mb-3">인사말</h2>
+          </div>
+          <span className="text-base md:text-lg font-medium">
+            더블유브이알은 기후변화 대응을 위한 환경 인프라 솔루션 개발에
+            매진해왔습니다.
+            <br />
+            센싱 기술과 인공지능(AI)을 결합해 수자원 관리, 대기질 개선, 하수처리
+            효율화 등 다양한 분야에서 혁신적인 기술을 제공하고 있으며,
+            <br />
+            이를 통해 지속 가능한 미래를 만드는 데 집중하고 있습니다.
+          </span>
+          <span className="text-base md:text-lg font-medium">
+            저희는 데이터를 통해 미래를 예측하고, 이를 기반으로 보다 스마트한
+            환경 관리 솔루션을 제안합니다.
+            <br />
+            AIoT 유량계, AI 기반 누수 탐지, 탄소중립 하수처리 솔루션 등 당사의
+            제품들은 환경 인프라의 상태를 실시간으로 진단하고
+            <br />
+            효율적으로 관리할 수 있도록 지원합니다.
+          </span>
+          <span className="text-base md:text-lg font-medium">
+            또한, 국책 과제 수행을 통해 기술력을 인정받아 왔으며, 글로벌
+            시장으로의 확장을 목표로 지속적인
+            <br />
+            연구개발과 투자에 힘쓰고 있습니다. 이러한 노력은 모두가 안전하고
+            쾌적한 환경에서 살아갈 수 있는 세상을 만들기 위함입니다.
+          </span>
+          <span className="text-base md:text-lg font-medium">
+            앞으로도 더블유브이알은 환경과 기술의 조화를 통해 사회적 가치를
+            실현하고, 혁신적인 솔루션으로 고객의 기대에 부응하겠습니다.
+            <br />
+            감사합니다.
+          </span>
+          <span className="text-base md:text-lg font-medium">
+            (주)더블유브이알대표 박용균
+          </span>
+        </div>
       </div>
     </div>
   );

@@ -30,7 +30,7 @@ export default function Layout({
       {/* 네비게이션 영역 */}
       <div
         className="min-h-[40vh] sm:min-h-[50vh] w-full bg-gray-400 bg-cover bg-center bg-no-repeat flex flex-col justify-center items-center gap-5 relative px-4 sm:px-6"
-        style={{ backgroundImage: "url('/images/introduce/introduce3.jpg')" }}
+        style={{ backgroundImage: "url('/images/introduce/ceo.jpeg')" }}
       >
         <h4 className="text-white text-lg sm:text-xl font-play font-semibold">
           회사소개
