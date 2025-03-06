@@ -2,15 +2,25 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import water from '@/../public/images/main/water.png';
-import carbon from '@/../public/images/main/carbon2.png';
-import environment from '@/../public/images/main/environment.png';
+import water from '@/../public/images/main/mainWater.jpeg';
+import carbon from '@/../public/images/main/mainCarbon.jpeg';
+import environment from '@/../public/images/main/mainEnvironment.jpeg';
 import right from '@/../public/svgs/right.svg';
 import Image from 'next/image';
 
 export default function ThirdMain() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
+
+  const cards = [
+    { title: 'Water', img: water, desc: 'WVR와 함께 나아갈 물관리' },
+    {
+      title: 'Environment',
+      img: environment,
+      desc: '지속 가능한 환경',
+    },
+    { title: 'Carbon', img: carbon, desc: '미래지향적 탄소 저감 기술' },
+  ];
 
   return (
     <div
@@ -19,37 +29,42 @@ export default function ThirdMain() {
     >
       {/* 왼쪽 텍스트 영역 */}
       <div className="w-full 2xl:w-2/5 bg-gray-50 flex justify-start items-center p-10 md:p-16 lg:p-28">
-        <div className="lg:min-w-[600px] 2xl:min-w-[800px] text-black flex flex-col items-start justify-center">
+        <div className="lg:min-w-[600px] 2xl:min-w-[800px] text-black flex flex-col items-start justify-center font-sans">
           <h3
-            className="mb-3 font-semibold"
+            className="mb-3 font-medium"
             style={{ fontSize: 'clamp(1.75rem, 4vw, 2.5rem)' }}
           >
-            Business
+            더블유브이알은
           </h3>
           <h4
-            className="mb-1 font-semibold text-slate-700"
+            className="mb-1 font-medium"
             style={{ fontSize: 'clamp(1rem, 3vw, 2.25rem)' }}
           >
-            더블유브이알은 모두가 행복한
+            정밀하게 분석하고 예측하여
           </h4>
           <h4
-            className="mb-1 font-semibold text-slate-700"
+            className="mb-6 font-medium"
             style={{ fontSize: 'clamp(1rem, 3vw, 2.25rem)' }}
           >
-            삶을 위해 보이지 않는 것으로부터
+            최적의 AI 해결책을 제시합니다
           </h4>
-          <h4
-            className="mb-6 font-semibold text-slate-700"
-            style={{ fontSize: 'clamp(1rem, 3vw, 2.25rem)' }}
+          <span
+            className="mb-1 font-medium"
+            style={{ fontSize: 'clamp(0.8rem, 2.5vw, 1.5rem)' }}
           >
-            새로운 가치를 탐구합니다.
-          </h4>
+            기후 변화 대응, 수자원 관리, 인프라 유지보수 등
+          </span>
+          <span
+            className="mb-1 font-medium"
+            style={{ fontSize: 'clamp(0.8rem, 2.5vw, 1.5rem)' }}
+          >
+            다양한 분야에서 효율적이고 신뢰성 높은 AI 솔루션을 경험하세요
+          </span>
           <span
             className="pr-4 w-3/4 2xl:w-3/4"
             style={{ fontSize: 'clamp(0.8rem, 2.5vw, 1.5rem)' }}
           >
-            수질 환경, 대기 환경, 개인과 가족 구성원들의 건강 등 더 넓어지고
-            다양해질 분야에서 더블유브이알의 AI care 기술을 만나보세요.
+            더 나은 세상을 위한 혁신 더블유브이알이 만들어갑니다
           </span>
         </div>
       </div>
@@ -59,39 +74,31 @@ export default function ThirdMain() {
         className="w-full 2xl:w-3/5 h-auto 2xl:h-screen bg-cover bg-center bg-no-repeat px-4 py-6 md:px-10 lg:px-0 lg:py-12"
         style={{ backgroundImage: "url('/images/main/thirdMain2.jpg')" }}
       >
-        {/* 모바일: 그리드로 3개 카드 한 행 / 2xl 이상: flex row로 전환하고 중앙 정렬 */}
+        {/* 모바일: 그리드, 2xl 이상: flex row로 전환 */}
         <div className="h-full grid grid-cols-3 gap-2 place-items-center 2xl:flex 2xl:flex-row 2xl:justify-center 2xl:items-center 2xl:gap-6">
-          {[
-            { title: 'Water', img: water, desc: 'WVR와 함께 나아갈 물관리' },
-            {
-              title: 'Environment',
-              img: environment,
-              desc: '환경을 생각하는 친화적인',
-            },
-            { title: 'Carbon', img: carbon, desc: '탄소 저감을 위한 사업' },
-          ].map((item, index) => (
+          {cards.map((item, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="w-full 2xl:w-[30%] 2xl:h-[30vh] p-3 bg-white bg-opacity-20 shadow-lg rounded-lg transition-transform duration-300 hover:scale-105 flex flex-col justify-center items-center"
+              className="w-full 2xl:w-[30%] 2xl:h-[25vh] p-3 shadow-lg rounded-xl transition-transform duration-300 hover:scale-105 flex flex-col justify-center items-center relative filter saturate-150"
+              style={{
+                backgroundImage: `url(${item.img.src})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }}
             >
-              <span className="text-xs md:text-base lg:text-xl font-semibold mb-1">
-                {item.title}
-              </span>
-              <Image
-                src={item.img}
-                alt={item.title}
-                width={60}
-                height={60}
-                className="mb-1"
-              />
-              <span className="text-[0.65rem] md:text-sm lg:text-base text-center mb-2">
-                {item.desc}
-              </span>
-              <div className="bg-gray-800 rounded-full p-2 hover:bg-gray-600 transition-colors">
-                <Image src={right} alt="right" width={16} height={16} />
+              <div className="relative flex flex-col items-center font-sans gap-10">
+                <span className="text-xl md:text-3xl lg:text-5xl font-semibold mb-1 text-white">
+                  {item.title}
+                </span>
+                <div className="bg-gray-800 rounded-full p-2 hover:bg-gray-600 transition-colors z-10">
+                  <Image src={right} alt="right" width={20} height={20} />
+                </div>
+                <span className="text-xs md:text-lg lg:text-2xl font-medium text-center mb-2 text-white">
+                  {item.desc}
+                </span>
               </div>
             </motion.div>
           ))}
