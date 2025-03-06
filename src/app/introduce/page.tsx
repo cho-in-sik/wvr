@@ -3,13 +3,13 @@ import Image from 'next/image';
 
 export default function Page() {
   return (
-    <div className="flex flex-col md:flex-row px-4 sm:px-8 lg:px-20 py-10">
+    <div className="flex flex-col md:flex-row items-center justify-center px-4 sm:px-8 lg:px-20 py-10">
       {/* 로고 영역 */}
       <div className="flex justify-center items-center p-6 md:p-10">
         <Image src={Logo} alt="Logo" height={300} />
       </div>
       {/* 본문 영역 */}
-      <div className="flex flex-col font-sans w-full md:border-l-2 border-t-2 md:border-t-0 md:pl-10">
+      <div className="w-full md:w-1/2 flex flex-col justify-center items-center font-sans md:border-l-2 border-t-2 md:border-t-0 md:pl-10">
         <h1 className="text-center text-3xl md:text-4xl font-normal py-4">
           &quot;지능형 솔루션으로 내일의 환경을 설계합니다&quot;
         </h1>
