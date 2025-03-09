@@ -1,8 +1,8 @@
+import Link from 'next/link';
+
 export default function SecondMain() {
   return (
-    // 기본적으로 상단에 6rem(24) 만큼의 마진을 주어 navbar와 겹치지 않도록 하고,
-    // 2xl 이상(가로 레이아웃)에서는 마진을 제거합니다.
-    <div className="mt-24 2xl:mt-0 flex flex-col 2xl:flex-row flex-1 overflow-hidden ">
+    <div className="mt-24 2xl:mt-0 flex flex-col 2xl:flex-row flex-1 overflow-hidden">
       {/* 왼쪽 이미지 배경 및 텍스트 영역 */}
       <div
         className="relative w-full 2xl:w-2/5 h-auto 2xl:h-screen bg-cover bg-center bg-no-repeat flex items-center justify-start p-10 md:p-16 lg:p-28"
@@ -42,7 +42,7 @@ export default function SecondMain() {
             className="mb-6 whitespace-nowrap font-medium"
             style={{ fontSize: 'clamp(1rem, 3vw, 2.25rem)' }}
           >
-            스마트 환경 솔루션 기업입니다.
+            스마트 환경 솔루션 기업입니다
           </h4>
           <span
             className="pr-4 w-1/3 2xl:w-3/4 font-light"
@@ -58,39 +58,44 @@ export default function SecondMain() {
       {/* 오른쪽 카드 영역 */}
       <div className="w-full 2xl:w-3/5 bg-gray-100 h-auto 2xl:h-screen flex flex-col 2xl:flex-row justify-center items-center p-10 md:p-16 lg:p-24 gap-6 2xl:gap-16">
         {/* 기업소개 카드 */}
+
         <div className="relative h-auto 2xl:h-[50vh] w-full 2xl:w-1/2 overflow-hidden rounded-lg shadow-md mt-10 2xl:mt-28">
-          <div
-            className="absolute inset-0 bg-cover bg-center transition-transform duration-500 hover:scale-110"
-            style={{
-              backgroundImage: "url('/images/main/mainCompanyIntroduce.jpeg')",
-            }}
-          ></div>
-          <div className="relative z-10 text-white px-6 py-10 md:px-10 md:py-16 bg-black bg-opacity-50 rounded-lg">
-            <h5 className="text-lg md:text-xl lg:text-2xl mb-2 font-sans font-medium">
-              About us
-            </h5>
-            <h4 className="text-xl md:text-2xl lg:text-3xl font-sans font-medium">
-              기업소개
-            </h4>
-          </div>
+          <Link href={'/introduce/vision'}>
+            <div
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-500 hover:scale-110"
+              style={{
+                backgroundImage:
+                  "url('/images/main/mainCompanyIntroduce.jpeg')",
+              }}
+            ></div>
+            <div className="relative z-10 text-white px-6 py-10 md:px-10 md:py-16 bg-black bg-opacity-50 rounded-lg">
+              <h5 className="text-lg md:text-xl lg:text-2xl mb-2 font-sans font-medium">
+                Vision
+              </h5>
+              <h4 className="text-xl md:text-2xl lg:text-3xl font-sans font-medium">
+                비전
+              </h4>
+            </div>
+          </Link>
         </div>
 
-        {/* 비전 카드 */}
         <div className="relative h-auto 2xl:h-[50vh] w-full 2xl:w-1/2 overflow-hidden rounded-lg shadow-md">
-          <div
-            className="absolute inset-0 bg-cover bg-center transition-transform duration-500 hover:scale-110"
-            style={{
-              backgroundImage: "url('/images/main/mainVision.jpeg')",
-            }}
-          ></div>
-          <div className="relative z-10 text-white px-6 py-10 md:px-10 md:py-16 bg-black bg-opacity-50 rounded-lg">
-            <h5 className="text-lg md:text-xl lg:text-2xl mb-2 font-sans font-medium">
-              Vision
-            </h5>
-            <h4 className="text-xl md:text-2xl lg:text-3xl font-medium font-sans">
-              비전
-            </h4>
-          </div>
+          <Link href={'/solution'}>
+            <div
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-500 hover:scale-110"
+              style={{
+                backgroundImage: "url('/images/main/mainVision.jpeg')",
+              }}
+            ></div>
+            <div className="relative z-10 text-white px-6 py-10 md:px-10 md:py-16 bg-black bg-opacity-50 rounded-lg">
+              <h5 className="text-lg md:text-xl lg:text-2xl mb-2 font-sans font-medium">
+                Solution
+              </h5>
+              <h4 className="text-xl md:text-2xl lg:text-3xl font-medium font-sans">
+                솔루션
+              </h4>
+            </div>
+          </Link>
         </div>
       </div>
     </div>

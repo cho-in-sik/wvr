@@ -5,8 +5,9 @@ import { useRef } from 'react';
 import water from '@/../public/images/main/mainWater.jpeg';
 import carbon from '@/../public/images/main/mainCarbon.jpeg';
 import environment from '@/../public/images/main/mainEnvironment.jpeg';
-import right from '@/../public/svgs/right.svg';
+import rightArrow from '@/../public/svgs/rightArrow.svg';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function ThirdMain() {
   const ref = useRef(null);
@@ -75,7 +76,7 @@ export default function ThirdMain() {
         style={{ backgroundImage: "url('/images/main/thirdMain2.jpg')" }}
       >
         {/* 모바일: 그리드, 2xl 이상: flex row로 전환 */}
-        <div className="h-full grid grid-cols-3 gap-2 place-items-center 2xl:flex 2xl:flex-row 2xl:justify-center 2xl:items-center 2xl:gap-6">
+        <div className="relative h-full grid grid-cols-3 gap-2 place-items-center 2xl:flex 2xl:flex-row 2xl:justify-center 2xl:items-center 2xl:gap-6">
           {cards.map((item, index) => (
             <motion.div
               key={index}
@@ -93,15 +94,21 @@ export default function ThirdMain() {
                 <span className="text-xl md:text-3xl lg:text-5xl font-semibold mb-1 text-white">
                   {item.title}
                 </span>
-                <div className="bg-gray-800 rounded-full p-2 hover:bg-gray-600 transition-colors z-10">
+                {/* <div className="bg-gray-800 rounded-full p-2 hover:bg-gray-600 transition-colors z-10">
                   <Image src={right} alt="right" width={20} height={20} />
-                </div>
+                </div> */}
                 <span className="text-xs md:text-lg lg:text-2xl font-medium text-center mb-2 text-white">
                   {item.desc}
                 </span>
               </div>
             </motion.div>
           ))}
+          <Link href={'/business'}>
+            <div className="absolute top-1/3 right-10 flex justify-center items-center text-slate-800">
+              <h3 className="text-xl">바로가기</h3>
+              <Image src={rightArrow} alt="right-arrow" className="mb-1" />
+            </div>
+          </Link>
         </div>
       </div>
     </div>

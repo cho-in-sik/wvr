@@ -19,15 +19,16 @@ export default function FirstMain() {
       ></div>
 
       {/* 콘텐츠 영역 */}
+      <div className="absolute inset-0 bg-black opacity-5 h-96 top-1/3"></div>
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center max-w-[1440px] mx-auto px-4 sm:px-8 font-sans">
         {/* 오버레이 */}
-        <div className="absolute inset-0 bg-black opacity-5 h-96 top-1/3"></div>
+
         {/* 텍스트 콘텐츠 (오버레이 위에 표시) */}
         <div className="relative">
-          <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-extrabold mb-5">
+          <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-extrabold mb-12">
             WVR
           </h1>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold">
+          <h2 className="text-2xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold">
             Smart AI Solutions
           </h2>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-10 font-extrabold">

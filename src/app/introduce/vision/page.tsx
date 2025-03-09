@@ -1,5 +1,4 @@
-import visionLeft from '@/../public/images/introduce/visionLeft.jpg';
-import vision from '@/../public/images/introduce/vision.jpeg';
+import vision from '@/../public/images/introduce/vision.png';
 import Image from 'next/image';
 
 export default function Page() {
@@ -17,14 +16,14 @@ export default function Page() {
           {/* 왼쪽 카드 */}
           <div className="flex flex-col justify-center items-center gap-2 border-4 rounded-xl px-4 py-3 w-full max-w-xs">
             <div className="text-blue-400 text-xl sm:text-2xl font-semibold">
-              스마트 인프라와 AI 솔루션
+              스마트인프라와 AI 솔루션
             </div>
             <div className="text-center text-sm sm:text-base">
               효율적 운영과 탄소중립 실현
             </div>
           </div>
           {/* 중앙 이미지 */}
-          <div className="w-full max-w-sm">
+          <div className="w-full max-w-sm min-w-80">
             <Image src={vision} alt="vision" layout="responsive" />
           </div>
           {/* 오른쪽 카드 */}
