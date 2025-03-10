@@ -82,7 +82,7 @@ export default function Navbar() {
                 <DropdownMenuItem>CEO 인사말</DropdownMenuItem>
               </Link>
               <Link href="/introduce/vision">
-                <DropdownMenuItem>비전 및 브랜드스토리</DropdownMenuItem>
+                <DropdownMenuItem>비전</DropdownMenuItem>
               </Link>
               <Link href="/introduce/history">
                 <DropdownMenuItem>연혁</DropdownMenuItem>

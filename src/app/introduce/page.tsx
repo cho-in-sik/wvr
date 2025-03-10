@@ -9,7 +9,7 @@ export default function Page() {
         <Image src={Logo} alt="Logo" height={300} />
       </div>
       {/* 본문 영역 */}
-      <div className="w-full md:w-1/2 flex flex-col justify-center items-center font-sans md:border-l-2 border-t-2 md:border-t-0 md:pl-10">
+      <div className="w-full md:w-1/2 flex flex-col justify-center items-center font-sans md:border-l border-[#63BBA2] border-t-2 md:border-t-0 md:pl-10">
         <h1 className="text-center text-3xl md:text-4xl font-normal py-4">
           &quot;지능형 솔루션으로 내일의 환경을 설계합니다&quot;
         </h1>
@@ -19,35 +19,37 @@ export default function Page() {
             <h2 className="font-semibold text-2xl md:text-4xl mb-3">인사말</h2>
           </div>
           <span className="text-base md:text-lg font-medium">
-            더블유브이알은 기후변화 대응을 위한 환경 인프라 솔루션 개발에
-            매진해왔습니다.
-            <br />
-            센싱 기술과 인공지능(AI)을 결합해 수자원 관리, 대기질 개선, 하수처리
-            효율화 등 다양한 분야에서 혁신적인 기술을 제공하고 있으며,
-            <br />
-            이를 통해 지속 가능한 미래를 만드는 데 집중하고 있습니다.
+            안녕하십니까. (주)더블유브이알 대표이사입니다.
           </span>
           <span className="text-base md:text-lg font-medium">
-            저희는 데이터를 통해 미래를 예측하고, 이를 기반으로 보다 스마트한
-            환경 관리 솔루션을 제안합니다.
+            저희 회사는 환경 인프라에 특화된 AI 솔루션을 제공하고 있습니다.
             <br />
-            AIoT 유량계, AI 기반 누수 탐지, 탄소중립 하수처리 솔루션 등 당사의
-            제품들은 환경 인프라의 상태를 실시간으로 진단하고
+            센싱 기술과 인공지능(AI)을 결합해 수자원 관리와 하수처리 효율화,
+            자산관리 등 다양한 분야에서
             <br />
-            효율적으로 관리할 수 있도록 지원합니다.
+            혁신적인 기술로 지속 가능한 미래를 만들기 위해 노력하고 있습니다.
           </span>
           <span className="text-base md:text-lg font-medium">
-            또한, 국책 과제 수행을 통해 기술력을 인정받아 왔으며, 글로벌
-            시장으로의 확장을 목표로 지속적인
+            데이터를 기반으로 미래를 예측하고, 이를 통해 스마트한 환경 관리
+            솔루션을 제안합니다.
             <br />
-            연구개발과 투자에 힘쓰고 있습니다. 이러한 노력은 모두가 안전하고
-            쾌적한 환경에서 살아갈 수 있는 세상을 만들기 위함입니다.
+            AI와 IoT를 결합해 환경 인프라의 상태를 실시간으로 진단하고
+            <br />
+            효율적인 관리가 가능하도록 지원하고 있습니다.
           </span>
           <span className="text-base md:text-lg font-medium">
-            앞으로도 더블유브이알은 환경과 기술의 조화를 통해 사회적 가치를
-            실현하고, 혁신적인 솔루션으로 고객의 기대에 부응하겠습니다.
+            저희의 기술은 정확한 예측과 신속한 대응을 통해 에너지 절감과
+            탄소중립을 실현하고 있습니다.
             <br />
-            감사합니다.
+            또한 안전한 물 관리와 깨끗한 환경을 위해 고객 맞춤형 솔루션과 신속한
+            서비스를 제공에 최선을 다하고 있습니다.
+          </span>
+          <span className="text-base md:text-lg font-medium">
+            모두가 안전하고 쾌적한 환경에서 살아갈 수 있도록
+            <br />
+            앞으로도 환경과 기술의 조화를 통해 사회적 가치를 실현하고
+            <br />
+            혁신적인 솔루션으로 고객의 기대에 부응하겠습니다.
           </span>
           <span className="text-base md:text-lg font-medium">
             (주)더블유브이알대표 박용균
