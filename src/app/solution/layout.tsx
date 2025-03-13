@@ -12,53 +12,64 @@ export default function Layout({
 
   // ✅ 메뉴 리스트 (이름 & 경로)
   const menuItems = [
-    { label: '청음식 누수 탐지', path: '/solution' },
-    { label: '임베디드 유량계', path: '/solution/embeded' },
-    { label: '자산 관리', path: '/solution/asset' },
+    { label: '스마트 누수 탐지 AI 솔루션', path: '/solution' },
+    { label: '스마트 상수관로 AIoT 유량계', path: '/solution/embeded' },
+    { label: '스마트 하수처리 AI 솔루션', path: '/solution/asset' },
+    { label: '환경 모니터링 시설 분광 분석', path: '/solution/environment' },
   ];
-
-  // ✅ 현재 페이지의 제목 찾기 (기본값: '회사소개')
-  const currentTitle =
-    menuItems.find((item) => item.path === pathname)?.label || '솔루션';
 
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
 
-      {/* ✅ 네비게이션 영역 (반응형) */}
-      <div
-        className="min-h-[40vh] sm:min-h-[50vh] w-full bg-cover bg-center bg-no-repeat flex flex-col justify-center items-center gap-5 relative px-4 sm:px-6"
-        style={{ backgroundImage: "url('/images/solution/solutionMain2.jpg')" }}
-      >
-        <h4 className="text-white text-lg sm:text-xl font-play font-semibold">
-          솔루션
-        </h4>
-        <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold">
-          {currentTitle}
-        </h1>
+      {/* 네비게이션 영역 */}
+      <div className="relative">
+        {/* 배경 이미지 영역 */}
+        <div
+          className="min-h-[40vh] sm:min-h-[50vh] w-full bg-cover bg-no-repeat"
+          style={{
+            backgroundImage: "url('/images/solution/solutionMain.jpeg')",
+            backgroundPosition: '70% 30%',
+          }}
+        />
 
-        {/* ✅ 네비게이션 메뉴 (반응형) */}
-        <div className="bg-white w-full sm:w-10/12 lg:w-8/12 h-16 sm:h-20 absolute bottom-0 flex justify-between items-center text-sm sm:text-base lg:text-xl">
-          {menuItems.map((item, index) => (
-            <Link key={index} href={item.path} className="w-full h-full">
-              <div
-                className={`w-full h-full flex justify-center items-center border-r last:border-r-0 font-semibold shadow-md transition-all duration-300 ${
-                  pathname === item.path ? 'bg-gray-300' : 'hover:bg-gray-200'
-                }`}
-              >
-                {item.label}
-              </div>
-            </Link>
-          ))}
+        {/* 오버레이 (배경 이미지 밝기 조절) */}
+        <div className="absolute inset-0 bg-black opacity-20 pointer-events-none" />
+
+        {/* 네비게이션 콘텐츠 영역 */}
+        <div className="absolute inset-0 flex flex-col justify-center items-center gap-5 px-4 sm:px-6">
+          <h4 className="text-white text-lg sm:text-xl font-medium font-sans">
+            Solutions
+          </h4>
+          <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-sans font-semibold">
+            솔루션
+          </h1>
+
+          {/* 네비게이션 메뉴 */}
+          <div className="bg-black/50 text-white w-full h-16 sm:h-20 absolute bottom-0 flex justify-between items-center text-sm sm:text-base lg:text-xl">
+            {menuItems.map((item, index) => (
+              <Link key={index} href={item.path} className="w-full h-full">
+                <div
+                  className={`w-full h-full flex justify-center items-center border-r last:border-r-0 font-semibold shadow-md transition-all duration-300 ${
+                    pathname === item.path
+                      ? 'bg-gray-200 text-black'
+                      : 'hover:bg-gray-100 hover:text-slate-800'
+                  }`}
+                >
+                  {item.label}
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* ✅ 컨텐츠 영역 (반응형) */}
+      {/* 컨텐츠 영역 */}
       <div className="flex-grow min-h-[50vh] w-full px-4 sm:px-6 lg:px-10 py-8 sm:py-12 lg:py-16">
         {children}
       </div>
 
-      {/* ✅ Footer (항상 하단 고정) */}
+      {/* Footer */}
       <div className="w-full bg-black py-16 sm:py-12">
         <Footer />
       </div>

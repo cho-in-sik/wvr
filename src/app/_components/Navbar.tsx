@@ -145,7 +145,7 @@ export default function Navbar() {
               asChild
             >
               <Link
-                href="#"
+                href="/business"
                 className="hover:text-[#04C9EA] whitespace-nowrap"
                 prefetch={false}
               >
@@ -158,7 +158,9 @@ export default function Navbar() {
               align="center"
               className="p-2 py-4 font-semibold"
             >
-              <DropdownMenuItem>비즈니스</DropdownMenuItem>
+              <Link href={'/business'}>
+                <DropdownMenuItem>비즈니스</DropdownMenuItem>
+              </Link>
             </DropdownMenuContent>
           </DropdownMenu>
 
@@ -190,9 +192,9 @@ export default function Navbar() {
               <Link href="/community">
                 <DropdownMenuItem>공지사항</DropdownMenuItem>
               </Link>
-              <Link href="/community/news">
+              {/* <Link href="/community/news">
                 <DropdownMenuItem>뉴스</DropdownMenuItem>
-              </Link>
+              </Link> */}
             </DropdownMenuContent>
           </DropdownMenu>
 
@@ -260,7 +262,7 @@ export default function Navbar() {
                   </div>
                 </Link>
                 <Link
-                  href="#"
+                  href="/business"
                   className="text-2xl font-medium text-gray-500 hover:text-gray-900 whitespace-nowrap"
                   prefetch={false}
                 >
