@@ -11,7 +11,7 @@ export default function Layout({
       {/* ✅ 네비게이션 영역 (반응형) */}
       <div
         className="min-h-[40vh] sm:min-h-[50vh] w-full bg-gray-400 bg-cover bg-center bg-no-repeat flex flex-col justify-center items-center gap-5 relative px-4 sm:px-6"
-        style={{ backgroundImage: "url('/images/contact/contact.png')" }}
+        style={{ backgroundImage: "url('/images/contact/contact.jpeg')" }}
       >
         <h4 className="text-white text-lg sm:text-xl font-play font-semibold">
           소통

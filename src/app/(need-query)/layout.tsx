@@ -15,7 +15,7 @@ export default function Layout({
   // ✅ 메뉴 리스트 (이름 & 경로)
   const menuItems = [
     { label: '공지사항', path: '/community' },
-    { label: '뉴스', path: '/community/news' },
+    // { label: '뉴스', path: '/community/news' },
   ];
 
   // ✅ 현재 페이지의 제목 찾기 (기본값: '회사소개')
@@ -28,8 +28,8 @@ export default function Layout({
 
       {/* ✅ 네비게이션 영역 (반응형) */}
       <div
-        className="min-h-[40vh] sm:min-h-[50vh] w-full bg-gray-400 bg-cover bg-center bg-no-repeat flex flex-col justify-center items-center gap-5 relative px-4 sm:px-6"
-        style={{ backgroundImage: "url('/images/notice/notice.jpg')" }}
+        className="min-h-[40vh] sm:min-h-[50vh] w-full bg-gray-400 bg-cover bg-no-repeat flex flex-col justify-center items-center gap-5 relative px-4 sm:px-6 bg-[center_80%]"
+        style={{ backgroundImage: "url('/images/notice/community.jpeg')" }}
       >
         <h4 className="text-white text-lg sm:text-xl font-play font-semibold">
           커뮤니티
@@ -39,7 +39,7 @@ export default function Layout({
         </h1>
 
         {/* ✅ 네비게이션 메뉴 (반응형) */}
-        <div className="bg-white w-full sm:w-10/12 lg:w-6/12 h-16 sm:h-20 absolute bottom-0 flex justify-between items-center text-sm sm:text-base lg:text-xl">
+        {/* <div className="bg-white w-full sm:w-10/12 lg:w-6/12 h-16 sm:h-20 absolute bottom-0 flex justify-between items-center text-sm sm:text-base lg:text-xl">
           {menuItems.map((item, index) => (
             <Link key={index} href={item.path} className="w-full h-full">
               <div
@@ -51,7 +51,7 @@ export default function Layout({
               </div>
             </Link>
           ))}
-        </div>
+        </div> */}
       </div>
 
       {/* ✅ 컨텐츠 영역 (반응형) */}
