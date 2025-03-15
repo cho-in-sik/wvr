@@ -1,6 +1,12 @@
+'use client';
+
 import { Button } from '@/components/ui/button';
+import { useState } from 'react';
 
 export default function Page() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [cotent, setCotent] = useState('');
   return (
     <div className="py-12 sm:py-20 px-4 sm:px-6 flex flex-col items-center">
       {/* ✅ 전체 컨테이너 */}
@@ -50,6 +56,8 @@ export default function Page() {
                   이름
                 </label>
                 <input
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   type="text"
                   id="name"
                   name="name"
@@ -64,6 +72,8 @@ export default function Page() {
                   이메일
                 </label>
                 <input
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   type="email"
                   id="email"
                   name="email"
@@ -78,6 +88,8 @@ export default function Page() {
                   문의 내용
                 </label>
                 <textarea
+                  value={cotent}
+                  onChange={(e) => setCotent(e.target.value)}
                   id="subject"
                   name="subject"
                   placeholder="문의 내용"

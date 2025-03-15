@@ -122,13 +122,18 @@ export default function Navbar() {
               className="py-4 px-4 font-semibold"
             >
               <Link href={'/solution'}>
-                <DropdownMenuItem>청음식 누수 탐지</DropdownMenuItem>
+                <DropdownMenuItem>스마트 누수 탐지 AI 솔루션</DropdownMenuItem>
               </Link>
               <Link href={'/solution/embeded'}>
-                <DropdownMenuItem>임베디드 유랑계</DropdownMenuItem>
+                <DropdownMenuItem>스마트 상수관로 AIoT 유량계</DropdownMenuItem>
               </Link>
               <Link href={'/solution/asset'}>
-                <DropdownMenuItem>자산 관리</DropdownMenuItem>
+                <DropdownMenuItem>스마트 하수처리 AI 솔루션</DropdownMenuItem>
+              </Link>
+              <Link href={'/solution/environment'}>
+                <DropdownMenuItem>
+                  환경 모니터링 시설 분광 분석
+                </DropdownMenuItem>
               </Link>
             </DropdownMenuContent>
           </DropdownMenu>
