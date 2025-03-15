@@ -40,12 +40,14 @@ export default function Layout({
         </h1>
 
         {/* 네비게이션 메뉴 */}
-        <div className="bg-white w-full sm:w-10/12 lg:w-8/12 h-16 sm:h-20 absolute bottom-0 flex justify-between items-center text-sm sm:text-base lg:text-xl">
+        <div className="bg-black/50 text-white w-full h-16 sm:h-20 absolute bottom-0 flex justify-between items-center text-sm sm:text-base lg:text-xl">
           {menuItems.map((item, index) => (
             <Link key={index} href={item.path} className="w-full h-full">
               <div
                 className={`w-full h-full flex justify-center items-center border-r last:border-r-0 font-semibold shadow-md transition-all duration-300 ${
-                  pathname === item.path ? 'bg-gray-300' : 'hover:bg-gray-200'
+                  pathname === item.path
+                    ? 'bg-gray-200 text-black'
+                    : 'hover:bg-gray-100 hover:text-slate-800'
                 }`}
               >
                 {item.label}

@@ -12,7 +12,7 @@ export const API = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PU
 export const metadata: Metadata = {
   title: '더블유브이알',
   description: '(주)더블유브아알 웹사이트',
-  icons: '/images/logo/PNG 1.png',
+  icons: '/images/logo/PNG 14.png',
 };
 
 export default async function RootLayout({
