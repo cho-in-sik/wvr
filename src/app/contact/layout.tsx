@@ -1,9 +1,17 @@
+import { createServerSupabaseClient } from '@/utils/supabase/server';
 import Footer from '../_components/Footer';
 import Navbar from '../_components/Navbar';
+import Link from 'next/link';
 
-export default function Layout({
+export default async function Layout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const supabase = await createServerSupabaseClient();
+
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
@@ -23,6 +31,13 @@ export default function Layout({
 
       {/* ✅ 컨텐츠 영역 (반응형) */}
       <div className="flex-grow min-h-[50vh] w-full px-4 sm:px-6 lg:px-10 py-8 sm:py-12 lg:py-16">
+        {session && (
+          <Link href={'/contact/admin'}>
+            <div className="absolute right-20 text-lg font-medium bg-black text-white px-4 py-2 rounded-lg">
+              문의 확인
+            </div>
+          </Link>
+        )}
         {children}
       </div>
 

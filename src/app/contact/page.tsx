@@ -1,12 +1,34 @@
 'use client';
 
+import { addContact } from '@/actions/contact';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 
 export default function Page() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [cotent, setCotent] = useState('');
+  const [content, setContent] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = { name, content, email };
+    try {
+      setIsLoading(true);
+      const res = await addContact(formData);
+      console.log(res);
+      setIsLoading(false);
+      if (res.status === 201 || 200) {
+        alert('제출 완료');
+        setContent('');
+        setEmail('');
+        setName('');
+      }
+    } catch (error) {
+      alert(error);
+      console.error(error);
+    }
+  };
   return (
     <div className="py-12 sm:py-20 px-4 sm:px-6 flex flex-col items-center">
       {/* ✅ 전체 컨테이너 */}
@@ -48,7 +70,10 @@ export default function Page() {
           </div>
 
           {/* ✅ 폼 */}
-          <form className="flex flex-col w-full gap-6 sm:gap-8">
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col w-full gap-6 sm:gap-8"
+          >
             <div className="flex flex-col gap-4">
               {/* ✅ 이름 */}
               <div className="flex flex-col gap-2">
@@ -72,6 +97,7 @@ export default function Page() {
                   이메일
                 </label>
                 <input
+                  maxLength={30}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   type="email"
@@ -88,8 +114,9 @@ export default function Page() {
                   문의 내용
                 </label>
                 <textarea
-                  value={cotent}
-                  onChange={(e) => setCotent(e.target.value)}
+                  maxLength={2000}
+                  value={content}
+                  onChange={(e) => setContent(e.target.value)}
                   id="subject"
                   name="subject"
                   placeholder="문의 내용"
@@ -99,7 +126,12 @@ export default function Page() {
             </div>
 
             {/* ✅ 전송 버튼 */}
-            <Button type="submit" size="lg" className="w-full sm:w-auto">
+            <Button
+              type="submit"
+              size="lg"
+              className="w-full sm:w-auto"
+              disabled={isLoading}
+            >
               전송
             </Button>
           </form>
