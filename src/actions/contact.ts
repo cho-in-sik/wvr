@@ -55,3 +55,16 @@ export async function addContact(formData: TContact) {
 
   return { status };
 }
+
+export async function deleteContact(id: any) {
+  const supabase = await createServerSupabaseClient();
+  const { error, status } = await supabase
+    .from('contact')
+    .delete()
+    .eq('id', id);
+
+  if (error) {
+    handleError(error);
+  }
+  return { id, status };
+}
