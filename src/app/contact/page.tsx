@@ -81,6 +81,7 @@ export default function Page() {
                   이름
                 </label>
                 <input
+                  required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   type="text"
@@ -97,6 +98,7 @@ export default function Page() {
                   이메일
                 </label>
                 <input
+                  required
                   maxLength={30}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -114,13 +116,14 @@ export default function Page() {
                   문의 내용
                 </label>
                 <textarea
+                  required
                   maxLength={2000}
                   value={content}
                   onChange={(e) => setContent(e.target.value)}
                   id="subject"
                   name="subject"
                   placeholder="문의 내용"
-                  className="border-b px-1 py-2 focus:outline-none focus:border-gray-400 h-24 sm:h-32 resize-none"
+                  className="border-b px-1 py-2 focus:outline-none focus:border-gray-400 h-24 sm:h-32 resize-none whitespace-pre-wrap"
                 />
               </div>
             </div>
