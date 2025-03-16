@@ -22,15 +22,15 @@ export default function Footer() {
     <div className="h-[25%] w-full bg-black text-white flex flex-col justify-center items-start px-6 md:px-16 lg:px-48 gap-5 md:gap-7 relative">
       {/* Footer Links */}
       <div className="flex flex-wrap justify-start items-center gap-3 md:gap-5 text-sm md:text-lg">
-        <Link href="#">
+        <Link href="/policy?1=usage">
           <span className="hover:text-gray-400 transition">이용약관</span>
         </Link>
-        <Link href="#">
+        <Link href="/policy?1=privacy">
           <span className="hover:text-gray-400 transition">
             개인정보취급방침
           </span>
         </Link>
-        <Link href="#">
+        <Link href="/policy?1=email">
           <span className="hover:text-gray-400 transition">
             이메일주소무단수집거부
           </span>
