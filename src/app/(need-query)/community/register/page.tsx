@@ -11,10 +11,13 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import { createBrowserSupabaseClient } from '@/utils/supabase/client';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Page() {
+  const supabase = createBrowserSupabaseClient();
+  const [token, setToken] = useState(false);
   const router = useRouter();
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
@@ -36,6 +39,18 @@ export default function Page() {
       console.error(error);
     }
   };
+
+  useEffect(() => {
+    async function fetchUser() {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+      if (session?.access_token) setToken(true);
+    }
+    fetchUser();
+  }, [supabase.auth]);
+
+  if (!token) router.push('/');
 
   return (
     <div className="flex flex-col justify-center items-center w-full">
