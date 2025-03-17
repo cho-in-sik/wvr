@@ -25,7 +25,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className="antialiased [&::-webkit-scrollbar]:hidden">
+      <body className="antialiased">
         {/* Providers는 앱 전체에 한 번만 마운트되어 상태가 유지됩니다. */}
         <ReactQueryClientProvider>
           <LoadingScreen />

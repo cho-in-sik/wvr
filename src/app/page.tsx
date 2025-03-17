@@ -1,97 +1,67 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { Dots } from './_components/main/Dots';
 import FirstMain from './_components/main/FirstMain';
-import { usePage } from './context/ScrollContext';
 import SecondMain from './_components/main/SecondMain';
 import ThirdMain from './_components/main/ThirdMain';
 import LastMain from './_components/main/LastMain';
+import { usePage } from './context/ScrollContext';
 
 export default function Home() {
-  const DIVIDER_HEIGHT = 4;
-  const PAGE_COUNT = 4;
-  const outerDivRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const { currentPage, setCurrentPage } = usePage();
-  const [isAnimating, setIsAnimating] = useState(false);
-  const pageHeight = typeof window !== 'undefined' ? window.innerHeight : 0;
 
+  // Intersection Observer를 사용해 현재 화면(섹션)이 뷰포트에 들어올 때 currentPage 업데이트
   useEffect(() => {
-    // 페이지 마운트 시 스크롤을 막음
-    document.body.style.overflow = 'hidden';
-    document.documentElement.style.overflow = 'hidden';
+    const sections = containerRef.current?.querySelectorAll('.section');
+    if (!sections) return;
 
-    const wheelHandler = (e: WheelEvent) => {
-      if (!outerDivRef.current || isAnimating) return;
-      e.preventDefault();
-
-      setIsAnimating(true);
-
-      requestAnimationFrame(() => {
-        setCurrentPage((prev) => {
-          let nextPage = prev;
-          if (e.deltaY > 0 && prev < PAGE_COUNT) {
-            nextPage = prev + 1;
-          } else if (e.deltaY < 0 && prev > 1) {
-            nextPage = prev - 1;
-          }
-          return nextPage;
-        });
-
-        setTimeout(() => {
-          setIsAnimating(false);
-        }, 300);
-      });
+    const observerOptions = {
+      threshold: 0.6, // 섹션의 60% 이상 보이면
     };
 
-    const scrollToPage = () => {
-      if (!outerDivRef.current) return;
-      outerDivRef.current.scrollTo({
-        top: (currentPage - 1) * (pageHeight + DIVIDER_HEIGHT),
-        left: 0,
-        behavior: 'smooth',
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = Array.from(sections).indexOf(entry.target as Element);
+          setCurrentPage(index + 1);
+        }
       });
+    }, observerOptions);
 
-      if (currentPage === 1) {
-        // 600ms 후에 scrollTop을 0으로 재설정해서 자연스러운 애니메이션을 유지
-        setTimeout(() => {
-          document.documentElement.scrollTop = 0;
-          document.body.scrollTop = 0;
-        }, 300);
-      }
-    };
-
-    if (!outerDivRef.current) return;
-    const outerDiv = outerDivRef.current;
-    outerDiv.addEventListener('wheel', wheelHandler, { passive: false });
-    scrollToPage();
+    sections.forEach((section) => observer.observe(section));
 
     return () => {
-      outerDiv.removeEventListener('wheel', wheelHandler);
-      // 언마운트 시 스크롤 속성 복원
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
+      sections.forEach((section) => observer.unobserve(section));
     };
-  }, [currentPage, pageHeight, isAnimating, setCurrentPage]);
+  }, [setCurrentPage]);
 
   return (
-    <div ref={outerDivRef} className="min-h-screen h-screen overflow-hidden">
+    <div
+      ref={containerRef}
+      className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth [&::-webkit-scrollbar]:hidden"
+    >
       <Dots currentPage={currentPage} />
-      <div className="h-screen w-full relative">
+
+      <section className="section snap-start h-screen relative">
         <FirstMain />
-      </div>
+      </section>
       <div className="w-full h-1 bg-gray-200"></div>
-      <div className="h-screen w-full relative">
+
+      <section className="section snap-start h-screen relative">
         <SecondMain />
-      </div>
+      </section>
       <div className="w-full h-1 bg-gray-200"></div>
-      <div className="h-screen w-full relative">
+
+      <section className="section snap-start h-screen relative">
         <ThirdMain />
-      </div>
+      </section>
       <div className="w-full h-1 bg-gray-200"></div>
-      <div className="h-screen w-full relative">
+
+      <section className="section snap-start h-screen relative">
         <LastMain />
-      </div>
+      </section>
     </div>
   );
 }

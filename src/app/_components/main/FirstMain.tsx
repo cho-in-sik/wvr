@@ -7,19 +7,19 @@ export default function FirstMain() {
       {/* 배경 이미지들 */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-fixed animate-fade-zoom-1"
-        style={{ backgroundImage: "url('/images/main/main1.jpeg')" }}
+        style={{ backgroundImage: "url('/images/main/main2.jpeg')" }}
       ></div>
       <div
         className="absolute inset-0 bg-cover bg-center bg-fixed animate-fade-zoom-2"
-        style={{ backgroundImage: "url('/images/main/main2.jpeg')" }}
+        style={{ backgroundImage: "url('/images/main/main1.jpeg')" }}
       ></div>
       <div
         className="absolute inset-0 bg-cover bg-center bg-fixed animate-fade-zoom-3"
         style={{ backgroundImage: "url('/images/main/main3.jpeg')" }}
       ></div>
 
-      {/* 콘텐츠 영역 */}
-      <div className="absolute inset-0 bg-black opacity-5 h-1/3 top-1/3"></div>
+      <div className="absolute inset-0 bg-black opacity-10 h-1/3 top-1/3 blur-xl"></div>
+
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center max-w-[1440px] mx-auto px-4 sm:px-8 font-sans">
         {/* 텍스트 콘텐츠 (오버레이 위에 표시) */}
         <div className="relative">

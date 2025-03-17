@@ -29,7 +29,7 @@ export default function Page() {
         <div className="relative flex flex-col justify-center items-center bg-slate-200 w-full sm:w-1/2 lg:w-[35%] h-64 sm:h-72 md:h-80 lg:h-96 bg-cover bg-center bg-no-repeat bg-[url('/images/business/business4.jpeg')]">
           <div
             id="1"
-            className="absolute right-4 sm:right-10 top-8 text-white rounded-2xl border-2 border-white text-base sm:text-xl font-medium py-1 sm:py-2 px-3 sm:px-6"
+            className="absolute right-4 sm:right-10 top-8 text-white rounded-2xl border-2 border-white text-base sm:text-xl font-medium py-1 sm:py-2 px-3 sm:px-6 cursor-pointer"
             onClick={(e) => handleMove(e.currentTarget.id)}
           >
             More
@@ -47,7 +47,7 @@ export default function Page() {
         <div className="relative flex flex-col justify-center items-center bg-slate-200 w-full sm:w-1/2 lg:w-[35%] h-64 sm:h-72 md:h-80 lg:h-96 bg-cover bg-center bg-no-repeat bg-[url('/images/business/business1.jpeg')]">
           <div
             id="2"
-            className="absolute right-4 sm:right-10 top-8 text-white rounded-2xl border-2 border-white text-base sm:text-xl font-medium py-1 sm:py-2 px-3 sm:px-6"
+            className="absolute right-4 sm:right-10 top-8 text-white rounded-2xl border-2 border-white text-base sm:text-xl font-medium py-1 sm:py-2 px-3 sm:px-6 cursor-pointer"
             onClick={(e) => handleMove(e.currentTarget.id)}
           >
             More
@@ -65,7 +65,7 @@ export default function Page() {
         <div className="relative flex flex-col justify-center items-center bg-slate-200 w-full sm:w-1/2 lg:w-[35%] h-64 sm:h-72 md:h-80 lg:h-96 bg-cover bg-center bg-no-repeat bg-[url('/images/business/business3.jpeg')]">
           <div
             id="3"
-            className="absolute right-4 sm:right-10 top-8 text-white rounded-2xl border-2 border-white text-base sm:text-xl font-medium py-1 sm:py-2 px-3 sm:px-6"
+            className="absolute right-4 sm:right-10 top-8 text-white rounded-2xl border-2 border-white text-base sm:text-xl font-medium py-1 sm:py-2 px-3 sm:px-6 cursor-pointer"
             onClick={(e) => handleMove(e.currentTarget.id)}
           >
             More
@@ -83,7 +83,7 @@ export default function Page() {
         <div className="relative flex flex-col justify-center items-center bg-slate-200 w-full sm:w-1/2 lg:w-[35%] h-64 sm:h-72 md:h-80 lg:h-96 bg-cover bg-center bg-no-repeat bg-[url('/images/business/business2.jpeg')]">
           <div
             id="4"
-            className="absolute right-4 sm:right-10 top-8 text-white rounded-2xl border-2 border-white text-base sm:text-xl font-medium py-1 sm:py-2 px-3 sm:px-6"
+            className="absolute right-4 sm:right-10 top-8 text-white rounded-2xl border-2 border-white text-base sm:text-xl font-medium py-1 sm:py-2 px-3 sm:px-6 cursor-pointer"
             onClick={(e) => handleMove(e.currentTarget.id)}
           >
             More

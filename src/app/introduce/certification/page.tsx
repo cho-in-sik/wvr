@@ -69,7 +69,7 @@ export default function Page() {
                 />
               </div>
               {/* 제목을 감싸는 div에 고정 높이와 오버플로우 숨김 추가 */}
-              <div className="mt-3 text-lg font-medium text-gray-700 h-12 overflow-hidden whitespace-pre-wrap">
+              <div className="mt-3 text-lg font-medium text-gray-700 h-20 overflow-hidden whitespace-pre-wrap">
                 {cert.title}
               </div>
             </div>
@@ -100,7 +100,7 @@ export default function Page() {
                 />
               </div>
               {/* 제목을 감싸는 div에 고정 높이와 오버플로우 숨김 추가 */}
-              <div className="mt-3 text-lg font-medium text-gray-700 h-12 overflow-hidden whitespace-pre-wrap">
+              <div className="mt-3 text-lg font-medium text-gray-700 h-20 overflow-hidden whitespace-pre-wrap">
                 {cert.title}
               </div>
             </div>
