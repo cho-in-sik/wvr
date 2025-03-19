@@ -44,7 +44,7 @@ export default function Home() {
     >
       <Dots currentPage={currentPage} />
 
-      <section className="section snap-start h-screen relative">
+      <section className="section snap-start h-screen relative first-section">
         <FirstMain />
       </section>
       <div className="w-full h-1 bg-gray-200"></div>

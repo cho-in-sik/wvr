@@ -16,6 +16,12 @@ export default function Footer() {
       // 1페이지가 아닌 경우, 페이지를 1로 전환(전환 시 애니메이션 포함)
       setCurrentPage(1);
     }
+    const firstSection = document.querySelector('.first-section');
+
+    if (firstSection) {
+      firstSection.scrollIntoView({ behavior: 'smooth' });
+      setCurrentPage(1);
+    }
   };
 
   return (
