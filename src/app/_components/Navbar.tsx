@@ -197,9 +197,9 @@ export default function Navbar() {
               <Link href="/community">
                 <DropdownMenuItem>공지사항</DropdownMenuItem>
               </Link>
-              {/* <Link href="/community/news">
+              <Link href="/community/news">
                 <DropdownMenuItem>뉴스</DropdownMenuItem>
-              </Link> */}
+              </Link>
             </DropdownMenuContent>
           </DropdownMenu>
 

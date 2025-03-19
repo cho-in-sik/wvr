@@ -15,7 +15,7 @@ export default function Layout({
   // ✅ 메뉴 리스트 (이름 & 경로)
   const menuItems = [
     { label: '공지사항', path: '/community' },
-    // { label: '뉴스', path: '/community/news' },
+    { label: '뉴스', path: '/community/news' },
   ];
 
   // ✅ 현재 페이지의 제목 찾기 (기본값: '회사소개')
@@ -39,19 +39,21 @@ export default function Layout({
         </h1>
 
         {/* ✅ 네비게이션 메뉴 (반응형) */}
-        {/* <div className="bg-white w-full sm:w-10/12 lg:w-6/12 h-16 sm:h-20 absolute bottom-0 flex justify-between items-center text-sm sm:text-base lg:text-xl">
+        <div className="bg-black/50 text-white w-full h-16 sm:h-20 absolute bottom-0 flex justify-between items-center text-sm sm:text-base lg:text-xl">
           {menuItems.map((item, index) => (
             <Link key={index} href={item.path} className="w-full h-full">
               <div
                 className={`w-full h-full flex justify-center items-center border-r last:border-r-0 font-semibold shadow-md transition-all duration-300 ${
-                  pathname === item.path ? 'bg-gray-300' : 'hover:bg-gray-200'
+                  pathname === item.path
+                    ? 'bg-gray-200 text-black'
+                    : 'hover:bg-gray-100 hover:text-slate-800'
                 }`}
               >
                 {item.label}
               </div>
             </Link>
           ))}
-        </div> */}
+        </div>
       </div>
 
       {/* ✅ 컨텐츠 영역 (반응형) */}
