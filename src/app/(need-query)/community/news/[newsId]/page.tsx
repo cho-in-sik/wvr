@@ -1,13 +1,19 @@
 'use client';
 
-import { getNewsById } from '@/actions/news';
-import { useQuery } from '@tanstack/react-query';
+import { getNewsById, deleteNews } from '@/actions/news';
+import { Button } from '@/components/ui/button';
+import { createBrowserSupabaseClient } from '@/utils/supabase/client';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 export default function Page({ params }: { params: { newsId: string } }) {
+  const supabase = createBrowserSupabaseClient();
+  const [token, setToken] = useState<null | boolean>(null);
   const newsId = Number(params.newsId);
   const router = useRouter();
+  const queryClient = useQueryClient();
 
   const {
     data: news,
@@ -18,6 +24,28 @@ export default function Page({ params }: { params: { newsId: string } }) {
     queryFn: () => getNewsById(newsId),
     enabled: !isNaN(newsId),
   });
+
+  const { mutate: handleDelete, isPending } = useMutation({
+    mutationFn: () => deleteNews(newsId),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['news'] });
+      alert('뉴스가 삭제되었습니다.');
+      router.push('/community/news');
+    },
+    onError: (err) => {
+      alert('삭제 실패: ' + err.message);
+    },
+  });
+
+  useEffect(() => {
+    async function fetchUser() {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+      setToken(session?.access_token ? true : false);
+    }
+    fetchUser();
+  }, [supabase.auth]);
 
   if (isLoading) {
     return (
@@ -48,6 +76,11 @@ export default function Page({ params }: { params: { newsId: string } }) {
   return (
     <div className="max-w-5xl mx-auto py-10 px-4 sm:px-8">
       {/* 뉴스 대표 이미지 영역 */}
+      <div className="flex justify-end mb-10">
+        <Button onClick={() => handleDelete()} disabled={isPending}>
+          {isPending ? '삭제 중...' : '삭제'}
+        </Button>
+      </div>
       <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-sm overflow-hidden ">
         <Image
           src={news.image_url!}
@@ -73,12 +106,7 @@ export default function Page({ params }: { params: { newsId: string } }) {
 
       {/* 돌아가기 버튼 (오른쪽 정렬) */}
       <div className="mt-10 flex justify-end">
-        <button
-          onClick={() => router.push('/community/news')}
-          className="inline-block px-8 py-4 bg-black text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-        >
-          뉴스 목록으로 돌아가기
-        </button>
+        <Button onClick={() => router.push('/community/news')}>목록</Button>
       </div>
     </div>
   );

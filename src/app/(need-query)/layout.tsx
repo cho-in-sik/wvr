@@ -18,9 +18,11 @@ export default function Layout({
     { label: '뉴스', path: '/community/news' },
   ];
 
-  // ✅ 현재 페이지의 제목 찾기 (기본값: '회사소개')
   const currentTitle =
-    menuItems.find((item) => item.path === pathname)?.label || '공지사항';
+    menuItems
+      .slice()
+      .sort((a, b) => b.path.length - a.path.length)
+      .find((item) => pathname.startsWith(item.path))?.label || '공지사항';
 
   return (
     <div className="flex flex-col min-h-screen">

@@ -78,3 +78,50 @@ export async function getNewsById(newsId: number) {
 
   return data;
 }
+
+// 🔹 특정 뉴스 삭제하는 함수
+export async function deleteNews(newsId: number) {
+  const supabase = await createServerSupabaseClient();
+
+  // 🔹 뉴스 데이터 조회 (이미지 URL 가져오기)
+  const { data: newsData, error: newsError } = await supabase
+    .from('news')
+    .select('image_url')
+    .eq('id', newsId)
+    .single();
+
+  if (newsError) {
+    handleError(newsError);
+  }
+
+  if (!newsData) {
+    throw new Error('뉴스를 찾을 수 없습니다.');
+  }
+
+  // 🔹 스토리지에서 이미지 삭제
+  if (newsData.image_url) {
+    const imagePath = newsData.image_url.split('/news/')[1]; // 파일 이름 추출
+
+    if (imagePath) {
+      const { error: storageError } = await supabase.storage
+        .from('news')
+        .remove([`news/${imagePath}`]);
+
+      if (storageError) {
+        handleError(storageError);
+      }
+    }
+  }
+
+  // 🔹 뉴스 데이터 삭제
+  const { error: deleteError } = await supabase
+    .from('news')
+    .delete()
+    .eq('id', newsId);
+
+  if (deleteError) {
+    handleError(deleteError);
+  }
+
+  return { success: true, message: '뉴스가 성공적으로 삭제되었습니다.' };
+}
