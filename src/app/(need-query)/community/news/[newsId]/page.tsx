@@ -86,7 +86,7 @@ export default function Page({ params }: { params: { newsId: string } }) {
           src={news.image_url!}
           alt={news.title!}
           fill
-          style={{ objectFit: 'cover' }}
+          style={{ objectFit: 'contain' }}
           className="transition-transform duration-700 ease-in-out transform hover:scale-105"
         />
       </div>
