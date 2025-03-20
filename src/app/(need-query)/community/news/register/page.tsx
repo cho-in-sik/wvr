@@ -49,6 +49,7 @@ export default function Page() {
         router.push('/community/news');
       }
     } catch (error: any) {
+      setLoading(false);
       alert('업로드 실패: ' + error.message);
       console.error(error);
     }
@@ -125,6 +126,7 @@ export default function Page() {
                   ref={fileRef}
                   accept="image/*"
                   required
+                  className="cursor-pointer"
                 />
               </div>
             </div>

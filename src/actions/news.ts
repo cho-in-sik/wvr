@@ -19,18 +19,21 @@ export async function uploadNews(formData: FormData) {
     throw new Error('모든 필드를 입력해야 합니다.');
   }
 
+  // 🟢 올바른 이미지 저장
   const { data: imageData, error: imageError } = await supabase.storage
     .from('news')
-    .upload('news', file, { upsert: true });
+    .upload(`news/${file.name}`, file, { upsert: true });
 
   if (imageError) {
     handleError(imageError);
   }
 
-  const imageUrl = imageData?.path
-    ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/news/${imageData.path}`
+  // 🟢 올바른 이미지 URL 생성
+  const imageUrl = imageData?.fullPath
+    ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/${imageData.fullPath}`
     : null;
 
+  // 🟢 뉴스 데이터 삽입
   const { data: newsData, error: newsError } = await supabase
     .from('news')
     .insert([{ title, content, image_url: imageUrl }]);
@@ -48,6 +51,26 @@ export async function getNews() {
     .from('news')
     .select('*')
     .order('id', { ascending: false });
+
+  if (error) {
+    handleError(error);
+  }
+
+  return data;
+}
+
+export async function getNewsById(newsId: number) {
+  const supabase = await createServerSupabaseClient();
+
+  if (!newsId) {
+    throw new Error('newsId가 필요합니다.');
+  }
+
+  const { data, error } = await supabase
+    .from('news')
+    .select('*')
+    .eq('id', newsId)
+    .single();
 
   if (error) {
     handleError(error);
