@@ -1,22 +1,36 @@
 import scroll from '@/../public/images/main/scroll.png';
 import Image from 'next/image';
+import main1 from '@/../public/images/main/main1.jpeg';
+import main2 from '@/../public/images/main/main2.jpeg';
+import main3 from '@/../public/images/main/main3.jpeg';
 
 export default function FirstMain() {
   return (
     <div className="relative h-screen w-full bg-black text-white overflow-hidden">
       {/* 배경 이미지들 */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-fixed animate-fade-zoom-1"
-        style={{ backgroundImage: "url('/images/main/main2.jpeg')" }}
-      ></div>
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-fixed animate-fade-zoom-2"
-        style={{ backgroundImage: "url('/images/main/main1.jpeg')" }}
-      ></div>
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-fixed animate-fade-zoom-3"
-        style={{ backgroundImage: "url('/images/main/main3.jpeg')" }}
-      ></div>
+      <div className="absolute inset-0">
+        <Image
+          src={main2}
+          alt="Background Image 1"
+          fill
+          priority
+          className="animate-fade-zoom-1 object-cover"
+        />
+        <Image
+          src={main1}
+          alt="Background Image 2"
+          fill
+          priority
+          className="animate-fade-zoom-2 object-cover"
+        />
+        <Image
+          src={main3}
+          alt="Background Image 3"
+          fill
+          priority
+          className="animate-fade-zoom-3 object-cover"
+        />
+      </div>
 
       <div className="absolute inset-0 bg-black opacity-10 h-1/3 top-1/3 blur-xl"></div>
 
