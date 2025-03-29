@@ -77,19 +77,32 @@ export default function Page() {
       </h1>
 
       {/* ✅ CEO 이미지 섹션 */}
-      <div
-        className="bg-cover bg-center bg-no-repeat w-full sm:w-5/6 lg:w-4/6 h-56 sm:h-72 lg:h-80 px-6 sm:px-12 lg:px-20 py-6 sm:py-8 lg:py-10 flex flex-col justify-center text-white"
-        style={{ backgroundImage: "url('/images/introduce/history2.jpeg')" }}
-      >
-        <h3 className="font-bold text-base sm:text-lg lg:text-xl mb-6 sm:mb-10 mt-2 sm:mt-5">
-          HISTORY
-        </h3>
-        <h2 className="font-semibold text-xl sm:text-2xl lg:text-4xl mb-3 sm:mb-5 ">
-          더블유브이알이
-        </h2>
-        <h2 className="font-semibold text-xl sm:text-2xl lg:text-4xl ">
-          걸어온 길을 소개합니다.
-        </h2>
+      <div className="relative w-full sm:w-5/6 lg:w-4/6 h-56 sm:h-80 lg:h-96 px-6 sm:px-12 lg:px-20 py-6 sm:py-8 lg:py-10 flex flex-col justify-center text-white">
+        {/* 배경 이미지 */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/images/introduce/history2.jpeg')" }}
+        ></div>
+        {/* 가장자리 그라데이션 오버레이 */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(ellipse at center, transparent 80%, rgba(255,255,255,0.5) 100%)',
+          }}
+        ></div>
+        {/* 콘텐츠 */}
+        <div className="relative z-10">
+          <h3 className="font-bold text-base sm:text-lg lg:text-xl mb-6 sm:mb-10 mt-2 sm:mt-5">
+            HISTORY
+          </h3>
+          <h2 className="font-semibold text-xl sm:text-2xl lg:text-4xl mb-3 sm:mb-5">
+            더블유브이알이
+          </h2>
+          <h2 className="font-semibold text-xl sm:text-2xl lg:text-4xl">
+            걸어온 길을 소개합니다.
+          </h2>
+        </div>
       </div>
 
       <div className="w-full sm:w-5/6 lg:w-4/6 flex flex-col justify-start items-start bg-gray-50 border-l-4 border-gray-300">
@@ -102,7 +115,7 @@ export default function Page() {
           <div className="w-5 h-5 bg-gray-300 rounded-full absolute -left-3 top-5 flex justify-center items-center">
             <div className="w-2 h-2 rounded-full bg-slate-600"></div>
           </div>
-          <div className="ml-5 text-lg text-slate-700">- TIPS 투자 유치</div>
+          <div className="ml-5 text-xl text-slate-700">- TIPS 투자 유치</div>
         </div>
         <hr className="w-full mb-5" />
 
@@ -121,12 +134,12 @@ export default function Page() {
             </div>
 
             {/* ✅ 기간 추가 */}
-            <div className="ml-5 text-md font-semibold text-gray-700">
+            <div className="ml-5 text-lg font-semibold text-gray-700">
               {item.period}
             </div>
             {/* ✅ 내용 출력 */}
             {item.content.map((contentItem, index) => (
-              <div className="ml-5 text-lg text-slate-700" key={index}>
+              <div className="ml-5 text-xl text-slate-700" key={index}>
                 - {contentItem}
               </div>
             ))}
@@ -150,12 +163,12 @@ export default function Page() {
             </div>
 
             {/* ✅ 기간 추가 */}
-            <div className="ml-5 text-md font-semibold text-gray-700">
+            <div className="ml-5 text-lg font-semibold text-gray-700">
               {item.period}
             </div>
             {/* ✅ 내용 출력 */}
             {item.content.map((contentItem, index) => (
-              <div className="ml-5 text-lg text-slate-700" key={index}>
+              <div className="ml-5 text-xl text-slate-700" key={index}>
                 - {contentItem}
               </div>
             ))}
@@ -173,8 +186,8 @@ export default function Page() {
           <div className="w-5 h-5 bg-gray-300 rounded-full absolute -left-3 top-5 flex justify-center items-center">
             <div className="w-2 h-2 rounded-full bg-slate-600"></div>
           </div>
-          <div className="ml-5 text-md font-semibold text-gray-700">11월</div>
-          <div className="ml-5 text-lg text-slate-700">
+          <div className="ml-5 text-lg font-semibold text-gray-700">11월</div>
+          <div className="ml-5 text-xl text-slate-700">
             - 벤처기업협회 예비벤처기업 지정
           </div>
         </div>

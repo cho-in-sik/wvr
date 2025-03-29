@@ -12,7 +12,7 @@ export default function Page() {
       {/* 메인 컨텐츠 영역 */}
       <div className="flex flex-col justify-center items-center">
         <div className="font-sans flex flex-col justify-center items-center mt-10">
-          <h1 className="font-medium text-2xl sm:text-3xl md:text-4xl mb-6 text-center">
+          <h1 className="font-semibold text-2xl sm:text-3xl md:text-4xl mb-6 text-center">
             지속 가능한 환경 인프라를 위한 스마트 솔루션
           </h1>
           <h2 className="font-semibold text-xl sm:text-2xl md:text-3xl mb-10 border-t-2 pt-6 text-center">
@@ -22,23 +22,23 @@ export default function Page() {
           <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-16">
             {/* 왼쪽 카드 */}
             <div className="flex flex-col justify-center items-center gap-2 border-4 rounded-xl px-4 py-3 w-full max-w-xs">
-              <div className="text-blue-400 text-xl sm:text-2xl font-semibold overflow-auto whitespace-nowrap">
+              <div className="text-blue-400 text-xl sm:text-2xl font-extrabold overflow-auto whitespace-nowrap">
                 스마트 인프라와 AI 솔루션
               </div>
-              <div className="text-center text-sm sm:text-base">
+              <div className="text-center text-sm sm:text-base font-medium">
                 효율적 운영과 탄소중립 실현
               </div>
             </div>
             {/* 중앙 이미지 */}
-            <div className="w-full max-w-sm min-w-96">
+            <div className="w-full max-w-xl">
               <Image src={vision} alt="vision" layout="responsive" />
             </div>
             {/* 오른쪽 카드 */}
             <div className="flex flex-col justify-center items-center gap-2 border-4 rounded-xl px-10 py-3 w-full max-w-xs">
-              <div className="text-blue-400 text-xl sm:text-2xl font-semibold">
+              <div className="text-blue-400 text-xl sm:text-2xl font-extrabold">
                 스마트 자산관리
               </div>
-              <div className="text-center text-sm sm:text-base">
+              <div className="text-center text-sm sm:text-base font-medium">
                 자산의 체계적 관리와 최적화
               </div>
             </div>
@@ -46,10 +46,10 @@ export default function Page() {
           {/* 마지막 박스 영역 */}
           <div className="mt-8 w-full flex justify-center items-center">
             <div className="flex flex-col justify-center items-center gap-2 border-4 rounded-xl px-4 py-3 w-full max-w-xs">
-              <div className="text-green-600 text-xl sm:text-2xl font-semibold">
+              <div className="text-green-600 text-xl sm:text-2xl font-extrabold">
                 지속가능한 환경 관리
               </div>
-              <div className="text-center text-sm sm:text-base">
+              <div className="text-center text-sm sm:text-base font-medium">
                 탄소중립과 자원 최적화
               </div>
             </div>

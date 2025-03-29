@@ -7,7 +7,7 @@ export default function Page() {
   return (
     <div className="flex flex-col justify-center items-center">
       {/* 상단 타이틀 영역 */}
-      <div className="flex flex-col justify-center items-center font-sans gap-4 mb-20">
+      <div className="flex flex-col justify-center items-center font-sans gap-4 mb-20 mt-28">
         <h2 className="text-2xl md:text-4xl">스마트 누수 탐지 AI 솔루션</h2>
         <h3 className="text-xl md:text-2xl text-slate-700">
           `정밀한 누수 탐지와 신속한 대응을 위한 AI 기반 솔루션`

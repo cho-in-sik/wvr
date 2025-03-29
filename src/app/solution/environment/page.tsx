@@ -5,7 +5,7 @@ export default function Page() {
   return (
     <div className="flex flex-col justify-center items-center">
       {/* 상단 텍스트 영역 */}
-      <div className="flex flex-col justify-center items-center font-sans gap-4 mb-16">
+      <div className="flex flex-col justify-center items-center font-sans gap-4 mb-16 mt-28">
         <h2 className="text-2xl md:text-4xl">환경 모니터링 시설 분광 분석</h2>
         <h3 className="text-xl md:text-2xl text-slate-700">
           `정밀한 환경 진단과 효율적인 유지보수를 위한 분광 AI 솔루션`

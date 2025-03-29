@@ -6,7 +6,7 @@ export default function Page() {
   return (
     <div className="flex flex-col justify-center items-center">
       {/* 상단 타이틀 영역 */}
-      <div className="flex flex-col justify-center items-center font-sans gap-4 mb-20">
+      <div className="flex flex-col justify-center items-center font-sans gap-4 mb-20 mt-28">
         <h2 className="text-2xl md:text-4xl">상수관로 AIoT 스마트 유량계</h2>
         <h3 className="text-xl md:text-2xl text-slate-700">
           `IoT 기반 센서를 통해 유량 데이터를 수집하고, AI가 이를 분석하는

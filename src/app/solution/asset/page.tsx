@@ -5,7 +5,7 @@ export default function Page() {
   return (
     <div className="flex flex-col justify-center items-center">
       {/* 상단 텍스트 영역 */}
-      <div className="flex flex-col justify-center items-center font-sans gap-4 mb-16">
+      <div className="flex flex-col justify-center items-center font-sans gap-4 mb-16 mt-28">
         <h2 className="text-2xl md:text-4xl">스마트 하수처리 AI 솔루션</h2>
         <h3 className="text-xl md:text-2xl text-slate-700">
           `하수처리장에서의 효율적인 에너지 관리와 처리 효율을 위해 AI 기반 관리
