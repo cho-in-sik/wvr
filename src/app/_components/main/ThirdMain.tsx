@@ -32,7 +32,7 @@ export default function ThirdMain() {
       <div className="w-full 2xl:w-2/5 bg-gray-50 flex justify-start items-center p-10 md:p-16 lg:p-28">
         <div className="lg:min-w-[600px] 2xl:min-w-[800px] text-black flex flex-col items-start justify-center font-sans">
           <h3
-            className="mb-3 font-medium"
+            className="mb-1 font-medium"
             style={{ fontSize: 'clamp(1.75rem, 4vw, 2.5rem)' }}
           >
             더블유브이알은
@@ -44,7 +44,7 @@ export default function ThirdMain() {
             정밀하게 분석하고 예측하여
           </h4>
           <h4
-            className="mb-6 font-medium"
+            className="mb-3 font-medium"
             style={{ fontSize: 'clamp(1rem, 3vw, 2.25rem)' }}
           >
             최적의 AI 해결책을 제시합니다
@@ -65,7 +65,7 @@ export default function ThirdMain() {
             className="pr-4 w-3/4 2xl:w-3/4"
             style={{ fontSize: 'clamp(0.8rem, 2.5vw, 1.5rem)' }}
           >
-            더 나은 세상을 위한 혁신 더블유브이알이 만들어갑니다
+            더 나은 세상을 위한 혁신 더블유브이알이 만들어 갑니다
           </span>
         </div>
       </div>
@@ -83,20 +83,18 @@ export default function ThirdMain() {
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="w-full 2xl:w-[30%] 2xl:h-[25vh] p-3 shadow-lg rounded-xl transition-transform duration-300 hover:scale-105 flex flex-col justify-center items-center relative filter saturate-150"
-              style={{
-                backgroundImage: `url(${item.img.src})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }}
+              className="w-full 2xl:w-[30%] 2xl:h-[25vh] p-3 shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 flex flex-col justify-center items-center relative filter saturate-150"
             >
-              <div className="relative flex flex-col items-center font-sans gap-10">
+              {/* 배경 이미지 레이어 (밝기 조절 적용) */}
+              <div
+                className="absolute inset-0 bg-cover bg-center filter brightness-90"
+                style={{ backgroundImage: `url(${item.img.src})` }}
+              ></div>
+              {/* 텍스트 컨텐츠는 z-index로 배경 필터 영향을 피함 */}
+              <div className="relative z-10 flex flex-col items-center font-sans gap-10">
                 <span className="text-xl md:text-3xl lg:text-5xl font-semibold mb-1 text-white">
                   {item.title}
                 </span>
-                {/* <div className="bg-gray-800 rounded-full p-2 hover:bg-gray-600 transition-colors z-10">
-                  <Image src={right} alt="right" width={20} height={20} />
-                </div> */}
                 <span className="text-xs md:text-lg lg:text-2xl font-medium text-center mb-2 text-white">
                   {item.desc}
                 </span>

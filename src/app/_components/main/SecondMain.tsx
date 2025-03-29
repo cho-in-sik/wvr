@@ -30,7 +30,7 @@ export default function SecondMain() {
             className="mb-1 whitespace-nowrap font-medium"
             style={{ fontSize: 'clamp(1rem, 3vw, 2.25rem)' }}
           >
-            환경 데이터 AI로 분석하여
+            환경 데이터를 AI로 분석하여
           </h4>
           <h4
             className="mb-1 whitespace-nowrap font-medium"
@@ -48,9 +48,8 @@ export default function SecondMain() {
             className="pr-4 w-1/3 2xl:w-3/4 font-light"
             style={{ fontSize: 'clamp(0.8rem, 2.5vw, 1.5rem)' }}
           >
-            우리는 인공지능과 첨단 센싱 기술을 활용해 정밀하게 분석하고 예측하여
-            최적의 해결책을 제시함으로써 지속 가능한 미래를 위한 혁신을
-            이끌어갑니다
+            우리는 인공지능과 첨단 센싱 기술을 활용해 <br />
+            <b>지속 가능한 미래를 위한 혁신</b>을 이끌어갑니다
           </span>
         </div>
       </div>
