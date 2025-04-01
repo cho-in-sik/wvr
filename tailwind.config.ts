@@ -10,6 +10,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      transitionDuration: {
+        '1500': '1500ms',
+      },
+      scale: {
+        '105': '1.05',
+      },
       backgroundImage: {
         main: "url('/images/main/main4.jpg')",
       },

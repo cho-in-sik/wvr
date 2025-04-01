@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import scroll from '@/../public/images/main/scroll.png';
 import Image from 'next/image';
 import main1 from '@/../public/images/main/main1.jpeg';
@@ -5,31 +6,37 @@ import main2 from '@/../public/images/main/main2.jpeg';
 import main3 from '@/../public/images/main/main3.jpeg';
 
 export default function FirstMain() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = [main1, main2, main3];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 4000); // 4초마다 이미지 변경
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
     <div className="relative h-screen w-full bg-black text-white overflow-hidden">
       {/* 배경 이미지들 */}
       <div className="absolute inset-0">
-        <Image
-          src={main2}
-          alt="Background Image 1"
-          fill
-          priority
-          className="animate-fade-zoom-1 object-cover"
-        />
-        <Image
-          src={main1}
-          alt="Background Image 2"
-          fill
-          priority
-          className="animate-fade-zoom-2 object-cover"
-        />
-        <Image
-          src={main3}
-          alt="Background Image 3"
-          fill
-          priority
-          className="animate-fade-zoom-3 object-cover"
-        />
+        {images.map((image, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1500 ${
+              index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <Image
+              src={image}
+              alt={`Background Image ${index + 1}`}
+              fill
+              priority={index === 0}
+              className="object-cover scale-110"
+            />
+          </div>
+        ))}
       </div>
 
       <div className="absolute inset-0 bg-black opacity-10 h-1/3 top-1/3 blur-xl"></div>
