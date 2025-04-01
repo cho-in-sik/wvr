@@ -3,6 +3,8 @@
 import Image from 'next/image';
 import sansu from '@/../public/images/business/sansu.png';
 import hasu from '@/../public/images/business/hasu.png';
+import infra from '@/../public/images/business/infra.png';
+import asset from '@/../public/images/business/asset.png';
 import effect from '@/../public/images/solution/embeded/embeded2.png';
 
 export default function Page() {
@@ -178,13 +180,8 @@ export default function Page() {
                 비용을 절감합니다.
               </div>
             </div>
-            <div className="w-full md:w-auto">
-              <Image
-                src={sansu}
-                alt="sangsu"
-                width={500}
-                className="w-full md:w-auto"
-              />
+            <div className="w-full max-w-[500px]">
+              <Image src={sansu} alt="sansu" width={500} className="w-full" />
             </div>
           </div>
           <div className="text-lg md:text-2xl flex flex-col gap-3 md:gap-4 mb-8 md:mb-10">
@@ -272,7 +269,7 @@ export default function Page() {
                   width={200}
                   className="w-32 md:w-auto"
                 />
-                <div className="absolute top-1/3 left-[36%] text-xl md:text-3xl bg-gradient-to-r to-green-500 from-blue-600 bg-clip-text text-transparent">
+                <div className="absolute top-[32%] left-[35%] text-xl md:text-2xl bg-gradient-to-r to-green-500 from-blue-600 bg-clip-text text-transparent">
                   기대
                   <br />
                   효과
@@ -347,13 +344,8 @@ export default function Page() {
                 저감을 실현합니다.
               </div>
             </div>
-            <div className="w-full md:w-auto">
-              <Image
-                src={hasu}
-                alt="hasu"
-                width={500}
-                className="w-full md:w-auto"
-              />
+            <div className="w-full max-w-[500px]">
+              <Image src={hasu} alt="hasu" width={500} className="w-full" />
             </div>
           </div>
           <div className="text-lg md:text-2xl flex flex-col gap-3 md:gap-4 mb-8 md:mb-10">
@@ -434,13 +426,8 @@ export default function Page() {
                 정기적인 청소와 유지보수 계획 의사결정을 지원합니다.
               </div>
             </div>
-            <div className="w-full md:w-auto">
-              <Image
-                src={sansu}
-                alt="sangsu"
-                width={500}
-                className="w-full md:w-auto"
-              />
+            <div className="w-full max-w-[500px]">
+              <Image src={infra} alt="infra" width={500} className="w-full" />
             </div>
           </div>
           <div className="text-lg md:text-2xl flex flex-col gap-3 md:gap-4 mb-8 md:mb-10">
@@ -523,13 +510,8 @@ export default function Page() {
                 불필요한 예산 낭비를 줄이고, 효율적인 자산 운영이 가능합니다
               </div>
             </div>
-            <div className="w-full md:w-auto">
-              <Image
-                src={sansu}
-                alt="sangsu"
-                width={500}
-                className="w-full md:w-auto"
-              />
+            <div className="w-full max-w-[500px]">
+              <Image src={asset} alt="asset" width={500} className="w-full" />
             </div>
           </div>
           <div className="text-lg md:text-2xl flex flex-col gap-3 md:gap-4 mb-8 md:mb-10">
