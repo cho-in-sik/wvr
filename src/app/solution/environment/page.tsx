@@ -17,27 +17,27 @@ export default function Page() {
           `정밀한 환경 진단과 효율적인 유지보수를 위한 분광 AI 솔루션`
         </h3>
       </div>
-      <div className="flex flex-col justify-center items-center gap-1 text-2xl w-full bg-[#ECF2FA] py-10 mb-20">
+      <div className="flex flex-col justify-center items-center gap-2 text-2xl w-full bg-[#ECF2FA] py-10 mb-20 px-4 text-center leading-relaxed">
         <h4>
           <b>초분광 및 다중분광 이미지</b>를 활용해 <b>지하 시설물</b>의 상태와{' '}
           <b>빗물터널의 퇴적량</b>을
         </h4>
-        <h4>정밀하게 분석하는AI 기반 환경 모니터링 솔루션입니다.</h4>
+        <h4>정밀하게 분석하는 AI 기반 환경 모니터링 솔루션입니다.</h4>
         <h4>육안으로 확인이 어려운 부분까지 분광 기술로 AI가 분석하고</h4>
         <h4>
           이를 통해 <b>효율적인 유지보수와 의사결정 최적화</b>가 가능합니다.
         </h4>
       </div>
-      <div className="mb-16 flex flex-col justify-start items-start w-3/5 ml-10">
+      <div className="mb-16 w-full px-4 md:w-3/5 md:ml-10">
         <h3 className="text-3xl mb-5">빗물 터널 퇴적량 분광 분석</h3>
         <h4 className="text-xl">
-          <b>초분광 이미지를 AI 이미지 분석</b>을 활용해
+          <b>초분광 이미지를 AI 이미지 분석</b>을 활용해{' '}
           <b>빗물터널 내부의 퇴적물 양을 정밀하게 분석</b>하는 솔루션입니다.
         </h4>
       </div>
 
       {/* 어떤 솔루션인가요 */}
-      <div className="flex flex-col justify-start items-start gap-5 mb-10 w-full px-4 md:w-3/5">
+      <div className="flex flex-col justify-start items-start gap-5 mb-10 w-full px-4 md:w-3/5 md:ml-10">
         <h3 className="text-2xl bg-slate-100 px-6 py-2 rounded-3xl font-medium">
           어떤 솔루션인가요?
         </h3>
@@ -51,7 +51,7 @@ export default function Page() {
       </div>
 
       {/* 어떻게 작동하나요 */}
-      <div className="flex flex-col justify-start items-start gap-5 mb-10 w-full px-4 md:w-3/5 relative">
+      <div className="relative flex flex-col justify-start items-start gap-5 mb-10 w-full px-4 md:w-3/5 md:ml-10">
         <h3 className="text-2xl bg-slate-100 px-6 py-2 rounded-3xl font-medium">
           어떻게 작동하나요?
         </h3>
@@ -64,14 +64,15 @@ export default function Page() {
           <br />
           3. 데이터 기반의 예측 유지보수로 효율적인 유지관리가 가능합니다.
         </div>
-        <div className="absolute flex right-[10%] gap-10">
-          <Image src={em1} alt="em1" width={250} />
-          <Image src={em2} alt="em2" width={250} />
+        {/* 데스크탑 전용: 오른쪽에 이미지들 */}
+        <div className="hidden md:flex absolute right-0 gap-10">
+          <Image src={em1} alt="em1" width={220} />
+          <Image src={em2} alt="em2" width={220} />
         </div>
       </div>
 
       {/* 특장점 */}
-      <div className="flex flex-col justify-start items-start gap-5 mb-20 w-full px-4 md:w-3/5">
+      <div className="flex flex-col justify-start items-start gap-5 mb-20 w-full px-4 md:w-3/5 md:ml-10">
         <h3 className="text-2xl bg-slate-100 px-6 py-2 rounded-3xl font-medium">
           특장점
         </h3>
@@ -104,7 +105,7 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="mb-16 flex flex-col justify-start items-start w-3/5 ml-10">
+      <div className="mb-16 w-full px-4 md:w-3/5 md:ml-10">
         <h3 className="text-3xl mb-5">다중분광 부단수 내시경</h3>
         <h4 className="text-xl">
           <b>초분광 이미지를 AI 이미지 분석</b>을 활용해{' '}
