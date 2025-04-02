@@ -11,7 +11,7 @@ import Link from 'next/link';
 
 export default function ThirdMain() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const isInView = useInView(ref, { amount: 0.2 });
 
   const cards = [
     { title: 'Water', img: water, desc: 'WVR와 함께 나아갈 물관리' },
@@ -26,10 +26,11 @@ export default function ThirdMain() {
   return (
     <div
       ref={ref}
-      className="mt-12 2xl:mt-0 min-h-screen w-full flex flex-col 2xl:flex-row"
+      className="mt-12 2xl:mt-0 min-h-screen w-full flex flex-col 2xl:flex-row bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('/images/main/main2.png')" }}
     >
       {/* 왼쪽 텍스트 영역 */}
-      <div className="w-full 2xl:w-2/5 bg-gray-50 flex justify-start items-center p-10 md:p-16 lg:p-28">
+      <div className="w-full 2xl:w-2/5 flex justify-start items-center p-10 md:p-16 lg:p-28">
         <div className="lg:min-w-[600px] 2xl:min-w-[800px] text-black flex flex-col items-start justify-center font-sans">
           <h3
             className="mb-1 font-medium"
@@ -71,10 +72,7 @@ export default function ThirdMain() {
       </div>
 
       {/* 오른쪽 카드 영역 */}
-      <div
-        className="w-full 2xl:w-3/5 h-auto 2xl:h-screen bg-cover bg-center bg-no-repeat px-4 py-6 md:px-10 lg:px-0 lg:py-12"
-        style={{ backgroundImage: "url('/images/main/thirdMain2.jpg')" }}
-      >
+      <div className="w-full 2xl:w-3/5 h-auto 2xl:h-screen bg-cover bg-center bg-no-repeat px-4 py-6 md:px-10 lg:px-0 lg:py-12">
         {/* 모바일: 그리드, 2xl 이상: flex row로 전환 */}
         <div className="relative h-full grid grid-cols-3 gap-2 place-items-center 2xl:flex 2xl:flex-row 2xl:justify-center 2xl:items-center 2xl:gap-6">
           {cards.map((item, index) => (

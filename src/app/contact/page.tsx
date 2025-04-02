@@ -52,7 +52,7 @@ export default function Page() {
 
           <div className="text-gray-500 font-semibold">
             <h4 className="text-lg sm:text-xl text-gray-600">이메일:</h4>
-            <h5 className="text-sm sm:text-base">contact@wvrfor.com</h5>
+            <h5 className="text-sm sm:text-base">wvr0607@gmail.com</h5>
           </div>
         </div>
 

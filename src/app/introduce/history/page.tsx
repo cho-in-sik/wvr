@@ -3,7 +3,7 @@ export default function Page() {
     {
       id: 1,
       period: '12월',
-      content: ['㈜더블유브이알 지점 설립'],
+      content: ['㈜ 더블유브이알 지점 설립'],
     },
     {
       id: 2,
@@ -97,16 +97,16 @@ export default function Page() {
             HISTORY
           </h3>
           <h2 className="font-semibold text-xl sm:text-2xl lg:text-4xl mb-3 sm:mb-5">
-            더블유브이알이
+            환경을 위한 기술로 걸어온
           </h2>
           <h2 className="font-semibold text-xl sm:text-2xl lg:text-4xl">
-            걸어온 길을 소개합니다.
+            더블유브이알의 여정을 소개합니다.
           </h2>
         </div>
       </div>
 
-      <div className="w-full sm:w-5/6 lg:w-4/6 flex flex-col justify-start items-start bg-gray-50 border-l-4 border-gray-300">
-        {/* ✅ 2025 */}
+      <div className="w-full sm:w-5/6 lg:w-4/6 flex flex-col justify-start items-start bg-gray-50 border-l-4 border-gray-300 py-2">
+        {/* ✅ 2025
         <div className="w-full h-20 relative flex justify-start items-center">
           <div className="ml-10 text-3xl font-bold">2025</div>
         </div>
@@ -115,83 +115,102 @@ export default function Page() {
           <div className="w-5 h-5 bg-gray-300 rounded-full absolute -left-3 top-5 flex justify-center items-center">
             <div className="w-2 h-2 rounded-full bg-slate-600"></div>
           </div>
-          <div className="ml-5 text-xl text-slate-700">- TIPS 투자 유치</div>
-        </div>
-        <hr className="w-full mb-5" />
+          <div className="ml-5 text-xl text-slate-700">TIPS 투자 유치</div>
+        </div>*/}
+        {/* <hr className="w-full mb-5" /> */}
 
         {/* ✅ 2024 연혁 */}
-        <div className="w-full h-20 relative flex justify-start items-center">
-          <div className="ml-10 text-3xl font-bold">2024</div>
-        </div>
-
-        {history2024.map((item) => (
-          <div
-            className="w-full relative flex flex-col justify-center items-start py-3 gap-1"
-            key={item.id}
-          >
-            <div className="w-5 h-5 bg-gray-300 rounded-full absolute -left-3 top-5 flex justify-center items-center">
-              <div className="w-2 h-2 rounded-full bg-slate-600"></div>
-            </div>
-
-            {/* ✅ 기간 추가 */}
-            <div className="ml-5 text-lg font-semibold text-gray-700">
-              {item.period}
-            </div>
-            {/* ✅ 내용 출력 */}
-            {item.content.map((contentItem, index) => (
-              <div className="ml-5 text-xl text-slate-700" key={index}>
-                - {contentItem}
-              </div>
-            ))}
+        <div className="relative">
+          <div className="w-full h-20 flex justify-start items-center absolute -left-36">
+            <div className="ml-10 text-3xl font-bold">2024</div>
           </div>
-        ))}
+          {history2024.map((item) => (
+            <div
+              className="w-full relative flex flex-col justify-center items-start py-6 gap-1"
+              key={item.id}
+            >
+              <div className="w-5 h-5 bg-gray-300 rounded-full absolute -left-3 top-7 flex justify-center items-center">
+                <div className="w-2 h-2 rounded-full bg-slate-600"></div>
+              </div>
+
+              <div className="flex justify-start gap-5">
+                <div className="ml-5 text-xl font-semibold text-gray-700">
+                  {item.period}
+                </div>
+
+                <div>
+                  {item.content.map((contentItem, index) => (
+                    <div className="ml-5 text-2xl text-slate-700" key={index}>
+                      {contentItem}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
 
         <hr className="w-full mb-5" />
 
-        {/* ✅ 2023 연혁 */}
-        <div className="w-full h-20 relative flex justify-start items-center">
-          <div className="ml-10 text-3xl font-bold">2023</div>
+        <div className="relative">
+          {/* ✅ 2023 연혁 */}
+          <div className="w-full h-20 absolute -left-36 flex justify-start items-center">
+            <div className="ml-10 text-3xl font-bold">2023</div>
+          </div>
+
+          {history2023.map((item) => (
+            <div
+              className="w-full relative flex flex-col justify-center items-start py-6 gap-1"
+              key={item.id}
+            >
+              <div className="w-5 h-5 bg-gray-300 rounded-full absolute -left-3 top-7 flex justify-center items-center">
+                <div className="w-2 h-2 rounded-full bg-slate-600"></div>
+              </div>
+
+              <div className="flex justify-start gap-5">
+                <div className="ml-5 text-xl font-semibold text-gray-700">
+                  {item.period}
+                </div>
+
+                <div>
+                  {item.content.map((contentItem, index) => (
+                    <div className="ml-5 text-2xl text-slate-700" key={index}>
+                      {contentItem}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
 
-        {history2023.map((item) => (
-          <div
-            className="w-full relative flex flex-col justify-center items-start py-3 gap-1"
-            key={item.id}
-          >
+        <hr className="w-full mb-5" />
+        <div className="relative">
+          {/* ✅ 2022 연혁 */}
+          <div className="w-full h-20 absolute -left-36 -top-3 flex justify-start items-center">
+            <div className="ml-10 text-3xl font-bold">2022</div>
+          </div>
+          <div className="w-full relative flex flex-col justify-center items-start py-3 gap-1">
             <div className="w-5 h-5 bg-gray-300 rounded-full absolute -left-3 top-5 flex justify-center items-center">
               <div className="w-2 h-2 rounded-full bg-slate-600"></div>
             </div>
-
-            {/* ✅ 기간 추가 */}
-            <div className="ml-5 text-lg font-semibold text-gray-700">
-              {item.period}
-            </div>
-            {/* ✅ 내용 출력 */}
-            {item.content.map((contentItem, index) => (
-              <div className="ml-5 text-xl text-slate-700" key={index}>
-                - {contentItem}
+            {/* <div className="ml-5 text-xl font-semibold text-gray-700">11월</div>
+          <div className="ml-5 text-2xl text-slate-700">
+            벤처기업협회 예비벤처기업 지정
+          </div> */}
+            <div className="flex justify-start gap-5">
+              <div className="ml-5 text-xl font-semibold text-gray-700">
+                11월
               </div>
-            ))}
-          </div>
-        ))}
 
-        <hr className="w-full mb-5" />
-
-        {/* ✅ 2022 연혁 */}
-        <div className="w-full h-20 relative flex justify-start items-center">
-          <div className="ml-10 text-3xl font-bold">2022</div>
-        </div>
-
-        <div className="w-full relative flex flex-col justify-center items-start py-3 gap-1">
-          <div className="w-5 h-5 bg-gray-300 rounded-full absolute -left-3 top-5 flex justify-center items-center">
-            <div className="w-2 h-2 rounded-full bg-slate-600"></div>
-          </div>
-          <div className="ml-5 text-lg font-semibold text-gray-700">11월</div>
-          <div className="ml-5 text-xl text-slate-700">
-            - 벤처기업협회 예비벤처기업 지정
+              <div className="ml-5 text-2xl text-slate-700">
+                벤처기업협회 예비벤처기업 지정
+              </div>
+            </div>
           </div>
         </div>
-        <hr className="w-full" />
+
+        {/* <hr className="w-full" /> */}
       </div>
     </div>
   );

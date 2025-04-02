@@ -11,36 +11,45 @@ export default function LastMain() {
     queryKey: ['notices'],
     queryFn: () => getNotices(1),
   });
-  console.log(data);
+
   return (
-    <div className="flex flex-col justify-center items-center w-full h-screen overflow-y-hidden">
+    <div
+      className="flex flex-col justify-center items-center w-full h-screen overflow-y-hidden bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('/images/main/lastMain.png')" }}
+    >
       {/* ✅ 메인 컨텐츠 영역 */}
       <div className="h-[75%] w-full flex flex-col lg:flex-row">
         {/* ✅ Contact (왼쪽) */}
-        <div
-          className="w-full lg:w-2/5 h-[40vh] lg:h-full bg-gray-200 p-8 md:p-16 lg:p-28 flex justify-start items-center bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/images/main/lastMain1.jpg')" }}
-        >
-          <div className="text-white flex flex-col items-start justify-center">
-            <h3 className="text-xl md:text-2xl font-extrabold mb-3">Contact</h3>
-
-            <span className="text-sm md:text-base font-bold">
-              Tel : 062-716-7702
+        <div className="w-full lg:w-2/5 h-[40vh] lg:h-full p-8 md:p-16 lg:p-28 flex justify-start items-center bg-cover bg-center bg-no-repeat">
+          <div className="text-black flex flex-col items-start justify-center">
+            <h3 className="text-xl md:text-3xl font-semibold mb-16">
+              여러분을 기다리고 있습니다
+            </h3>
+            <h3 className="text-sm md:text-base font-medium mb-3">
+              ㈜ 더블유이알
+            </h3>
+            <span className="text-sm md:text-base font-medium mb-3">
+              광주광역시 북구 용봉로 77,제 1산학협력공학관 607호
+              <br />
+              (용봉동, 전남대학교)
             </span>
-            <span className="text-sm md:text-base font-bold">
-              Email : asdasd@asdasdasd
+            <span className="text-sm md:text-base font-medium mb-3">
+              연락처 : 062-716-7702
+            </span>
+            <span className="text-sm md:text-base font-medium">
+              이메일 : wvr0607@gmail.com
             </span>
           </div>
         </div>
 
         {/* ✅ 공지사항 (오른쪽) */}
-        <div className="w-full lg:w-3/5 h-[60vh] lg:h-full flex flex-col justify-center items-start bg-gray-100 px-6 md:px-16 lg:px-20 py-10">
-          <h3 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900">
+        <div className="w-full lg:w-3/5 h-[60vh] lg:h-full flex flex-col justify-center items-start px-6 md:px-16 lg:px-20 py-10">
+          <h3 className="text-2xl md:text-3xl font-semibold mb-6 text-gray-900">
             공지사항
           </h3>
           {/* 전체 공지사항 리스트 영역에 overflow-y-auto 적용 */}
           <div
-            className="w-full flex flex-col gap-4 overflow-y-scroll"
+            className="w-4/5 flex flex-col gap-4 overflow-y-scroll"
             style={{ maxHeight: '100%' }}
           >
             {data?.slice(0, 5).map((item) => (

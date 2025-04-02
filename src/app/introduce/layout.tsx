@@ -28,19 +28,28 @@ export default function Layout({
       <Navbar />
 
       {/* 네비게이션 영역 */}
-      <div
-        className="min-h-[40vh] sm:min-h-[50vh] w-full bg-gray-400 bg-cover bg-center bg-no-repeat flex flex-col justify-center items-center gap-5 relative px-4 sm:px-6"
-        style={{ backgroundImage: "url('/images/introduce/ceo.jpeg')" }}
-      >
-        <h4 className="text-white text-lg sm:text-xl font-play font-semibold">
-          회사소개
-        </h4>
-        <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold">
-          {currentTitle}
-        </h1>
+      <div className="relative min-h-[40vh] sm:min-h-[50vh] w-full flex flex-col justify-center items-center gap-5 px-4 sm:px-6">
+        {/* 배경 이미지 레이어: brightness 90% 적용 */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/images/introduce/ceo.jpeg')",
+            filter: 'brightness(0.8)',
+          }}
+        ></div>
+
+        {/* 상단 타이틀 영역 (텍스트는 배경 레이어 위에 표시) */}
+        <div className="relative z-10 flex flex-col justify-center items-center gap-4">
+          <h4 className="text-white text-lg sm:text-xl font-play font-semibold">
+            회사소개
+          </h4>
+          <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold">
+            {currentTitle}
+          </h1>
+        </div>
 
         {/* 네비게이션 메뉴 */}
-        <div className="bg-black/50 text-white w-full h-16 sm:h-20 absolute bottom-0 flex justify-between items-center text-sm sm:text-base lg:text-xl">
+        <div className="absolute bottom-0 bg-black/50 text-white w-full h-16 sm:h-20 flex justify-between items-center text-sm sm:text-base lg:text-xl">
           {menuItems.map((item, index) => (
             <Link key={index} href={item.path} className="w-full h-full">
               <div
