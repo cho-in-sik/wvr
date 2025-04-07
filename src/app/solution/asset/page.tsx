@@ -10,7 +10,7 @@ export default function Page() {
     <div className="flex flex-col justify-center items-center font-sans">
       {/* 상단 타이틀 영역 */}
       <div className="flex flex-col justify-center items-center gap-4 mb-10 mt-28 px-4">
-        <h2 className="text-2xl font-semibold md:text-4xl text-center">
+        <h2 className="text-3xl font-semibold md:text-5xl text-center">
           스마트 하수처리 AI 솔루션
         </h2>
         <h3 className="text-xl md:text-2xl text-slate-700 text-center">
@@ -105,6 +105,7 @@ export default function Page() {
           ))}
         </div>
       </div>
+      <hr className="w-3/5 mb-5" />
 
       <div className="text-center mb-3 md:text-3xl text-2xl pt-10">
         하폐수 처리 ABC Platform

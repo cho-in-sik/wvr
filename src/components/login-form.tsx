@@ -92,13 +92,13 @@ export function LoginForm({
       </Card>
 
       {/* ✅ 약관 안내 */}
-      <div className="text-center text-xs sm:text-sm text-gray-500">
+      {/* <div className="text-center text-xs sm:text-sm text-gray-500">
         <span>By clicking continue, you agree to our</span>{' '}
         <a href="#" className="underline">
           Privacy Policy
         </a>
         .
-      </div>
+      </div> */}
     </div>
   );
 }

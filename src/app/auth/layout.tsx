@@ -22,7 +22,7 @@ export default async function Layout({
       {/* ✅ 네비게이션 영역 (반응형) */}
       <div
         className="min-h-[40vh] sm:min-h-[50vh] w-full bg-gray-400 bg-cover bg-center bg-no-repeat flex flex-col justify-center items-center gap-5 relative px-4 sm:px-6"
-        style={{ backgroundImage: "url('/images/introduce/introduce3.jpg')" }}
+        style={{ backgroundImage: "url('/images/introduce/ceo.jpeg')" }}
       >
         <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold">
           로그인

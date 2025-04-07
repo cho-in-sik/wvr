@@ -17,7 +17,7 @@ import { useEffect, useState } from 'react';
 
 export default function Page() {
   const supabase = createBrowserSupabaseClient();
-  const [token, setToken] = useState(false);
+  const [token, setToken] = useState<boolean | null>(null);
   const router = useRouter();
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
@@ -31,7 +31,7 @@ export default function Page() {
       setLoading(true);
       const res = await addNotice(formData);
       setLoading(false);
-      if (res.status === 201 || 200) {
+      if (res.status === 201 || res.status === 200) {
         router.push('/community');
       }
     } catch (error) {
@@ -42,22 +42,47 @@ export default function Page() {
 
   useEffect(() => {
     async function fetchUser() {
-      const {
-        data: { session },
-      } = await supabase.auth.getSession();
-      if (session?.access_token) setToken(true);
-    }
-    fetchUser();
-  }, [supabase.auth]);
+      try {
+        const {
+          data: { session },
+        } = await supabase.auth.getSession();
 
-  // if (!token) router.push('/');
+        if (session?.access_token) {
+          setToken(true);
+        } else {
+          setToken(false);
+          router.push('/');
+        }
+      } catch (error) {
+        console.error('Auth error:', error);
+        setToken(false);
+        router.push('/');
+      }
+    }
+
+    fetchUser();
+  }, [supabase.auth, router]);
+
+  // Show loading or null while checking auth
+  if (token === null) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        Loading...
+      </div>
+    );
+  }
+
+  // Only render the form if token is true
+  if (token === false) {
+    return null; // Return nothing while redirecting
+  }
 
   return (
     <div className="flex flex-col justify-center items-center w-full">
       <h1 className="text-start py-5 text-3xl font-semibold">
         공지사항 등록하기
       </h1>
-      <Card className="w-1/2">
+      <Card className="w-full md:w-3/4 lg:w-1/2">
         <CardHeader></CardHeader>
         <form onSubmit={handleSubmit}>
           <CardContent>
@@ -68,7 +93,7 @@ export default function Page() {
                   name="title"
                   id="title"
                   placeholder="title of your notice"
-                  className="w-1/2"
+                  className="w-full md:w-2/3 lg:w-1/2"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   required
@@ -80,7 +105,7 @@ export default function Page() {
                   name="content"
                   id="content"
                   placeholder="content of your notice"
-                  className="w-full whitespace-pre-wrap"
+                  className="w-full whitespace-pre-wrap min-h-32"
                   value={content}
                   onChange={(e) => setContent(e.target.value)}
                   required
@@ -92,7 +117,7 @@ export default function Page() {
                   name="writer"
                   id="writer"
                   placeholder="writer of your notice"
-                  className="w-1/2"
+                  className="w-full md:w-2/3 lg:w-1/2"
                   value={writer}
                   onChange={(e) => setWriter(e.target.value)}
                   required
@@ -105,7 +130,7 @@ export default function Page() {
               뒤로가기
             </Button>
             <Button type="submit" disabled={loading}>
-              등록하기
+              {loading ? '처리 중...' : '등록하기'}
             </Button>
           </CardFooter>
         </form>

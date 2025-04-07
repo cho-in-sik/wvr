@@ -41,6 +41,9 @@ export default function Footer() {
             이메일주소무단수집거부
           </span>
         </Link>
+        <Link href="/auth/signin">
+          <div className="text-black cursor-default">1</div>
+        </Link>
       </div>
 
       {/* 회사 정보 */}
