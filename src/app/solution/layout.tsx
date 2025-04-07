@@ -15,7 +15,7 @@ export default function Layout({
     { label: '스마트 누수 탐지 AI 솔루션', path: '/solution' },
     { label: '스마트 상수관로 AIoT 유량계', path: '/solution/embeded' },
     { label: '스마트 하수처리 AI 솔루션', path: '/solution/asset' },
-    { label: '환경 모니터링 시설 분광 분석', path: '/solution/environment' },
+    // { label: '환경 모니터링 시설 분광 분석', path: '/solution/environment' },
   ];
 
   return (

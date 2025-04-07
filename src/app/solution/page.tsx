@@ -9,17 +9,17 @@ export default function Page() {
     <div className="flex flex-col justify-center items-center font-sans">
       {/* 상단 타이틀 영역 */}
       <div className="flex flex-col justify-center items-center gap-4 mb-10 mt-28 px-4">
-        <h2 className="text-2xl md:text-4xl text-center">
+        <h2 className="text-2xl font-semibold md:text-4xl text-center">
           스마트 누수 탐지 AI 솔루션
         </h2>
         <h3 className="text-xl md:text-2xl text-slate-700 text-center">
-          `정밀한 누수 탐지와 신속한 대응을 위한 AI 기반 솔루션`
+          정밀한 누수 탐지와 신속한 대응을 위한 AI 기반 솔루션
         </h3>
       </div>
       <hr className="w-full mb-10" />
 
       {/* 어떤 솔루션인가요 */}
-      <div className="flex flex-col justify-start items-start gap-5 mb-10 w-full px-4 md:w-3/5">
+      <div className="flex flex-col justify-start items-start gap-5 mb-10 w-full py-10 px-4 md:w-3/5">
         <h3 className="text-2xl bg-slate-100 px-6 py-2 rounded-3xl font-medium">
           어떤 솔루션인가요?
         </h3>
@@ -37,16 +37,17 @@ export default function Page() {
       <hr className="w-full mb-10" />
 
       {/* AIoT 누수탐지 솔루션 이미지 + 단계 */}
-      <div className="w-full md:w-3/5 border flex flex-col h-auto mb-10">
+      <div className="w-full md:w-3/5 border flex flex-col h-auto mb-10 pb-10">
         <div className="bg-[#345773] h-16 md:h-1/5 flex justify-center items-center text-white text-2xl md:text-3xl py-3">
           AIoT 누수탐지 솔루션
         </div>
         <div className="flex flex-col md:flex-row h-auto">
-          <div className="w-full md:w-1/2">
+          <div className="w-full md:w-3/5">
             <Image
               src={aiot}
               alt="aiot"
               className="w-full h-auto object-contain"
+              layout="responsive"
             />
           </div>
           <div className="w-full md:w-1/2 flex flex-col gap-6 justify-center px-4 py-6 md:pl-10">
@@ -70,7 +71,7 @@ export default function Page() {
       </div>
 
       {/* 어떻게 작동하나요 */}
-      <div className="flex flex-col justify-start items-start gap-5 mb-10 w-full px-4 md:w-3/5">
+      <div className="flex flex-col justify-start items-start gap-5 mb-10 w-full px-4 md:w-3/5 py-10">
         <h3 className="text-2xl bg-slate-100 px-6 py-2 rounded-3xl font-medium">
           어떻게 작동하나요?
         </h3>
@@ -87,7 +88,7 @@ export default function Page() {
       </div>
 
       {/* 특장점 */}
-      <div className="flex flex-col justify-start items-start gap-5 mb-32 w-full px-4 md:w-3/5">
+      <div className="flex flex-col justify-start items-start gap-5 mb-32 w-full px-4 md:w-3/5 py-10">
         <h3 className="text-2xl bg-slate-100 px-6 py-2 rounded-3xl font-medium">
           특장점
         </h3>

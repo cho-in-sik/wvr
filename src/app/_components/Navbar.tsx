@@ -143,11 +143,11 @@ export default function Navbar() {
                     스마트 하수처리 AI 솔루션
                   </div>
                 </Link>
-                <Link href={'/solution/environment'}>
+                {/* <Link href={'/solution/environment'}>
                   <div className="px-4 py-2 cursor-pointer hover:text-[#04C9EA]">
                     환경 모니터링 시설 분광 분석
                   </div>
-                </Link>
+                </Link> */}
               </div>
             )}
           </div>

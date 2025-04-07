@@ -10,24 +10,24 @@ export default function Page() {
     <div className="flex flex-col justify-center items-center font-sans">
       {/* 상단 타이틀 영역 */}
       <div className="flex flex-col justify-center items-center gap-4 mb-10 mt-28 px-4">
-        <h2 className="text-2xl md:text-4xl text-center">
+        <h2 className="text-2xl font-semibold md:text-4xl text-center">
           스마트 하수처리 AI 솔루션
         </h2>
         <h3 className="text-xl md:text-2xl text-slate-700 text-center">
-          `하수처리장에서의 효율적인 에너지 관리와 처리 효율을 위해 AI 기반 관리
-          시스템을 제공`
+          하수처리장에서의 효율적인 에너지 관리와 처리 효율을 위해 AI 기반 관리
+          시스템을 제공
         </h3>
       </div>
       <hr className="w-full mb-10" />
-      <div className="text-center mb-3 md:text-3xl text-2xl">
+      <div className="text-center mb-3 md:text-3xl text-2xl pt-10">
         AI 기반 혐기성 소화조 모델 (AiDM) 운영관리 솔루션
       </div>
-      <div className="text-center mb-10 md:text-xl text-lg">
+      <div className="text-center mb-10 md:text-xl text-lg pb-10">
         AI가 데이터를 분석해 메탄 생성 최적화 및 운영 효율성 향상
       </div>
 
       {/*AIoT 스마트 유량계 이미지 + 단계 */}
-      <div className="w-full md:w-3/5 border flex flex-col h-auto mb-10">
+      <div className="w-full md:w-3/5 border flex flex-col h-auto mb-10 pb-10">
         <div className="bg-[#345773] h-16 md:h-1/5 flex justify-center items-center text-white text-2xl md:text-3xl py-3">
           AI 기반 혐기성 소화조 모델 (AiDM) 운영관리 솔루션
         </div>
@@ -43,7 +43,7 @@ export default function Page() {
       </div>
 
       {/* 어떤 솔루션인가요 */}
-      <div className="flex flex-col justify-start items-start gap-5 mb-10 w-full px-4 md:w-3/5">
+      <div className="flex flex-col justify-start items-start gap-5 mb-10 w-full px-4 md:w-3/5 py-10">
         <h3 className="text-2xl bg-slate-100 px-6 py-2 rounded-3xl font-medium">
           어떤 솔루션인가요?
         </h3>
@@ -59,7 +59,7 @@ export default function Page() {
       </div>
 
       {/* 어떻게 작동하나요 */}
-      <div className="flex flex-col justify-start items-start gap-5 mb-10 w-full px-4 md:w-3/5">
+      <div className="flex flex-col justify-start items-start gap-5 mb-10 w-full px-4 md:w-3/5 py-10">
         <h3 className="text-2xl bg-slate-100 px-6 py-2 rounded-3xl font-medium">
           어떻게 작동하나요?
         </h3>
@@ -73,7 +73,7 @@ export default function Page() {
       </div>
 
       {/* 특장점 */}
-      <div className="flex flex-col justify-start items-start gap-5 mb-32 w-full px-4 md:w-3/5">
+      <div className="flex flex-col justify-start items-start gap-5 mb-32 w-full px-4 md:w-3/5 py-10">
         <h3 className="text-2xl bg-slate-100 px-6 py-2 rounded-3xl font-medium">
           특장점
         </h3>
@@ -106,10 +106,10 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="text-center mb-3 md:text-3xl text-2xl">
+      <div className="text-center mb-3 md:text-3xl text-2xl pt-10">
         하폐수 처리 ABC Platform
       </div>
-      <div className="text-center mb-10 md:text-xl text-lg">
+      <div className="text-center mb-10 md:text-xl text-lg pb-10">
         AI를 활용해 송풍량을 자동으로 조정해 에너지 절감 및 처리 효율 향상
       </div>
 
@@ -130,7 +130,7 @@ export default function Page() {
       </div>
 
       {/* 어떤 솔루션인가요 */}
-      <div className="flex flex-col justify-start items-start gap-5 mb-10 w-full px-4 md:w-3/5">
+      <div className="flex flex-col justify-start items-start gap-5 mb-10 w-full px-4 md:w-3/5 py-10">
         <h3 className="text-2xl bg-slate-100 px-6 py-2 rounded-3xl font-medium">
           어떤 솔루션인가요?
         </h3>
@@ -144,7 +144,7 @@ export default function Page() {
       </div>
 
       {/* 어떻게 작동하나요 */}
-      <div className="flex flex-col justify-start items-start gap-5 mb-10 w-full px-4 md:w-3/5">
+      <div className="flex flex-col justify-start items-start gap-5 mb-10 w-full px-4 md:w-3/5 py-10">
         <h3 className="text-2xl bg-slate-100 px-6 py-2 rounded-3xl font-medium">
           어떻게 작동하나요?
         </h3>
@@ -159,7 +159,7 @@ export default function Page() {
       </div>
 
       {/* 특장점 */}
-      <div className="flex flex-col justify-start items-start gap-5 mb-32 w-full px-4 md:w-3/5">
+      <div className="flex flex-col justify-start items-start gap-5 mb-32 w-full px-4 md:w-3/5 py-10">
         <h3 className="text-2xl bg-slate-100 px-6 py-2 rounded-3xl font-medium">
           특장점
         </h3>

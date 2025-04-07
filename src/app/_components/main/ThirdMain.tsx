@@ -100,8 +100,8 @@ export default function ThirdMain() {
             </motion.div>
           ))}
           <Link href={'/business'}>
-            <div className="absolute top-1/3 right-10 flex justify-center items-center text-slate-800">
-              <h3 className="text-xl">바로가기</h3>
+            <div className="absolute top-[32%] right-10 flex justify-center items-center text-slate-800">
+              <h3 className="text-xl ">바로가기</h3>
               <Image src={rightArrow} alt="right-arrow" className="mb-1" />
             </div>
           </Link>
