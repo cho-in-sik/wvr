@@ -50,7 +50,7 @@ export default function Page() {
     fetchUser();
   }, [supabase.auth]);
 
-  if (!token) router.push('/');
+  // if (!token) router.push('/');
 
   return (
     <div className="flex flex-col justify-center items-center w-full">

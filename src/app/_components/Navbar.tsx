@@ -71,7 +71,7 @@ export default function Navbar() {
         >
           {/* 회사소개 Dropdown */}
           <div
-            className="relative "
+            className="relative"
             onMouseEnter={() => handleDropdownEnter('company')}
             onMouseLeave={handleDropdownLeave}
           >
@@ -83,7 +83,7 @@ export default function Navbar() {
               회사소개
             </Link>
             {activeDropdown === 'company' && (
-              <div className="absolute top-full left-1/2 transform -translate-x-1/2 bg-black shadow-md rounded-md py-4 font-semibold min-w-[150px] z-10 text-center text-lg">
+              <div className="absolute top-full left-1/2 transform -translate-x-1/2 bg-black shadow-md rounded-md py-4 font-semibold min-w-[150px] z-10 text-center text-lg text-white">
                 <Link href="/introduce">
                   <div className="px-4 py-2 cursor-pointer hover:text-[#04C9EA]">
                     CEO 인사말
@@ -127,7 +127,7 @@ export default function Navbar() {
               솔루션
             </Link>
             {activeDropdown === 'solution' && (
-              <div className="absolute top-full left-1/2 transform -translate-x-1/2 bg-black shadow-md rounded-md py-4 px-4 font-semibold min-w-[250px] z-10 text-center text-lg">
+              <div className="absolute top-full left-1/2 transform -translate-x-1/2 bg-black shadow-md rounded-md py-4 px-4 font-semibold min-w-[250px] z-10 text-center text-lg text-white">
                 <Link href={'/solution'}>
                   <div className="px-4 py-2 cursor-pointer hover:text-[#04C9EA]">
                     스마트 누수 탐지 AI 솔루션
@@ -166,7 +166,7 @@ export default function Navbar() {
               비즈니스
             </Link>
             {activeDropdown === 'business' && (
-              <div className="absolute top-full left-1/2 transform -translate-x-1/2 bg-black shadow-md rounded-md p-2 py-4 font-semibold min-w-[150px] z-10 text-center text-lg">
+              <div className="absolute top-full left-1/2 transform -translate-x-1/2 bg-black shadow-md rounded-md p-2 py-4 font-semibold min-w-[150px] z-10 text-center text-lg text-white">
                 <Link href={'/business'}>
                   <div className="px-4 py-2 cursor-pointer hover:text-[#04C9EA]">
                     비즈니스
@@ -190,7 +190,7 @@ export default function Navbar() {
               커뮤니티
             </Link>
             {activeDropdown === 'community' && (
-              <div className="absolute top-full left-1/2 transform -translate-x-1/2 bg-black text-center text-lg shadow-md rounded-md p-2 py-4 font-semibold min-w-[150px] z-10">
+              <div className="absolute top-full left-1/2 transform -translate-x-1/2 bg-black text-center text-lg shadow-md rounded-md p-2 py-4 font-semibold min-w-[150px] z-10 text-white">
                 <Link href="/community">
                   <div className="px-4 py-2 cursor-pointer hover:text-[#04C9EA]">
                     공지사항
@@ -219,7 +219,7 @@ export default function Navbar() {
               소통
             </Link>
             {activeDropdown === 'contact' && (
-              <div className="absolute top-full left-1/2 transform -translate-x-1/2 bg-black text-center text-lg shadow-md rounded-md p-2 py-4 font-semibold min-w-[150px] z-10">
+              <div className="absolute top-full left-1/2 transform -translate-x-1/2 bg-black text-center text-lg shadow-md rounded-md p-2 py-4 font-semibold min-w-[150px] z-10 text-white">
                 <Link href="/contact">
                   <div className="px-4 py-2 cursor-pointer hover:text-[#04C9EA]">
                     문의하기
