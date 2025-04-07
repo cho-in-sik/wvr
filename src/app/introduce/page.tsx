@@ -51,7 +51,7 @@ export default function Page() {
           </span>
           <span className="text-lg md:text-xl font-medium">감사합니다.</span>
           <span className="text-lg md:text-xl font-medium">
-            (주)더블유브이알대표 박용균
+            (주)더블유브이알대표
           </span>
         </div>
       </div>

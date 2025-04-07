@@ -19,6 +19,7 @@ export default function Home() {
   const isScrollingRef = useRef<boolean>(isScrolling);
 
   useEffect(() => {
+    console.log('currentPage', currentPage);
     currentPageRef.current = currentPage;
   }, [currentPage]);
 
