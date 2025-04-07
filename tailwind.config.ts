@@ -63,6 +63,7 @@ const config: Config = {
       },
       fontFamily: {
         play: ['var(--font-play)', 'sans-serif'],
+        gmarket: ['var(--font-gmarket-sans)', 'sans-serif'],
         sans: [
           'Noto Sans KR',
           'Noto Sans Korean',

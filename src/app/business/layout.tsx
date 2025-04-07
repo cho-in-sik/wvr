@@ -31,7 +31,7 @@ export default function Layout({
       </div>
 
       {/* 컨텐츠 영역 */}
-      <div className="flex-grow min-h-[50vh] w-full px-4 sm:px-6 lg:px-10 py-8 sm:py-12 lg:py-16">
+      <div className="flex-grow min-h-[50vh] w-full px-5 md:px-0 py-8 sm:py-12 lg:py-16">
         {children}
       </div>
 

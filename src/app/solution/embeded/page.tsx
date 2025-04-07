@@ -42,7 +42,7 @@ export default function Page() {
 
       {/*AIoT 스마트 유량계 이미지 + 단계 */}
       <div className="w-full md:w-3/5 border flex flex-col h-auto mb-10 pb-10">
-        <div className="bg-[#345773] h-16 md:h-1/5 flex justify-center items-center text-white text-2xl md:text-3xl py-3">
+        <div className="bg-[#345773] h-16 md:h-1/5 flex justify-center items-center text-white text-2xl md:text-3xl py-3 font-gmarket">
           AIoT 스마트 유량계
         </div>
         <div className="flex flex-col md:flex-row h-auto">

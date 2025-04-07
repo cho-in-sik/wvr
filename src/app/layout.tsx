@@ -6,8 +6,15 @@ import Script from 'next/script';
 import { createServerSupabaseClient } from '@/utils/supabase/server';
 import ReactQueryClientProvider from './_components/ReactQueryClientProvider';
 import LoadingScreen from './_components/LoadingScreen';
+import localFont from 'next/font/local';
 
 export const API = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAOMAP_KEY}&libraries=services,clusterer&autoload=false`;
+
+const gmarketSans = localFont({
+  src: '../../public/fonts/GmarketSansTTFBold.ttf',
+  variable: '--font-gmarket-sans',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: '더블유브이알',
@@ -25,7 +32,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className="antialiased">
+      <body className={`antialiased ${gmarketSans.variable}`}>
         {/* Providers는 앱 전체에 한 번만 마운트되어 상태가 유지됩니다. */}
         <ReactQueryClientProvider>
           <LoadingScreen />
