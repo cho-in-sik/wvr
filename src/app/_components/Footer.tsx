@@ -4,8 +4,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePage } from '@/app/context/ScrollContext';
 import top from '@/../public/svgs/top.svg';
+import { useEffect, useState } from 'react';
+import { createBrowserSupabaseClient } from '@/utils/supabase/client';
+import LogoutButton from './LogoutButton';
 
 export default function Footer() {
+  const supabase = createBrowserSupabaseClient();
+  const [token, setToken] = useState(false);
   const { currentPage, setCurrentPage } = usePage();
 
   const handleScrollToTop = () => {
@@ -24,6 +29,18 @@ export default function Footer() {
     }
   };
 
+  console.log(token);
+
+  useEffect(() => {
+    async function fetchUser() {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+      if (session?.access_token) setToken(true);
+    }
+    fetchUser();
+  }, [supabase.auth]);
+
   return (
     <div className="h-[25%] w-full bg-black text-white flex flex-col justify-center items-start px-6 md:px-16 lg:px-48 gap-5 md:gap-7 relative">
       {/* Footer Links */}
@@ -41,6 +58,7 @@ export default function Footer() {
             이메일주소무단수집거부
           </span>
         </Link>
+
         <Link href="/auth/signin">
           <div className="text-black cursor-default">1</div>
         </Link>
@@ -58,6 +76,7 @@ export default function Footer() {
       {/* 저작권 */}
       <div className="text-xs md:text-sm text-slate-400">
         <h6>© (주)더블유브이알 All rights reserved.</h6>
+        <LogoutButton>로그아웃</LogoutButton>
       </div>
 
       {/* 상단 이동 버튼 */}

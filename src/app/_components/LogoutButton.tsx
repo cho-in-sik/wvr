@@ -10,6 +10,11 @@ type Props = {
 export default function LogoutButton({ children }: Props) {
   const supabase = createBrowserSupabaseClient();
   return (
-    <button onClick={async () => supabase.auth.signOut()}>{children}</button>
+    <button
+      className="text-black"
+      onClick={async () => supabase.auth.signOut()}
+    >
+      {children}
+    </button>
   );
 }
