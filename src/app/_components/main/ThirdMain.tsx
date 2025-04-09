@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useMemo, memo } from 'react';
 import water from '@/../public/images/main/mainWater.jpeg';
 import carbon from '@/../public/images/main/mainCarbon.jpeg';
 import environment from '@/../public/images/main/mainEnvironment.jpeg';
@@ -9,19 +9,65 @@ import rightArrow from '@/../public/svgs/rightArrow.svg';
 import Image from 'next/image';
 import Link from 'next/link';
 
+// 카드 컴포넌트를 분리하여 메모이제이션
+const Card = memo(
+  ({
+    item,
+    index,
+    isInView,
+  }: {
+    item: { title: string; img: any; desc: string };
+    index: number;
+    isInView: boolean;
+  }) => (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{
+        duration: 0.3,
+        delay: index * 0.1,
+        ease: 'easeOut',
+      }}
+      className="w-full 2xl:w-[30%] 2xl:h-[25vh] p-3 shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 flex flex-col justify-center items-center relative filter saturate-150"
+    >
+      <div
+        className="absolute inset-0 bg-cover bg-center filter brightness-90"
+        style={{ backgroundImage: `url(${item.img.src})` }}
+      />
+      <div className="relative z-10 flex flex-col items-center font-sans gap-10">
+        <span className="text-xl md:text-3xl lg:text-5xl font-semibold mb-1 text-white">
+          {item.title}
+        </span>
+        <span className="text-xs md:text-lg lg:text-2xl font-medium text-center mb-2 text-white">
+          {item.desc}
+        </span>
+      </div>
+    </motion.div>
+  ),
+);
+
+Card.displayName = 'Card';
+
 export default function ThirdMain() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { amount: 0.2 });
+  const isInView = useInView(ref, {
+    amount: 0.4,
+    once: true,
+    margin: '100px',
+  });
 
-  const cards = [
-    { title: 'Water', img: water, desc: 'WVR와 함께 나아갈 물관리' },
-    {
-      title: 'Environment',
-      img: environment,
-      desc: '지속 가능한 환경',
-    },
-    { title: 'Carbon', img: carbon, desc: '미래지향적 탄소 저감 기술' },
-  ];
+  const cards = useMemo(
+    () => [
+      { title: 'Water', img: water, desc: 'WVR와 함께 나아갈 물관리' },
+      {
+        title: 'Environment',
+        img: environment,
+        desc: '지속 가능한 환경',
+      },
+      { title: 'Carbon', img: carbon, desc: '미래지향적 탄소 저감 기술' },
+    ],
+    [],
+  );
 
   return (
     <div
@@ -73,35 +119,13 @@ export default function ThirdMain() {
 
       {/* 오른쪽 카드 영역 */}
       <div className="w-full 2xl:w-3/5 h-auto 2xl:h-screen bg-cover bg-center bg-no-repeat px-4 py-6 md:px-10 lg:px-0 lg:py-12">
-        {/* 모바일: 그리드, 2xl 이상: flex row로 전환 */}
         <div className="relative h-full grid grid-cols-3 gap-2 place-items-center 2xl:flex 2xl:flex-row 2xl:justify-center 2xl:items-center 2xl:gap-6">
           {cards.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="w-full 2xl:w-[30%] 2xl:h-[25vh] p-3 shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 flex flex-col justify-center items-center relative filter saturate-150"
-            >
-              {/* 배경 이미지 레이어 (밝기 조절 적용) */}
-              <div
-                className="absolute inset-0 bg-cover bg-center filter brightness-90"
-                style={{ backgroundImage: `url(${item.img.src})` }}
-              ></div>
-              {/* 텍스트 컨텐츠는 z-index로 배경 필터 영향을 피함 */}
-              <div className="relative z-10 flex flex-col items-center font-sans gap-10">
-                <span className="text-xl md:text-3xl lg:text-5xl font-semibold mb-1 text-white">
-                  {item.title}
-                </span>
-                <span className="text-xs md:text-lg lg:text-2xl font-medium text-center mb-2 text-white">
-                  {item.desc}
-                </span>
-              </div>
-            </motion.div>
+            <Card key={index} item={item} index={index} isInView={isInView} />
           ))}
           <Link href={'/business'}>
             <div className="absolute top-[32%] right-10 flex justify-center items-center text-slate-800">
-              <h3 className="text-xl ">바로가기</h3>
+              <h3 className="text-xl">바로가기</h3>
               <Image src={rightArrow} alt="right-arrow" className="mb-1" />
             </div>
           </Link>
