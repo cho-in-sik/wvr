@@ -11,7 +11,7 @@ export default function LogoutButton({ children }: Props) {
   const supabase = createBrowserSupabaseClient();
   return (
     <button
-      className="text-black"
+      className="text-black cursor-default"
       onClick={async () => supabase.auth.signOut()}
     >
       {children}

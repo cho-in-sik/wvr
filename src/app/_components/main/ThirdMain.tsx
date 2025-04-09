@@ -1,6 +1,5 @@
 'use client';
 
-import { motion, useInView } from 'framer-motion';
 import { useRef, useMemo, memo } from 'react';
 import water from '@/../public/images/main/mainWater.jpeg';
 import carbon from '@/../public/images/main/mainCarbon.jpeg';
@@ -11,25 +10,8 @@ import Link from 'next/link';
 
 // 카드 컴포넌트를 분리하여 메모이제이션
 const Card = memo(
-  ({
-    item,
-    index,
-    isInView,
-  }: {
-    item: { title: string; img: any; desc: string };
-    index: number;
-    isInView: boolean;
-  }) => (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-      transition={{
-        duration: 0.3,
-        delay: index * 0.1,
-        ease: 'easeOut',
-      }}
-      className="w-full 2xl:w-[30%] 2xl:h-[25vh] p-3 shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 flex flex-col justify-center items-center relative filter saturate-150"
-    >
+  ({ item }: { item: { title: string; img: any; desc: string } }) => (
+    <div className="w-full 2xl:w-[30%] 2xl:h-[25vh] p-3 shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 flex flex-col justify-center items-center relative filter saturate-150">
       <div
         className="absolute inset-0 bg-cover bg-center filter brightness-90"
         style={{ backgroundImage: `url(${item.img.src})` }}
@@ -42,7 +24,7 @@ const Card = memo(
           {item.desc}
         </span>
       </div>
-    </motion.div>
+    </div>
   ),
 );
 
@@ -50,11 +32,6 @@ Card.displayName = 'Card';
 
 export default function ThirdMain() {
   const ref = useRef(null);
-  const isInView = useInView(ref, {
-    amount: 0.4,
-    once: true,
-    margin: '100px',
-  });
 
   const cards = useMemo(
     () => [
@@ -121,7 +98,7 @@ export default function ThirdMain() {
       <div className="w-full 2xl:w-3/5 h-auto 2xl:h-screen bg-cover bg-center bg-no-repeat px-4 py-6 md:px-10 lg:px-0 lg:py-12">
         <div className="relative h-full grid grid-cols-3 gap-2 place-items-center 2xl:flex 2xl:flex-row 2xl:justify-center 2xl:items-center 2xl:gap-6">
           {cards.map((item, index) => (
-            <Card key={index} item={item} index={index} isInView={isInView} />
+            <Card key={index} item={item} />
           ))}
           <Link href={'/business'}>
             <div className="absolute top-[32%] right-10 flex justify-center items-center text-slate-800">
