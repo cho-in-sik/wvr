@@ -75,36 +75,42 @@ export default function Page({ params }: { params: { newsId: string } }) {
 
   return (
     <div className="max-w-5xl mx-auto py-10 px-4 sm:px-8">
-      {/* 뉴스 대표 이미지 영역 */}
-      <div className="flex justify-end mb-10">
-        <Button onClick={() => handleDelete()} disabled={isPending}>
-          {isPending ? '삭제 중...' : '삭제'}
-        </Button>
+      {/* 삭제 버튼 */}
+      <div className="flex justify-end mb-6">
+        {token && (
+          <Button onClick={() => handleDelete()} disabled={isPending}>
+            {isPending ? '삭제 중...' : '삭제'}
+          </Button>
+        )}
       </div>
-      <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-sm overflow-hidden ">
+
+      {/* 제목 + 작성일 (이미지 위에) */}
+      <div className="bg-gray-100 px-4 py-6 rounded-t-md border-b-0 border-gray-300">
+        <h1 className="text-xl sm:text-2xl font-semibold text-gray-900">
+          {news.title}
+        </h1>
+        <div className="mt-2 text-sm sm:text-base text-gray-600">
+          작성일: {new Date(news.created_at).toLocaleString('ko-KR')}
+        </div>
+      </div>
+
+      {/* 이미지 */}
+      <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px]  border-t-0 rounded-b-md overflow-hidden mb-8">
         <Image
           src={news.image_url!}
           alt={news.title!}
           fill
           style={{ objectFit: 'contain' }}
-          className="transition-transform duration-700 ease-in-out transform hover:scale-105"
+          className="bg-white"
         />
       </div>
 
-      {/* 뉴스 정보 */}
-      <div className="mt-8">
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4">
-          {news.title}
-        </h1>
-        <p className="text-sm sm:text-base text-gray-500 mb-6">
-          {new Date(news.created_at).toLocaleDateString()}
-        </p>
-        <div className="prose prose-xl text-gray-800 whitespace-pre-wrap">
-          {news.content}
-        </div>
+      {/* 뉴스 본문 */}
+      <div className="prose prose-lg text-gray-800 whitespace-pre-wrap">
+        {news.content}
       </div>
 
-      {/* 돌아가기 버튼 (오른쪽 정렬) */}
+      {/* 돌아가기 버튼 */}
       <div className="mt-10 flex justify-end">
         <Button onClick={() => router.push('/community/news')}>목록</Button>
       </div>

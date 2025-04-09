@@ -6,6 +6,7 @@ import hasu from '@/../public/images/business/hasu.png';
 import infra from '@/../public/images/business/infra.png';
 import asset from '@/../public/images/business/asset.png';
 import effect from '@/../public/images/solution/embeded/embeded2.png';
+import expectiation from '@/../public/images/business/expectation.png';
 
 export default function Page() {
   const handleMove = (id: string) => {
@@ -240,16 +241,16 @@ export default function Page() {
               </div>
               <div className="relative z-10 my-4 md:my-0">
                 <Image
-                  src={effect}
+                  src={expectiation}
                   alt="effect"
-                  width={200}
-                  className="w-32 md:w-auto"
+                  width={500}
+                  className="w-32 md:w-40"
                 />
-                <div className="absolute top-[30%] left-[33%] text-xl md:text-2xl bg-gradient-to-r to-green-500 from-blue-600 bg-clip-text text-transparent font-gmarket">
+                {/* <div className="absolute top-[30%] left-[33%] text-xl md:text-2xl bg-gradient-to-r to-green-500 from-blue-600 bg-clip-text text-transparent font-gmarket">
                   기대
                   <br />
                   효과
-                </div>
+                </div> */}
               </div>
               {/* 하단 카드 행 */}
               <div className="w-full flex flex-col md:flex-row -mt-0 md:-mt-10 justify-around items-center gap-6 md:gap-28">
@@ -292,9 +293,9 @@ export default function Page() {
             <h1 className="text-center text-3xl md:text-5xl mb-5 md:mb-10 font-semibold">
               하수처리장 관리 시스템
             </h1>
-            <div className="text-xl md:text-3xl bg-[#E8E8E8] py-2 md:py-4 px-4 md:px-10 mb-3 md:mb-5 text-center">
+            <div className="text-xl md:text-3xl bg-[#E8E8E8] py-2 md:py-4 px-6 md:px-14 mb-3 md:mb-5 text-center">
               AI 기반의 혐기성 소화조 메탄 생성량 관리 및 생물반응조 송풍량
-              조절을 통해 하수처리 효율 극대화
+              조절을 통해 하수처리
             </div>
             <h2 className="text-center text-lg md:text-2xl mb-5 md:mb-10">
               하수처리장 관리 사업은 탄소중립과 에너지 효율성을 목표로

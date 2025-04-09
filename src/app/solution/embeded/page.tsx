@@ -41,7 +41,7 @@ export default function Page() {
       <hr className="w-full mb-10" />
 
       {/*AIoT 스마트 유량계 이미지 + 단계 */}
-      <div className="w-full md:w-3/5 border flex flex-col h-auto mb-10 pb-10">
+      <div className="w-full md:w-4/5 border flex flex-col h-auto mb-10 pb-10">
         <div className="bg-[#345773] h-16 md:h-1/5 flex justify-center items-center text-white text-2xl md:text-3xl py-3 font-gmarket">
           AIoT 스마트 유량계
         </div>
@@ -55,16 +55,16 @@ export default function Page() {
           </div>
           <div className="w-full md:w-1/2 flex flex-col gap-6 justify-center px-4 py-6 md:pl-10">
             {[
-              'AIoT 누수탐지 On-Device로 누수음 수집',
-              '수집된 누수음 데이터로 시계열 database 구축',
+              '현재 운영중인 유량계실에  AIoT 유량계 설치',
+              '대·중·소블록 수집된 유량 데이터로 시계열 database 구축 ',
               '실시간 데이터 수집 및 인공지능 분석으로 누수 및 이상징후 신속 감지',
-              '단말기 내 자체 AI 분석을 수행하며 구축된 빅데이터로 인공지능 학습',
+              '단말기 내 자체 AI 분석을 수행하며  빅데이터로 인공지능 학습',
             ].map((text, i) => (
               <div key={i} className="flex items-start gap-4">
-                <div className="w-6 h-6 flex justify-center items-center bg-[#002060] text-white rounded-full">
+                <div className="w-8 h-8 flex justify-center items-center bg-[#002060] text-white rounded-full">
                   {i + 1}
                 </div>
-                <div className="border-b w-full text-base leading-relaxed">
+                <div className="border-b w-full text-lg leading-relaxed">
                   {text}
                 </div>
               </div>

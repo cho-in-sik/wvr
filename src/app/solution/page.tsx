@@ -37,7 +37,7 @@ export default function Page() {
       <hr className="w-full mb-10" />
 
       {/* AIoT 누수탐지 솔루션 이미지 + 단계 */}
-      <div className="w-full md:w-3/5 border flex flex-col h-auto mb-10 pb-10">
+      <div className="w-full md:w-4/5 border flex flex-col h-auto mb-10 pb-10">
         <div className="bg-[#345773] h-16 md:h-1/5 flex justify-center items-center text-white text-2xl md:text-3xl py-3 font-gmarket">
           AIoT 누수탐지 솔루션
         </div>
@@ -58,10 +58,10 @@ export default function Page() {
               '단말기 내 자체 AI 분석을 수행하며 구축된 빅데이터로 인공지능 학습',
             ].map((text, i) => (
               <div key={i} className="flex items-start gap-4">
-                <div className="w-6 h-6 flex justify-center items-center bg-[#002060] text-white rounded-full">
+                <div className="w-8 h-8 flex justify-center items-center bg-[#002060] text-white rounded-full">
                   {i + 1}
                 </div>
-                <div className="border-b w-full text-base leading-relaxed">
+                <div className="border-b w-full text-lg leading-relaxed">
                   {text}
                 </div>
               </div>
